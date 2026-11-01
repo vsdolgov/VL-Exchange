@@ -10,7 +10,7 @@
 | VLSP0.1 | Один Classification, deterministic JSON state/events, 15 golden шагов | Reference и independent host; independent development/offline/online, идентичность полного event/state |
 | Security0.1 | Подпись и шифрование, recipient binding, expiry, offline entitlement, online nonce/grant/revocation/lease, negative paths | Автотесты с временными ключами, online реальный loopback HTTP |
 | Pipeline | Настоящий ONNX result → protected VLSP, offline/online | Явное mapping Classification; не standardized callback, не model_links public0.2 |
-| CI | Schema, local Markdown targets, tests, два host, pipeline | Workflow подготовлен; запуска GitHub Actions до публикации нет |
+| CI | Schema, local Markdown targets, tests, два host, pipeline | До первой публикации GitHub Actions ещё не запускался. Текущие запуски — в [GitHub Actions](https://github.com/vsdolgov/VL-Exchange/actions). |
 | Сторонняя платформа | Партнёрский импорт неизменённого ZIP | План пилота; NOT TESTED |
 | GPU/production sandbox/TLS deployment | Эксплуатационные свойства | NOT TESTED |
 
