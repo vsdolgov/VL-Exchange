@@ -2,10 +2,22 @@
 
 **Draft · English | [Русский](CONTRIBUTING.ru.md)**
 
-Start with a problem statement and a minimal synthetic example. A new contract proposal specifies versions/profiles, inputs/outputs, state/time, failure semantics, threats and compatibility. Include equivalent RU/EN text, JSON Schema and golden tests. Propose incompatible changes separately with a migration plan; never replace published bytes under the same version.
+Start with the problem you want to solve and a small synthetic example.
 
-Run `python tools/verify.py` in the README environment. Checks require loopback for online licensing; network failures are not PASS. Give one unchanged package to two separately implemented hosts, preserving files and tolerances, and record versions/digests.
+For a new interface, describe its version and profile, inputs and outputs, state and timing, errors, security risks, and compatibility. Include matching English and Russian texts, a JSON Schema, and golden tests.
 
-Do not publish commercial weights, customer data, private SDKs, license keys or third-party code without redistribution rights. Participation does not require disclosure of commercial implementations. Final outbound/inbound licenses are pending approval; draft terms must not be represented as granted rights.
+Propose breaking changes separately and explain how existing users can migrate. Do not change published files without changing their version.
 
-See [change governance](docs/governance/GOVERNANCE.en.md), [the first partner pilot](docs/governance/PILOT.en.md) and [license proposal](docs/governance/LICENSE-PROPOSAL.en.md).
+## Check your changes
+
+Set up the environment described in the [README](README.md), then run `python tools/verify.py`. Online licensing tests need a loopback connection. Do not report a network failure as a pass.
+
+Run the same package on two independently implemented hosts. Keep the files and tolerances unchanged, and record the versions and digests.
+
+## What to share
+
+Do not publish commercial model weights, customer data, private SDKs, license keys, or third-party code without redistribution rights. You do not have to disclose your commercial implementation to contribute.
+
+The project's inbound and outbound licenses are still awaiting approval. Draft terms do not grant rights.
+
+See [change governance](docs/governance/GOVERNANCE.en.md), [the first partner pilot](docs/governance/PILOT.en.md), and the [license proposal](docs/governance/LICENSE-PROPOSAL.en.md).

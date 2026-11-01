@@ -1,37 +1,43 @@
 # VL Exchange
 
-**Draft / Experimental · initiated by VL · English | [Русский](README.ru.md)**
+**Experimental proposal by VL · English | [Русский](README.ru.md)**
 
 [GitHub: vsdolgov/VL-Exchange](https://github.com/vsdolgov/VL-Exchange)
 
+Video analytics should be easier to move between platforms.
+
 A developer should be able to sell their solution on any compatible platform; a customer should be able to choose a platform without losing analytics they have already paid for; an integrator should be able to transfer working solutions instead of developing them again.
 
-Changing a platform often means rebuilding video analytics that already work. A neural network can be exported, but channel order, normalization, classes, thresholds, coordinates, scenario state and event conditions do not travel with the network file. The same phrase, “person in a zone,” may represent different conditions, time intervals and duplicate suppression rules.
+## Why it matters
 
-The engineering chain is **model → input data → preprocessing → inference → postprocessing → context → scenario → event**. ONNX describes model computations, RTSP helps carry media streams and ONVIF defines its own interoperability interfaces; the receiving platform still needs an unambiguous application contract. VL Exchange proposes this contract on top of existing technologies.
+A model file alone is not enough to move a working solution. The new platform also needs to know how to prepare images, interpret results and decide when to raise an event. For example, two platforms may use different rules for “a person in a zone.”
 
-AI assistants can simplify writing adapters, understanding another API and moving application logic. Our position is that a shared contract lets this assistance produce verifiable results and reduce repeated integration effort while preserving competition between platforms and developers. AI does not replace agreement on event semantics, licensing terms or tests of one unchanged package in independent systems; no specific percentage saving is claimed.
+VL Exchange proposes shared package formats for this information. They build on existing technologies: ONNX describes model computations, RTSP carries media streams, and ONVIF defines interoperability interfaces. The packages add the information a platform needs to run the application.
 
-## The proposal
+AI can help developers understand another platform and write adapters. Shared formats can reduce repeated integration work further, while leaving platforms free to compete. Teams still need to agree on event meanings, licensing and tests; we do not claim a specific saving.
 
-**VLMP — VL Model Package** binds a model, dependencies, executable data processing, result semantics and golden examples. **VLSP — VL Scenario Package** transfers executable scenario logic with contracts for inputs, parameters, state and events. Each receiving vendor implements a compatible adapter on their own platform. Neither a VL runtime nor a VL cloud service is mandatory.
+## How it works
 
-VLBP is a separate internal VL block format. It is outside the public inter-vendor contract; neither the visual editor nor the block architecture is required.
+- **VLMP (VL Model Package)** brings together a model, its dependencies, data processing, result descriptions and test examples.
+- **VLSP (VL Scenario Package)** describes executable scenario logic, including its inputs, parameters, state and events.
+- A platform supports a package by implementing its own adapter. It does not need a VL runtime or cloud service.
 
-The interface specification is open. Models and application code may remain commercial and be delivered encrypted with offline or online execution rights. Technical compatibility does not transfer a license automatically: switching platforms without buying analytics again must be permitted by the rights holder's agreement. The current protected-delivery prototype binds a delivery to an installation; moving it requires an authorized reissue of licenses and keys. Copying an old secret does not transfer rights.
+VLBP is VL’s separate internal block format. It is not required by the public interface, and neither is a particular visual editor or block architecture.
 
-## Status and scope
+The interface specification is open. Models and application code may still be commercial, encrypted and licensed for offline or online use. A compatible platform does not automatically grant a license: the rights holder must allow the solution to be moved without another purchase. The current protected-delivery prototype ties a delivery to an installation, so a move requires an authorized reissue of licenses and keys; copying a secret does not transfer rights.
 
-This is a VL proposal for industry discussion, not an approved industry standard. Compatibility with third-party vendor platforms has not been tested. Examples are synthetic and do not demonstrate industrial detector quality.
+## Current status
 
-| Component | Version and profile | Status |
+This is an experimental proposal for discussion, **not an approved industry standard**. We have not tested compatibility with other vendors’ platforms. The examples use synthetic data and do not demonstrate the quality of industrial detectors.
+
+| Component | Version and profile | What has been tested |
 |---|---|---|
-| Original VLMP pilot | 0.1.0, CustomModelProtocol / CPU ONNX FP32 | Historical local pilot with an actual Box 5 loader; its private SDK is excluded from this repository |
-| Public VLMP | **proposal 0.2.0-draft.1**, python-numpy-classification-v1 | Standalone example without private SDKs; two local loaders, shared ONNX Runtime; this profile has not been verified with Box 5 |
-| VLSP | 0.1.0, python-scenario-json-v1 | Two separately implemented hosts, Classification → JSON events/state; no VLBP |
-| Protected delivery | 0.1.0 | Encryption, signatures, offline entitlement and online grants with a loopback test service; neither a sandbox nor a production license server |
+| Original VLMP pilot | 0.1.0, CustomModelProtocol / CPU ONNX FP32 | A historical local pilot using an actual Box 5 loader. Its private SDK is not included here. |
+| Public VLMP | **0.2.0-draft.1**, python-numpy-classification-v1 | A standalone example with two local loaders using the same ONNX Runtime, without private SDKs. This profile has not been tested with Box 5. |
+| VLSP | 0.1.0, python-scenario-json-v1 | Two separately implemented hosts run a classification example and produce JSON events and state, without VLBP. |
+| Protected delivery | 0.1.0 | A prototype for encryption, signatures and offline/online permissions, using a local test service. It is not a sandbox or a production license server. |
 
-The public VLMP profile is explicitly a new proposal: it does not modify the previously tested 0.1 package and does not inherit its Box 5 claim. Profiles do not promise arbitrary models, GPUs, tracks or all forms of video analytics. Verified results and commands are in the [compatibility matrix](docs/en/COMPATIBILITY.md).
+The public VLMP profile is a new proposal, separate from the earlier 0.1 pilot. It does not inherit the pilot’s Box 5 result. These profiles do not claim support for arbitrary models, GPUs, tracks or every type of video analytics. See the [compatibility matrix](docs/en/COMPATIBILITY.md) for results and commands.
 
 ## Quick start
 
@@ -75,6 +81,6 @@ Historical VLMP0.1 for implementers: [full English specification](specs/vlmp/0.1
 
 ## Participation and rights
 
-Model developers, platform vendors and integrators are invited to propose contracts and run one unchanged package on their systems. Public participation does not require transferring commercial weights or scenario logic. A synthetic example, adapter and reproducible report with limitations are sufficient for discussion.
+Developers, platform vendors and integrators are invited to suggest interfaces and test one unchanged package on their systems. You do not need to share commercial model weights or scenario code: a synthetic example, an adapter and a reproducible report with limitations are enough to start a discussion.
 
-The project repository is [vsdolgov/VL-Exchange](https://github.com/vsdolgov/VL-Exchange). Publication of this material set has been approved. Final licenses for code, schemas and text, and the patent policy, remain unapproved: publishing source does not grant the proposed Apache-2.0 or CC-BY-4.0 permissions. There is no effective LICENSE file; the [licensing proposal](docs/governance/LICENSE-PROPOSAL.en.md) remains pending. Do not add keys, customer recordings, private SDKs or weights without permission. See [contribution rules](CONTRIBUTING.md) and [changes](CHANGELOG.md).
+The final licenses for code, schemas and text, and the patent policy, are still pending. Publishing the source does not grant the proposed Apache-2.0 or CC-BY-4.0 rights. There is no effective LICENSE file yet; see the [licensing proposal](docs/governance/LICENSE-PROPOSAL.en.md). Do not add keys, customer recordings, private SDKs or model weights without permission. See the [contribution rules](CONTRIBUTING.md) and [changelog](CHANGELOG.md).
