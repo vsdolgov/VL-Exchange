@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:classification-result:0.1.0",
+  "title": "VLMP Classification result envelope v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["results"],
+  "properties": {
+    "results": {
+      "type": "array", "minItems": 1, "maxItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["label", "score", "category_id", "output_index"],
+        "properties": {
+          "label": {"type": "string", "minLength": 1, "maxLength": 512},
+          "score": {"type": "number", "minimum": 0, "maximum": 1},
+          "category_id": {"type": "integer", "minimum": 0},
+          "output_index": {"type": "integer", "minimum": 0}
+        }
+      }
+    }
+  }
+}

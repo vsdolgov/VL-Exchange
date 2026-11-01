@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:scenario-context:0.1.0",
+  "title": "VLSP source/run UTC event context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id",
+    "run_id",
+    "sequence",
+    "event_time_ms"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "event_time_ms": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

@@ -1,0 +1,7 @@
+numpy==1.26.4
+onnx==1.17.0
+onnxruntime==1.20.1
+jsonschema==4.23.0
+packaging>=24,<27
+PyNaCl>=1.5,<2
+pytest==8.3.5

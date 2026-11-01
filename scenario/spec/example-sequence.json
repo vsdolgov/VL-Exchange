@@ -1,0 +1,389 @@
+{
+  "steps": [
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.6,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 1,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.5,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 2,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [
+          {
+            "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+            "event_type": "org.vlexchange.target-observed.v1",
+            "source_id": "camera-a",
+            "run_id": "run-1",
+            "sequence": 2,
+            "event_time_ms": 1700000000000,
+            "payload": {
+              "label": "red",
+              "score": 0.5,
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "count": 2
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.6,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-b",
+        "run_id": "run-1",
+        "sequence": 1,
+        "event_time_ms": 1699999999900
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.8,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 3,
+        "event_time_ms": 1700000000050
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 3
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "green",
+          "score": 0.8,
+          "category_id": 2,
+          "output_index": 1
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 4,
+        "event_time_ms": 1700000000100
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 0
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.9,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 2,
+        "event_time_ms": 1700000000100
+      },
+      "expected": {
+        "error": {
+          "code": "input_order",
+          "fatal": false,
+          "retryable": false
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.6,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 5,
+        "event_time_ms": 1700000000200
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "reset": {
+        "source_id": "camera-a",
+        "run_id": "run-1"
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.6,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 1,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.5,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 2,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [
+          {
+            "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+            "event_type": "org.vlexchange.target-observed.v1",
+            "source_id": "camera-a",
+            "run_id": "run-1",
+            "sequence": 2,
+            "event_time_ms": 1700000000000,
+            "payload": {
+              "label": "red",
+              "score": 0.5,
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "count": 2
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.6,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-b",
+        "run_id": "run-1",
+        "sequence": 2,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [
+          {
+            "event_id": "sha256:3c2b75826485226fcbc0032a1e887eade02bc5e721529008e087cdb28692d3f7",
+            "event_type": "org.vlexchange.target-observed.v1",
+            "source_id": "camera-b",
+            "run_id": "run-1",
+            "sequence": 2,
+            "event_time_ms": 1700000000000,
+            "payload": {
+              "label": "red",
+              "score": 0.6,
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "count": 2
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.6,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-2",
+        "sequence": 1,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.5,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-2",
+        "sequence": 2,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [
+          {
+            "event_id": "sha256:4c693b12e15a9394772ce0ab2d8461519e3515ef24220a4a6d73163cc026769a",
+            "event_type": "org.vlexchange.target-observed.v1",
+            "source_id": "camera-a",
+            "run_id": "run-2",
+            "sequence": 2,
+            "event_time_ms": 1700000000000,
+            "payload": {
+              "label": "red",
+              "score": 0.5,
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "count": 2
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.6,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "камера-🚧",
+        "run_id": "сеанс-1",
+        "sequence": 1,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "inputs": {
+        "classification": {
+          "label": "red",
+          "score": 0.5,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      "context": {
+        "source_id": "камера-🚧",
+        "run_id": "сеанс-1",
+        "sequence": 2,
+        "event_time_ms": 1700000000000
+      },
+      "expected": {
+        "events": [
+          {
+            "event_id": "sha256:c9c8b1d7bd02a7041cb548d6e671b3d9881af852f4bf155adea936f4939fc95a",
+            "event_type": "org.vlexchange.target-observed.v1",
+            "source_id": "камера-🚧",
+            "run_id": "сеанс-1",
+            "sequence": 2,
+            "event_time_ms": 1700000000000,
+            "payload": {
+              "label": "red",
+              "score": 0.5,
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "count": 2
+        }
+      }
+    }
+  ]
+}

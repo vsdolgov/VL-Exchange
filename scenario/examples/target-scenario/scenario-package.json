@@ -1,0 +1,135 @@
+{
+  "format": "vl.scenario-package",
+  "spec_version": "0.1.0",
+  "scenario_id": "org.vlexchange.examples.target-scenario",
+  "name": "target-scenario",
+  "version": "1.0.1",
+  "description": "Self-contained synthetic Classification-to-event scenario; no graph or VLBP dependency.",
+  "entrypoint": {
+    "root": "code",
+    "module": "scenario.py",
+    "class": "Scenario",
+    "contract": "python-scenario-json-v1"
+  },
+  "files": {
+    "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "code/scenario.py": "f6b9aeffed3e2d98a4753f8d685a865b924fae9dac60480f855ca4ba7f7c9ec0",
+    "golden/basic.json": "ca8e3dd7340ad1fc44d97f61518e07584b931cb747b766d73122bf6e57386d7c"
+  },
+  "runtime": {
+    "python_version_specifier": ">=3.12,<4"
+  },
+  "input_contract": {
+    "name": "classification",
+    "message_type": "vl.classification.v1",
+    "clock_domain": "unix-utc-ms"
+  },
+  "event_contract": {
+    "identity": "sha256-scenario-run-v1",
+    "types": [
+      {
+        "event_type": "org.vlexchange.target-observed.v1",
+        "payload_schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label",
+            "score",
+            "count"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "parameters": {
+    "target_label": {
+      "type": "string",
+      "default": "red"
+    },
+    "min_score": {
+      "type": "number",
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 1
+    },
+    "min_count": {
+      "type": "integer",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 1000000
+    }
+  },
+  "state": {
+    "scope": "instance-source-run",
+    "initial": {
+      "count": 0
+    },
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        }
+      }
+    }
+  },
+  "ordering": {
+    "sequence": "strictly-increasing-per-source-run",
+    "event_time": "nondecreasing-per-source-run",
+    "unit": "milliseconds"
+  },
+  "limits": {
+    "max_process_ms": 100,
+    "max_input_bytes": 65536,
+    "max_state_bytes": 16384,
+    "max_events_per_call": 16,
+    "max_event_bytes": 65536
+  },
+  "dependencies": [],
+  "model_links": [],
+  "required_capabilities": [
+    "python-scenario-json-v1",
+    "classification-v1",
+    "event-json-v1",
+    "source-run-state-v1",
+    "event-id-sha256-v1"
+  ],
+  "golden": {
+    "atol": 0,
+    "rtol": 0,
+    "sequences": [
+      {
+        "id": "basic",
+        "path": "golden/basic.json"
+      }
+    ]
+  },
+  "delivery": {
+    "production": "vl.exchange.protected",
+    "version": "0.1.0",
+    "plaintext": "development-only"
+  },
+  "extensions": {}
+}

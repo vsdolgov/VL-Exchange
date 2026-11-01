@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:classification:0.1.0",
+  "title": "VLSP Classification input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "label",
+    "score",
+    "category_id",
+    "output_index"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "category_id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "output_index": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

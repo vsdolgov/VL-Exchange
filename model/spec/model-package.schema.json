@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:vlmp:0.2.0-draft.1:public",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "spec_version",
+    "model_id",
+    "version",
+    "profile",
+    "entrypoint",
+    "runtime",
+    "backend",
+    "source_input",
+    "categories",
+    "dependencies",
+    "required_capabilities",
+    "extensions",
+    "golden",
+    "files"
+  ],
+  "properties": {
+    "format": {
+      "const": "vl.model-package"
+    },
+    "spec_version": {
+      "const": "0.2.0-draft.1"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "profile": {
+      "const": "python-numpy-classification-v1"
+    },
+    "entrypoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "root",
+        "module",
+        "class"
+      ],
+      "properties": {
+        "root": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "module": {
+          "const": "model.py"
+        },
+        "class": {
+          "const": "Model"
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python"
+      ],
+      "properties": {
+        "python": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "backend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "engine",
+        "device",
+        "precision",
+        "weights",
+        "opset",
+        "input_name",
+        "input_shape",
+        "output_name",
+        "output_shape"
+      ],
+      "properties": {
+        "engine": {
+          "const": "onnxruntime"
+        },
+        "device": {
+          "const": "cpu"
+        },
+        "precision": {
+          "const": "fp32"
+        },
+        "weights": {
+          "type": "string",
+          "minLength": 1
+        },
+        "opset": {
+          "const": 13
+        },
+        "input_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_shape": {
+          "const": [
+            1,
+            3,
+            2,
+            2
+          ]
+        },
+        "output_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_shape": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "source_input": {
+      "const": {
+        "color_space": "BGR",
+        "dtype": "uint8",
+        "layout": "HWC",
+        "channels": 3
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "output_index",
+          "category_id",
+          "label"
+        ],
+        "properties": {
+          "output_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "category_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "dependencies": {
+      "type": "object",
+      "minProperties": 2,
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "minItems": 2
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "required",
+          "data"
+        ],
+        "properties": {
+          "required": {
+            "type": "boolean"
+          },
+          "data": {}
+        }
+      }
+    },
+    "golden": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "atol",
+        "rtol",
+        "fixtures"
+      ],
+      "properties": {
+        "atol": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.001
+        },
+        "rtol": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.001
+        },
+        "fixtures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "input",
+              "expected"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "input": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expected": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "output_index",
+                  "category_id",
+                  "label",
+                  "score"
+                ],
+                "properties": {
+                  "output_index": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "category_id": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              }
+            }
+          },
+          "minItems": 3
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:scenario-event-candidate:0.1.0",
+  "title": "VLSP Python event candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_type",
+    "payload"
+  ],
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z0-9-]+)+$",
+      "maxLength": 256
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}

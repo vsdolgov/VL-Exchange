@@ -1,0 +1,72 @@
+{
+  "status": "pass",
+  "runtime": {
+    "python": "3.12.0",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "checks": [
+    {
+      "check": "schemas",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "pytest",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "vlmp-reference",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "vlmp-independent",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "vlmp-archive-roundtrip",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "vlsp-reference",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "vlsp-independent",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "pipeline",
+      "exit_code": 0,
+      "pass": true
+    },
+    {
+      "check": "links",
+      "exit_code": 0,
+      "pass": true
+    }
+  ],
+  "package_archives": {
+    "model/reports/vlmp-public-channel-probe.zip": "b004c02c6f12839007389c71ec60e6bd77b2824a72c27d9bd7ddc71be04752ff",
+    "scenario/reports/vlsp-target-scenario.zip": "eb9ea96fda4bbae5b6db2da859b78d4a897858dff1ffc7dc90a07b077e876e35"
+  },
+  "limitations": [
+    "Local demonstration hosts only; no competitor platform tested.",
+    "GitHub Actions workflow prepared but not run on GitHub.",
+    "No production sandbox, TLS deployment or adversarial administrator guarantee."
+  ],
+  "verified_at": "2026-11-01T09:08:34.430378+00:00",
+  "verification_context": {
+    "reason": "Literal-name cleanup and equivalent legacy namespace deny policy",
+    "scenario_solution_version": "1.0.1",
+    "scenario_format_version": "0.1.0",
+    "package_bytes_changed": false,
+    "abi_changed": false,
+    "new_regression_test": "Legacy root/submodule import denial before execution; neighboring names remain allowed"
+  }
+}

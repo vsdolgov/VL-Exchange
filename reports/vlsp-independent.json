@@ -1,0 +1,1335 @@
+{
+  "status": "pass",
+  "host": "independent-demonstration-host",
+  "not_a_competitor_system": true,
+  "format": "vl.scenario-package",
+  "package_zip_sha256_before": "eb9ea96fda4bbae5b6db2da859b78d4a897858dff1ffc7dc90a07b077e876e35",
+  "package_zip_sha256_after": "eb9ea96fda4bbae5b6db2da859b78d4a897858dff1ffc7dc90a07b077e876e35",
+  "package_unchanged": true,
+  "modes": {
+    "development-plaintext": {
+      "status": "pass",
+      "executor": "independent-demonstration-host",
+      "format": "vl.scenario-package",
+      "manifest_sha256": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a",
+      "sequences": [
+        {
+          "id": "basic",
+          "fresh_instance": true,
+          "checks": [
+            {
+              "index": 0,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 1,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 2,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 3,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 3
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 3
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 4,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 0
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 0
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 5,
+              "actual": {
+                "error": {
+                  "code": "input_order",
+                  "fatal": false,
+                  "retryable": false
+                }
+              },
+              "expected": {
+                "error": {
+                  "code": "input_order",
+                  "fatal": false,
+                  "retryable": false
+                }
+              },
+              "no_commit": true,
+              "pass": true
+            },
+            {
+              "index": 6,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 7,
+              "reset": {
+                "source_id": "camera-a",
+                "run_id": "run-1"
+              },
+              "snapshot": {
+                "state": {
+                  "camera-b": {
+                    "run-1": {
+                      "count": 1
+                    }
+                  }
+                },
+                "order": {
+                  "camera-b": {
+                    "run-1": [
+                      1,
+                      1699999999900
+                    ]
+                  }
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 8,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 9,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 10,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:3c2b75826485226fcbc0032a1e887eade02bc5e721529008e087cdb28692d3f7",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.6
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-b"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:3c2b75826485226fcbc0032a1e887eade02bc5e721529008e087cdb28692d3f7",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-b",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.6,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 11,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 12,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:4c693b12e15a9394772ce0ab2d8461519e3515ef24220a4a6d73163cc026769a",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-2",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:4c693b12e15a9394772ce0ab2d8461519e3515ef24220a4a6d73163cc026769a",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-2",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 13,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 14,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:c9c8b1d7bd02a7041cb548d6e671b3d9881af852f4bf155adea936f4939fc95a",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "сеанс-1",
+                    "sequence": 2,
+                    "source_id": "камера-🚧"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:c9c8b1d7bd02a7041cb548d6e671b3d9881af852f4bf155adea936f4939fc95a",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "камера-🚧",
+                    "run_id": "сеанс-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "all_file_hashes_before": {
+        "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "code/scenario.py": "f6b9aeffed3e2d98a4753f8d685a865b924fae9dac60480f855ca4ba7f7c9ec0",
+        "golden/basic.json": "ca8e3dd7340ad1fc44d97f61518e07584b931cb747b766d73122bf6e57386d7c",
+        "scenario-package.json": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a"
+      },
+      "all_file_hashes_after": {
+        "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "code/scenario.py": "f6b9aeffed3e2d98a4753f8d685a865b924fae9dac60480f855ca4ba7f7c9ec0",
+        "golden/basic.json": "ca8e3dd7340ad1fc44d97f61518e07584b931cb747b766d73122bf6e57386d7c",
+        "scenario-package.json": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a"
+      },
+      "package_unchanged": true,
+      "license_mode": "development-plaintext",
+      "event_identity_implementation": "independent length-prefixed UTF-8 SHA-256 implementation"
+    },
+    "offline": {
+      "status": "pass",
+      "executor": "independent-demonstration-host",
+      "format": "vl.scenario-package",
+      "manifest_sha256": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a",
+      "sequences": [
+        {
+          "id": "basic",
+          "fresh_instance": true,
+          "checks": [
+            {
+              "index": 0,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 1,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 2,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 3,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 3
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 3
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 4,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 0
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 0
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 5,
+              "actual": {
+                "error": {
+                  "code": "input_order",
+                  "fatal": false,
+                  "retryable": false
+                }
+              },
+              "expected": {
+                "error": {
+                  "code": "input_order",
+                  "fatal": false,
+                  "retryable": false
+                }
+              },
+              "no_commit": true,
+              "pass": true
+            },
+            {
+              "index": 6,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 7,
+              "reset": {
+                "source_id": "camera-a",
+                "run_id": "run-1"
+              },
+              "snapshot": {
+                "state": {
+                  "camera-b": {
+                    "run-1": {
+                      "count": 1
+                    }
+                  }
+                },
+                "order": {
+                  "camera-b": {
+                    "run-1": [
+                      1,
+                      1699999999900
+                    ]
+                  }
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 8,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 9,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 10,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:3c2b75826485226fcbc0032a1e887eade02bc5e721529008e087cdb28692d3f7",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.6
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-b"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:3c2b75826485226fcbc0032a1e887eade02bc5e721529008e087cdb28692d3f7",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-b",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.6,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 11,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 12,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:4c693b12e15a9394772ce0ab2d8461519e3515ef24220a4a6d73163cc026769a",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-2",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:4c693b12e15a9394772ce0ab2d8461519e3515ef24220a4a6d73163cc026769a",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-2",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 13,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 14,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:c9c8b1d7bd02a7041cb548d6e671b3d9881af852f4bf155adea936f4939fc95a",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "сеанс-1",
+                    "sequence": 2,
+                    "source_id": "камера-🚧"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:c9c8b1d7bd02a7041cb548d6e671b3d9881af852f4bf155adea936f4939fc95a",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "камера-🚧",
+                    "run_id": "сеанс-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "all_file_hashes_before": {
+        "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "code/scenario.py": "f6b9aeffed3e2d98a4753f8d685a865b924fae9dac60480f855ca4ba7f7c9ec0",
+        "golden/basic.json": "ca8e3dd7340ad1fc44d97f61518e07584b931cb747b766d73122bf6e57386d7c",
+        "scenario-package.json": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a"
+      },
+      "all_file_hashes_after": {
+        "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "code/scenario.py": "f6b9aeffed3e2d98a4753f8d685a865b924fae9dac60480f855ca4ba7f7c9ec0",
+        "golden/basic.json": "ca8e3dd7340ad1fc44d97f61518e07584b931cb747b766d73122bf6e57386d7c",
+        "scenario-package.json": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a"
+      },
+      "package_unchanged": true,
+      "license_mode": "offline",
+      "event_identity_implementation": "independent length-prefixed UTF-8 SHA-256 implementation",
+      "authorized_zip_sha256": "eb9ea96fda4bbae5b6db2da859b78d4a897858dff1ffc7dc90a07b077e876e35",
+      "plaintext_directory_removed": true,
+      "encrypted_envelope_unchanged": true
+    },
+    "online": {
+      "status": "pass",
+      "executor": "independent-demonstration-host",
+      "format": "vl.scenario-package",
+      "manifest_sha256": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a",
+      "sequences": [
+        {
+          "id": "basic",
+          "fresh_instance": true,
+          "checks": [
+            {
+              "index": 0,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 1,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 2,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 3,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 3
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 3
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 4,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 0
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 0
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 5,
+              "actual": {
+                "error": {
+                  "code": "input_order",
+                  "fatal": false,
+                  "retryable": false
+                }
+              },
+              "expected": {
+                "error": {
+                  "code": "input_order",
+                  "fatal": false,
+                  "retryable": false
+                }
+              },
+              "no_commit": true,
+              "pass": true
+            },
+            {
+              "index": 6,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 7,
+              "reset": {
+                "source_id": "camera-a",
+                "run_id": "run-1"
+              },
+              "snapshot": {
+                "state": {
+                  "camera-b": {
+                    "run-1": {
+                      "count": 1
+                    }
+                  }
+                },
+                "order": {
+                  "camera-b": {
+                    "run-1": [
+                      1,
+                      1699999999900
+                    ]
+                  }
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 8,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 9,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:329e1985c39da2e88e1bbe5e5a88605da604602d270900bfa8de96aeb816f7b4",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 10,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:3c2b75826485226fcbc0032a1e887eade02bc5e721529008e087cdb28692d3f7",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.6
+                    },
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "source_id": "camera-b"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:3c2b75826485226fcbc0032a1e887eade02bc5e721529008e087cdb28692d3f7",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-b",
+                    "run_id": "run-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.6,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 11,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 12,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:4c693b12e15a9394772ce0ab2d8461519e3515ef24220a4a6d73163cc026769a",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "run-2",
+                    "sequence": 2,
+                    "source_id": "camera-a"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:4c693b12e15a9394772ce0ab2d8461519e3515ef24220a4a6d73163cc026769a",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "camera-a",
+                    "run_id": "run-2",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 13,
+              "actual": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "expected": {
+                "events": [],
+                "state": {
+                  "count": 1
+                }
+              },
+              "pass": true
+            },
+            {
+              "index": 14,
+              "actual": {
+                "events": [
+                  {
+                    "event_id": "sha256:c9c8b1d7bd02a7041cb548d6e671b3d9881af852f4bf155adea936f4939fc95a",
+                    "event_time_ms": 1700000000000,
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "payload": {
+                      "count": 2,
+                      "label": "red",
+                      "score": 0.5
+                    },
+                    "run_id": "сеанс-1",
+                    "sequence": 2,
+                    "source_id": "камера-🚧"
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "expected": {
+                "events": [
+                  {
+                    "event_id": "sha256:c9c8b1d7bd02a7041cb548d6e671b3d9881af852f4bf155adea936f4939fc95a",
+                    "event_type": "org.vlexchange.target-observed.v1",
+                    "source_id": "камера-🚧",
+                    "run_id": "сеанс-1",
+                    "sequence": 2,
+                    "event_time_ms": 1700000000000,
+                    "payload": {
+                      "label": "red",
+                      "score": 0.5,
+                      "count": 2
+                    }
+                  }
+                ],
+                "state": {
+                  "count": 2
+                }
+              },
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "all_file_hashes_before": {
+        "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "code/scenario.py": "f6b9aeffed3e2d98a4753f8d685a865b924fae9dac60480f855ca4ba7f7c9ec0",
+        "golden/basic.json": "ca8e3dd7340ad1fc44d97f61518e07584b931cb747b766d73122bf6e57386d7c",
+        "scenario-package.json": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a"
+      },
+      "all_file_hashes_after": {
+        "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "code/scenario.py": "f6b9aeffed3e2d98a4753f8d685a865b924fae9dac60480f855ca4ba7f7c9ec0",
+        "golden/basic.json": "ca8e3dd7340ad1fc44d97f61518e07584b931cb747b766d73122bf6e57386d7c",
+        "scenario-package.json": "1ec71403d71b24ba357b3aa8f1727d8e2cdb17ebdc385ae71996e9411ad54e7a"
+      },
+      "package_unchanged": true,
+      "license_mode": "online",
+      "event_identity_implementation": "independent length-prefixed UTF-8 SHA-256 implementation",
+      "authorized_zip_sha256": "eb9ea96fda4bbae5b6db2da859b78d4a897858dff1ffc7dc90a07b077e876e35",
+      "plaintext_directory_removed": true,
+      "encrypted_envelope_unchanged": true
+    }
+  },
+  "event_id_test_vector": {
+    "pass": true,
+    "event_id": "sha256:f6d2f0d27abbd0f078184cd3565991ebc32c6f541603946ef60e6f95fb312232",
+    "hash_input_hex": "564c53502d4556454e542d563100000000276f72672e766c65786368616e67652e6578616d706c65732e7461726765742d7363656e6172696f00000005312e302e3000000011d0bad0b0d0bcd0b5d180d0b02df09f9aa70000000cd181d0b5d0b0d0bdd1812d310000000132000000216f72672e766c65786368616e67652e7461726765742d6f627365727665642e76310000000130"
+  },
+  "authorization_denials_before_scenario_import": [
+    {
+      "mode": "offline",
+      "case": "wrong-recipient",
+      "pass": true,
+      "error_code": "installation_mismatch",
+      "scenario_constructed": false
+    },
+    {
+      "mode": "offline",
+      "case": "expired",
+      "pass": true,
+      "error_code": "license_expired",
+      "scenario_constructed": false
+    },
+    {
+      "mode": "online",
+      "case": "wrong-recipient",
+      "pass": true,
+      "error_code": "installation_mismatch",
+      "scenario_constructed": false
+    },
+    {
+      "mode": "online",
+      "case": "expired",
+      "pass": true,
+      "error_code": "license_expired",
+      "scenario_constructed": false
+    }
+  ],
+  "forbidden_runtime_imports": [],
+  "runtime": {
+    "python": "3.12.0",
+    "PyNaCl": "1.6.2",
+    "jsonschema": "4.23.0"
+  },
+  "shared_security_module": {
+    "component": "security-runtime/src/vl_exchange_security/protection.py",
+    "sha256": "1f5ae407b7b54503faec4e37313618d47d4dbb70c2ddc33c327afa3275f954ae"
+  },
+  "host_source_sha256": "eaaa82a2bc24b927ccb705c3440e78b510d215906cfbb414cad55a1c56287fee",
+  "limitations": [
+    "This is an independent demonstration host, not a competitor platform integration.",
+    "Online authorization uses a real signed HTTP exchange with a loopback reference issuer; production TLS/service deployment is not tested.",
+    "Scenario Python is trusted executable code, not a sandbox. The trusted administrator/process can access plaintext.",
+    "Required external model providers are unsupported by this tiny demonstration host; the example consumes canonical Classification input."
+  ]
+}

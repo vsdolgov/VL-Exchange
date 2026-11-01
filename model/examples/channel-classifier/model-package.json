@@ -1,0 +1,132 @@
+{
+  "format": "vl.model-package",
+  "spec_version": "0.2.0-draft.1",
+  "model_id": "org.vlexchange.examples.channel-probe",
+  "version": "1.0.0",
+  "profile": "python-numpy-classification-v1",
+  "entrypoint": {
+    "root": "code",
+    "module": "model.py",
+    "class": "Model"
+  },
+  "runtime": {
+    "python": ">=3.12,<4"
+  },
+  "backend": {
+    "engine": "onnxruntime",
+    "device": "cpu",
+    "precision": "fp32",
+    "weights": "weights.onnx",
+    "opset": 13,
+    "input_name": "images",
+    "input_shape": [
+      1,
+      3,
+      2,
+      2
+    ],
+    "output_name": "probabilities",
+    "output_shape": [
+      1,
+      3
+    ]
+  },
+  "source_input": {
+    "color_space": "BGR",
+    "dtype": "uint8",
+    "layout": "HWC",
+    "channels": 3
+  },
+  "categories": [
+    {
+      "output_index": 0,
+      "category_id": 1,
+      "label": "red"
+    },
+    {
+      "output_index": 1,
+      "category_id": 2,
+      "label": "green"
+    },
+    {
+      "output_index": 2,
+      "category_id": 3,
+      "label": "blue"
+    }
+  ],
+  "dependencies": {
+    "numpy": ">=1.26,<3",
+    "onnxruntime": ">=1.20,<2"
+  },
+  "required_capabilities": [
+    "python-numpy-classification-v1",
+    "onnx-cpu-fp32"
+  ],
+  "extensions": {},
+  "golden": {
+    "atol": 1e-06,
+    "rtol": 1e-05,
+    "fixtures": [
+      {
+        "id": "black",
+        "input": "golden/black.npy",
+        "expected": {
+          "label": "red",
+          "score": 0.3333333333333333,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      {
+        "id": "red",
+        "input": "golden/red.npy",
+        "expected": {
+          "label": "red",
+          "score": 0.5761168847658291,
+          "category_id": 1,
+          "output_index": 0
+        }
+      },
+      {
+        "id": "green",
+        "input": "golden/green.npy",
+        "expected": {
+          "label": "green",
+          "score": 0.5761168847658291,
+          "category_id": 2,
+          "output_index": 1
+        }
+      },
+      {
+        "id": "blue",
+        "input": "golden/blue.npy",
+        "expected": {
+          "label": "blue",
+          "score": 0.5761168847658291,
+          "category_id": 3,
+          "output_index": 2
+        }
+      },
+      {
+        "id": "mixed",
+        "input": "golden/mixed.npy",
+        "expected": {
+          "label": "blue",
+          "score": 0.39099131515943186,
+          "category_id": 3,
+          "output_index": 2
+        }
+      }
+    ]
+  },
+  "files": {
+    "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "code/model.py": "77517a9d6412a4f214624fb8c8128ec5f39996cc46f851207f65d2a3ff3c691e",
+    "golden/black.npy": "006e68cef20cb242dda80b2261510bc5e96bd829903efdc3e13a65ab746dc7f2",
+    "golden/blue.npy": "399eaa678ae50b51e526cdc771ed38d813f97d8b6ccb944f59836132724b25ab",
+    "golden/green.npy": "97e60da0c57e42a7094345900892cf26ec14fe965219f1aa23f6e3fb9c8c0281",
+    "golden/mixed.npy": "1649ff28b463235f436825ba84f3da92a3ba2361bf0660c559e03c8eb0d8cfcb",
+    "golden/red.npy": "69bc6b8d85b311205e3180bd3694b60385557cccf8453a955532212664a1bdc7",
+    "weights.onnx": "c283bda709b4f53d2254dd289c53ca7e23b15d8747e6e0c609eee3119da4d2fa"
+  }
+}

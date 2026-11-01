@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "model_manifest_sha256": "abcb2f3b91250490bdf4716c48f0e05ef1c9df11c48baf2d463865bd1413b315",
+  "scenario_zip_sha256": "eb9ea96fda4bbae5b6db2da859b78d4a897858dff1ffc7dc90a07b077e876e35",
+  "scenario_archive_unchanged": true,
+  "actual_inference": true,
+  "classification": {
+    "output_index": 0,
+    "category_id": 1,
+    "label": "red",
+    "score": 0.5761169195175171
+  },
+  "modes": {
+    "offline": {
+      "pass": true,
+      "first": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      },
+      "second": {
+        "events": [
+          {
+            "event_id": "sha256:373cda008cd827859655b36b9582b84d96cf92e5cb89e34868791eb2cb2240a2",
+            "event_type": "org.vlexchange.target-observed.v1",
+            "source_id": "synthetic-camera",
+            "run_id": "demo-offline",
+            "sequence": 2,
+            "event_time_ms": 1700000000100,
+            "payload": {
+              "label": "red",
+              "score": 0.5761169195175171,
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "count": 2
+        }
+      }
+    },
+    "online": {
+      "pass": true,
+      "first": {
+        "events": [],
+        "state": {
+          "count": 1
+        }
+      },
+      "second": {
+        "events": [
+          {
+            "event_id": "sha256:0b8436a00ac0faad713d4f2ef8d2d2f3bf6b49ab1e1efa92790b2626a3d07372",
+            "event_type": "org.vlexchange.target-observed.v1",
+            "source_id": "synthetic-camera",
+            "run_id": "demo-online",
+            "sequence": 2,
+            "event_time_ms": 1700000000100,
+            "payload": {
+              "label": "red",
+              "score": 0.5761169195175171,
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "count": 2
+        }
+      }
+    }
+  },
+  "keys": "generated-in-memory-only",
+  "limitations": [
+    "Synthetic classifier, not detector-quality evidence.",
+    "Explicit Classification mapping; no standardized model callback.",
+    "Local loopback license server; no third-party platform or production deployment."
+  ]
+}

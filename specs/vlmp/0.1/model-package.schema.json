@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:model-package:0.1.0",
+  "title": "VL Exchange — VL Model Package (VLMP) v0.1 manifest",
+  "description": "Normative manifest structure. Cross-file, graph, dependency and runtime checks are additionally required by SPECIFICATION.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "spec_version", "name", "version", "entrypoint", "legacy", "files", "profiles", "dependencies", "source_input", "result", "required_capabilities", "golden", "extensions"],
+  "properties": {
+    "format": {"const": "vl.model-package"},
+    "spec_version": {"const": "0.1.0"},
+    "name": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*$", "maxLength": 128},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$", "maxLength": 128},
+    "description": {"type": "string", "maxLength": 4000},
+    "license": {"type": "string", "minLength": 1, "maxLength": 256},
+    "entrypoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "module", "class", "protocol", "sdk"],
+      "properties": {
+        "root": {"$ref": "#/$defs/relativePath"},
+        "module": {"const": "model.py"},
+        "class": {"const": "Model"},
+        "protocol": {"const": "CustomModelProtocol"},
+        "sdk": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["package", "version"],
+          "properties": {
+            "package": {"const": "vlmodels_types"},
+            "version": {"type": "string", "minLength": 1, "maxLength": 128}
+          }
+        }
+      }
+    },
+    "legacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_info", "categories"],
+      "properties": {
+        "model_info": {"$ref": "#/$defs/relativePath"},
+        "categories": {"$ref": "#/$defs/relativePath"}
+      }
+    },
+    "files": {
+      "type": "object",
+      "minProperties": 5,
+      "propertyNames": {"$ref": "#/$defs/relativePath"},
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "contract", "backend", "device", "precision", "weights", "opset", "inputs", "outputs"],
+        "properties": {
+          "id": {"const": "inline_cpu_onnx_fp32"},
+          "contract": {"const": "python-custom-v1"},
+          "backend": {"const": "onnxruntime"},
+          "device": {"const": "cpu"},
+          "precision": {"const": "fp32"},
+          "weights": {"$ref": "#/$defs/relativePath"},
+          "opset": {"type": "integer", "minimum": 7, "maximum": 15},
+          "inputs": {
+            "type": "array", "minItems": 1, "maxItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["name", "dtype", "shape", "layout"],
+              "properties": {
+                "name": {"$ref": "#/$defs/tensorName"},
+                "dtype": {"const": "float32"},
+                "layout": {"const": "NCHW"},
+                "shape": {
+                  "type": "array", "minItems": 4, "maxItems": 4,
+                  "prefixItems": [{"const": 1}, {"const": 3}, {"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}],
+                  "items": false
+                }
+              }
+            }
+          },
+          "outputs": {
+            "type": "array", "minItems": 1, "maxItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["name", "dtype", "shape", "layout"],
+              "properties": {
+                "name": {"$ref": "#/$defs/tensorName"},
+                "dtype": {"const": "float32"},
+                "layout": {"const": "NC"},
+                "shape": {
+                  "type": "array", "minItems": 2, "maxItems": 2,
+                  "prefixItems": [{"const": 1}, {"type": "integer", "minimum": 1}],
+                  "items": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "version_specifier"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$", "maxLength": 128},
+          "version_specifier": {"type": "string", "minLength": 1, "maxLength": 256}
+        }
+      }
+    },
+    "source_input": {
+      "type": "object", "additionalProperties": false,
+      "required": ["color_space", "dtype", "layout", "channels"],
+      "properties": {
+        "color_space": {"const": "BGR"}, "dtype": {"const": "uint8"},
+        "layout": {"const": "HWC"}, "channels": {"const": 3}
+      }
+    },
+    "result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "category_map"],
+      "properties": {
+        "type": {"const": "Classification"},
+        "category_map": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["output_index", "category_id", "label"],
+            "properties": {
+              "output_index": {"type": "integer", "minimum": 0},
+              "category_id": {"type": "integer", "minimum": 0},
+              "label": {"type": "string", "minLength": 1, "maxLength": 512}
+            }
+          }
+        }
+      }
+    },
+    "required_capabilities": {
+      "type": "array", "minItems": 3, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 256},
+      "allOf": [
+        {"contains": {"const": "python-custom-v1"}},
+        {"contains": {"const": "onnx-cpu-fp32"}},
+        {"contains": {"const": "classification-v1"}}
+      ]
+    },
+    "golden": {
+      "type": "object", "additionalProperties": false,
+      "required": ["atol", "rtol", "fixtures"],
+      "properties": {
+        "atol": {"type": "number", "minimum": 0, "maximum": 0.001},
+        "rtol": {"type": "number", "minimum": 0, "maximum": 0.001},
+        "fixtures": {
+          "type": "array", "minItems": 3,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["id", "input", "expected"],
+            "properties": {
+              "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$", "maxLength": 128},
+              "input": {"$ref": "#/$defs/relativePath"},
+              "expected": {"$ref": "#/$defs/classification"}
+            }
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {"type": "string", "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z0-9-]+)+$"},
+      "additionalProperties": {
+        "type": "object", "additionalProperties": false,
+        "required": ["required", "data"],
+        "properties": {"required": {"type": "boolean"}, "data": {}}
+      }
+    }
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string", "minLength": 1, "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))(?!.*//)(?!.*\\/$)[A-Za-z0-9_][A-Za-z0-9._/-]*$"
+    },
+    "tensorName": {"type": "string", "minLength": 1, "maxLength": 512},
+    "classification": {
+      "type": "object", "additionalProperties": false,
+      "required": ["label", "score", "category_id", "output_index"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1, "maxLength": 512},
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "category_id": {"type": "integer", "minimum": 0},
+        "output_index": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

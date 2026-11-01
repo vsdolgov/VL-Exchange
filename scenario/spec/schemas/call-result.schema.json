@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:scenario-result:0.1.0",
+  "title": "VLSP successful process result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "events",
+    "state"
+  ],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "event_type",
+          "source_id",
+          "run_id",
+          "sequence",
+          "event_time_ms",
+          "payload"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "event_type": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z0-9-]+)+$",
+            "maxLength": 256
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "run_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "event_time_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "payload": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "state": {
+      "type": "object"
+    }
+  }
+}

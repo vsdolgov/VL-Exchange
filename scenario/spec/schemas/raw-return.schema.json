@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:scenario-raw-return:0.1.0",
+  "title": "VLSP raw Scenario.process return",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "events",
+    "state"
+  ],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_type",
+          "payload"
+        ],
+        "properties": {
+          "event_type": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z0-9-]+)+$",
+            "maxLength": 256
+          },
+          "payload": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "state": {
+      "type": "object"
+    }
+  }
+}
