@@ -10,7 +10,7 @@ A normative specification states a requirement; a report records an actual run. 
 | VLSP0.1 | One Classification, deterministic JSON state/events, 15 golden steps | Reference and independent hosts; independent development/offline/online, complete event/state identity |
 | Security0.1 | Signing/encryption, recipient binding, expiry, offline entitlement, online nonce/grant/revocation/lease, negative paths | Automated tests with temporary keys, real loopback HTTP online |
 | Pipeline | Actual ONNX result → protected VLSP, offline/online | Explicit Classification mapping, neither a standardized callback nor public0.2 model_links |
-| CI | Schemas, local Markdown targets, tests, two hosts, pipeline | Workflow prepared; GitHub Actions has not run before publication |
+| CI | Schemas, local Markdown targets, tests, two hosts, pipeline | GitHub Actions had not run before the first publication. See [GitHub Actions](https://github.com/vsdolgov/VL-Exchange/actions) for current runs. |
 | Third-party platform | Partner importing one unchanged ZIP | Pilot planned; NOT TESTED |
 | GPU/production sandbox/TLS deployment | Operational properties | NOT TESTED |
 
