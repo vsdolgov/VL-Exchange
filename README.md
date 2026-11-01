@@ -24,6 +24,10 @@ AI can help developers understand another platform and write adapters. Shared ex
 
 VL Exchange complements ONNX, RTSP and ONVIF: those technologies address model computation, video transport and device interoperability; the proposed packages add application-level information needed to run the solution.
 
+## Attribution and branding
+
+An optional experimental profile lets a model or scenario package describe its publisher, authors, preferred credit and display policy. A receiving platform that supports it can carry this information in analytics exports and show a credit such as `Analytics by Detector Lab` on a live view or a derived video. Different model, scenario and platform authors remain distinct. The profile works without a network connection; an older host may ignore it. Support by third-party platforms is not yet established. See the [Attribution & Branding profile](docs/en/ATTRIBUTION.md).
+
 ## A real example in this repository
 
 The public demo uses **synthetic colour classification**, not a person detector. The model example produces labels such as `red`, `green` and `blue`. In the scenario example, two consecutive `red` results for the same source and run, each with a score of at least 0.5, trigger a JSON event of type `org.vlexchange.target-observed.v1` with `label`, `score` and `count` in its payload. See the [model example](model/examples/channel-classifier) and the [scenario test sequence](scenario/examples/target-scenario/golden/basic.json).
@@ -70,6 +74,7 @@ Both checks print a JSON report containing `"status": "pass"` on success. The fi
 | VLSP: code, state, events | [Specification](scenario/spec/SPECIFICATION.en.md) | [Спецификация](scenario/spec/SPECIFICATION.md) |
 | Create a package and platform adapter | [Guide](docs/en/GUIDE.md) | [Руководство](docs/ru/GUIDE.md) |
 | Compatibility and results | [Matrix](docs/en/COMPATIBILITY.md) | [Матрица](docs/ru/COMPATIBILITY.md) |
+| Attribution & Branding | [Experimental profile](docs/en/ATTRIBUTION.md) | [Профиль](docs/ru/ATTRIBUTION.md) |
 | Protection and licensing | [Profile](docs/security/SPECIFICATION.en.md) | [Профиль](docs/security/SPECIFICATION.ru.md) |
 | Threat model | [Limitations](docs/security/THREAT-MODEL.en.md) | [Ограничения](docs/security/THREAT-MODEL.ru.md) |
 | Development rules | [Governance](docs/governance/GOVERNANCE.en.md) | [Governance](docs/governance/GOVERNANCE.ru.md) |

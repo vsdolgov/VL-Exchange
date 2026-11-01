@@ -24,6 +24,10 @@ VL Exchange — проект **открытого стандарта обмен�
 
 VL Exchange дополняет ONNX, RTSP и ONVIF: эти технологии решают задачи вычисления модели, передачи видео и взаимодействия с устройствами, а предлагаемые пакеты добавляют прикладную информацию для запуска решения.
 
+## Авторство и бренд
+
+Необязательный экспериментальный профиль позволяет указать издателя, авторов модели или сценария, предпочтительную подпись и правила её отображения. Поддерживающая платформа может сохранить эти сведения в аналитических данных и показать подпись, например `Analytics by Detector Lab`, в видеопотоке или производной видеозаписи. Авторы модели и сценария и производитель платформы указываются отдельно. Профиль работает без подключения к сети; старый исполнитель может его проигнорировать. Поддержка сторонними платформами пока не подтверждена. Подробнее — в [профиле Attribution & Branding](docs/ru/ATTRIBUTION.md).
+
 ## Реальный пример в репозитории
 
 Публичная демонстрация использует **синтетическую классификацию цветов**, а не детектор человека. Пример модели выдаёт метки `red`, `green` и `blue`. В примере сценария два последовательных результата `red` от одного источника в одном запуске, каждый с оценкой не ниже 0,5, приводят к событию JSON типа `org.vlexchange.target-observed.v1` с полями `label`, `score` и `count` в полезной нагрузке. См. [пример модели](model/examples/channel-classifier) и [тестовую последовательность сценария](scenario/examples/target-scenario/golden/basic.json).
@@ -70,6 +74,7 @@ PYTHONPATH=scenario/src python -m vl_scenario_package golden scenario/examples/t
 | VLSP: код, состояние, события | [Спецификация](scenario/spec/SPECIFICATION.md) | [Specification](scenario/spec/SPECIFICATION.en.md) |
 | Создать пакет и адаптер платформы | [Руководство](docs/ru/GUIDE.md) | [Guide](docs/en/GUIDE.md) |
 | Совместимость и результаты | [Матрица](docs/ru/COMPATIBILITY.md) | [Matrix](docs/en/COMPATIBILITY.md) |
+| Атрибуция и бренд | [Профиль](docs/ru/ATTRIBUTION.md) | [Profile](docs/en/ATTRIBUTION.md) |
 | Защита и лицензирование | [Профиль](docs/security/SPECIFICATION.ru.md) | [Profile](docs/security/SPECIFICATION.en.md) |
 | Модель угроз | [Ограничения](docs/security/THREAT-MODEL.ru.md) | [Limitations](docs/security/THREAT-MODEL.en.md) |
 | Правила развития | [Governance](docs/governance/GOVERNANCE.ru.md) | [Governance](docs/governance/GOVERNANCE.en.md) |

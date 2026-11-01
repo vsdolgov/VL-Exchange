@@ -33,7 +33,16 @@ def read_json(path):
                       parse_constant=lambda _: (_ for _ in ()).throw(PackageError("nonfinite_json")))
 
 def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    digest=hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+def attribution(root, manifest):
+    spec = importlib.util.spec_from_file_location('vl_attribution_validator', ROOT.parent/'attribution/validator.py')
+    module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+    return module.validate_attribution(root, manifest)
 
 def path_in(root, name):
     if not isinstance(name,str) or not name or "\\" in name or any(p in ("", ".", "..") for p in name.split("/")) or PurePosixPath(name).is_absolute():
@@ -58,6 +67,9 @@ def validate(root, *, environment=True):
     if actual!=set(manifest["files"]): raise PackageError("inventory_mismatch")
     for name,digest in manifest["files"].items():
         if sha(path_in(root,name))!=digest: raise PackageError("digest_mismatch")
+    if 'org.vl-exchange.attribution' in manifest['extensions']:
+        try: attribution(root, manifest)
+        except ValueError as exc: raise PackageError(f"attribution_invalid: {exc}") from exc
     e=manifest["entrypoint"]
     for name in (e["root"]+"/__init__.py",e["root"]+"/"+e["module"],manifest["backend"]["weights"]):
         if name not in manifest["files"]: raise PackageError("missing_inventory_reference")
@@ -141,7 +153,10 @@ def golden(root):
                 outcomes.append({"fixture":f["id"],"pass":ok,"result":result})
         finally:executor.close()
     after={p.relative_to(root).as_posix():sha(p) for p in root.rglob("*") if p.is_file()}
-    return {"status":"pass" if all(x["pass"] for x in outcomes) and before==after else "fail","profile":manifest["profile"],"manifest_sha256":sha(root/"model-package.json"),"unchanged":before==after,"calls":outcomes,"runtime":{"python":platform.python_version(),"numpy":np.__version__,"onnxruntime":ort.__version__,"providers":["CPUExecutionProvider"]},"box5_compatibility_verified":False}
+    report={"status":"pass" if all(x["pass"] for x in outcomes) and before==after else "fail","profile":manifest["profile"],"manifest_sha256":sha(root/"model-package.json"),"unchanged":before==after,"calls":outcomes,"runtime":{"python":platform.python_version(),"numpy":np.__version__,"onnxruntime":ort.__version__,"providers":["CPUExecutionProvider"]},"box5_compatibility_verified":False}
+    if 'org.vl-exchange.attribution' in manifest['extensions']:
+        report['attribution'] = attribution(root, manifest)
+    return report
 
 if __name__=="__main__":
     import argparse

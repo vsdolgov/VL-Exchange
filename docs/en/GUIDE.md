@@ -56,6 +56,10 @@ The receiving platform needs an adapter to prepare inputs, run the package and h
 5. Provide process isolation and filesystem, network and resource limits. Import namespaces and timeout checks performed after a call returns do not provide sandboxing or preemption. Both demonstration hosts run trusted Python code.
 6. For commercial delivery, establish issuer trust independently of package contents. Validate an offline entitlement or online grant before decryption and import, then recheck the same lease before commit. Administrators are trusted. A protected model runner for the new public profile still needs integration.
 
+## Attribution and branding
+
+Add the optional `org.vl-exchange.attribution` extension to a VLMP or VLSP manifest to describe the publisher and one or more model or scenario authors. A supporting host validates and carries the declaration, and may present it in a live view, a derived video or a separate analytics export. Older hosts may ignore the extension. See the [experimental profile](ATTRIBUTION.md) for the schema, policy, offline operation and trust boundaries.
+
 ## Protected end-to-end example
 
 ```sh

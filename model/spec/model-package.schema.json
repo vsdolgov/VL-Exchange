@@ -196,6 +196,186 @@
           },
           "data": {}
         }
+      },
+      "properties": {
+        "org.vl-exchange.attribution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required", "data"],
+          "properties": {
+            "required": {
+              "const": false
+            },
+            "data": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile_version",
+                "publisher",
+                "authors",
+                "package_version",
+                "display",
+                "white_label"
+              ],
+              "properties": {
+                "profile_version": {
+                  "const": "0.1"
+                },
+                "publisher": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    "website": {
+                      "type": "string",
+                      "minLength": 9,
+                      "maxLength": 2048,
+                      "pattern": "^https://[^\\s]+$"
+                    },
+                    "logo": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 240,
+                      "pattern": "^[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*[.]png$"
+                    }
+                  }
+                },
+                "authors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 32,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "id",
+                      "name",
+                      "role"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "website": {
+                        "type": "string",
+                        "minLength": 9,
+                        "maxLength": 2048,
+                        "pattern": "^https://[^\\s]+$"
+                      },
+                      "logo": {
+                        "type": "string",
+                        "minLength": 5,
+                        "maxLength": 240,
+                        "pattern": "^[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*[.]png$"
+                      },
+                      "role": {
+                        "enum": [
+                          "model_author",
+                          "scenario_author"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "package_version": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "provenance": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "minProperties": 1,
+                  "properties": {
+                    "description": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "minLength": 9,
+                      "maxLength": 2048,
+                      "pattern": "^https://[^\\s]+$"
+                    }
+                  }
+                },
+                "preferred_text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "display": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "live_view",
+                    "export",
+                    "event_metadata"
+                  ],
+                  "properties": {
+                    "live_view": {
+                      "enum": [
+                        "recommended",
+                        "required",
+                        "disabled"
+                      ]
+                    },
+                    "export": {
+                      "enum": [
+                        "recommended",
+                        "required",
+                        "disabled"
+                      ]
+                    },
+                    "event_metadata": {
+                      "enum": [
+                        "recommended",
+                        "required",
+                        "disabled"
+                      ]
+                    }
+                  }
+                },
+                "license_url": {
+                  "type": "string",
+                  "minLength": 9,
+                  "maxLength": 2048,
+                  "pattern": "^https://[^\\s]+$"
+                },
+                "white_label": {
+                  "enum": [
+                    "allowed",
+                    "prohibited",
+                    "unspecified"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "golden": {

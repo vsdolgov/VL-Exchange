@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import ast
+import importlib.util
 import re
 from dataclasses import dataclass
 from importlib import metadata
@@ -195,6 +196,15 @@ def validate_package(root: str | Path, *, parameters: dict | None = None,
         except Exception as exc:
             raise ScenarioError("manifest_invalid", f"Invalid event payload schema: {exc}") from exc
     _check_inventory(root, manifest)
+    if 'org.vl-exchange.attribution' in manifest['extensions']:
+        path = Path(__file__).resolve().parents[3] / 'attribution' / 'validator.py'
+        spec = importlib.util.spec_from_file_location('vl_attribution_validator', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        try:
+            module.validate_attribution(root, manifest)
+        except ValueError as exc:
+            raise ScenarioError('manifest_invalid', f'Invalid attribution: {exc}') from exc
     _check_python(root, manifest)
     _dependencies(manifest, check_environment)
     parameter_values(manifest, parameters)

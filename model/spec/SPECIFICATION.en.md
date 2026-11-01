@@ -4,6 +4,10 @@
 
 This is an additional public profile for discussion, not a replacement for the tested VLMP 0.1.0 / CustomModelProtocol. It removes the demonstration's private SDK dependency by returning an ordinary Python dict from postprocess. Box 5 compatibility has not been verified. The original 0.1 schema is preserved in the [historical section](../../specs/vlmp/0.1/model-package.schema.json). MUST and MUST NOT state requirements of this proposed profile.
 
+## Experimental attribution extension
+
+Publishers may include the optional `org.vl-exchange.attribution` entry in `extensions` with `required: false`. A host that supports this separate [Attribution & Branding profile](../../docs/en/ATTRIBUTION.md) can validate and carry publisher and author information. Hosts unaware of the extension may ignore it; the base package and its existing fixtures remain valid. Display and metadata propagation are host capabilities, not an inference guarantee.
+
 ## 1. Scope and package
 
 Format `vl.model-package`, version `0.2.0-draft.1`, profile `python-numpy-classification-v1`. One CPU ONNX FP32 classifier with static batch 1 and input `[1,3,2,2]` is supported. The small size deliberately limits a public interoperability probe; it is not industrial model guidance. GPU, dynamic shapes, other result types, custom operators, external ONNX data and arbitrary Python portability are outside scope.

@@ -2,6 +2,10 @@
 
 **Version 0.1.0. Open normative pilot draft, 2026-10-31. [Русский](SPECIFICATION.md).** MUST, MUST NOT and MAY indicate requirements, prohibitions and options. This document does not claim third-party vendor support or production readiness. Verified results are recorded separately.
 
+## Experimental attribution extension
+
+Publishers may include the optional `org.vl-exchange.attribution` entry in `extensions` with `required: false`. A host that supports this separate [Attribution & Branding profile](../../docs/en/ATTRIBUTION.md) can validate and carry publisher and author information. Hosts unaware of the extension may ignore it. It does not alter the core event schema or existing golden fixtures: attribution can travel in a separate host-provided export envelope. Display and propagation require host support.
+
 ## 1. Decision and scope
 
 VLSP is a standalone executable **Python scenario delivery** with open descriptions of external inputs, parameters, state, events, dependencies and errors. Together with **VL Model Package (VLMP)** it forms the inter-vendor part of **VL Exchange**. Operational source code is not automatically published: the interface specification is open and execution can be licensed.

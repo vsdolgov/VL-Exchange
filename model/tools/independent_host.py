@@ -8,9 +8,14 @@ import numpy as np
 import onnxruntime as ort
 from jsonschema import Draft202012Validator
 ROOT=Path(__file__).resolve().parents[1]
+def sha(path):
+ digest=hashlib.sha256()
+ with Path(path).open('rb') as stream:
+  for chunk in iter(lambda:stream.read(1024*1024),b''):digest.update(chunk)
+ return digest.hexdigest()
 def run(root):
  root=Path(root).resolve();sys.dont_write_bytecode=True
- snapshot=lambda:{p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file()}
+ snapshot=lambda:{p.relative_to(root).as_posix():sha(p) for p in root.rglob('*') if p.is_file()}
  before=snapshot(); m=json.loads((root/'model-package.json').read_text())
  Draft202012Validator(json.loads((ROOT/'spec/model-package.schema.json').read_text())).validate(m)
  if m['profile']!='python-numpy-classification-v1' or set(m['required_capabilities'])!={'python-numpy-classification-v1','onnx-cpu-fp32'} or any(v['required'] for v in m['extensions'].values()):raise ValueError('Unsupported contract')
@@ -22,6 +27,11 @@ def run(root):
    current/=component
    if current.is_symlink():raise ValueError('Symlink')
   if not current.resolve().is_relative_to(root) or before[name]!=digest:raise ValueError('Digest/path mismatch')
+ metadata=None
+ if 'org.vl-exchange.attribution' in m['extensions']:
+  spec=importlib.util.spec_from_file_location('vl_attribution_validator', ROOT.parent/'attribution/validator.py')
+  validator=importlib.util.module_from_spec(spec);spec.loader.exec_module(validator)
+  metadata=validator.validate_attribution(root,m)
  fixture_results=[];b=m['backend']
  for fixtures in (m['golden']['fixtures'],list(reversed(m['golden']['fixtures'])),[m['golden']['fixtures'][0],m['golden']['fixtures'][1],m['golden']['fixtures'][0]]):
   namespace='_independent_'+uuid.uuid4().hex;directory=root/m['entrypoint']['root']
@@ -51,6 +61,8 @@ def run(root):
    for key in list(sys.modules):
     if key==namespace or key.startswith(namespace+'.'):sys.modules.pop(key,None)
  unchanged=before==snapshot()
- return {'status':'pass' if unchanged and all(x['pass'] for x in fixture_results) else 'fail','host':'independent-public-vlmp-demonstration','manifest_sha256':before['model-package.json'],'unchanged':unchanged,'calls':fixture_results,'runtime':{'python':platform.python_version(),'numpy':np.__version__,'onnxruntime':ort.__version__},'reference_executor_imported':'public_model' in sys.modules,'not_a_competitor_platform':True,'box5_compatibility_verified':False}
+ report={'status':'pass' if unchanged and all(x['pass'] for x in fixture_results) else 'fail','host':'independent-public-vlmp-demonstration','manifest_sha256':before['model-package.json'],'unchanged':unchanged,'calls':fixture_results,'runtime':{'python':platform.python_version(),'numpy':np.__version__,'onnxruntime':ort.__version__},'reference_executor_imported':'public_model' in sys.modules,'not_a_competitor_platform':True,'box5_compatibility_verified':False}
+ if metadata is not None: report['attribution']=metadata
+ return report
 if __name__=='__main__':
  report=run(Path(sys.argv[1]));print(json.dumps(report,indent=2));raise SystemExit(0 if report['status']=='pass' else 1)
