@@ -2,7 +2,7 @@
 
 [Русский](LICENSE-PROPOSAL.ru.md) · 2026-11-01
 
-No licensing decision has been made. Publication of the material set in [vsdolgov/VL-Exchange](https://github.com/vsdolgov/VL-Exchange) is approved; this does not adopt Apache-2.0, CC-BY-4.0 or patent commitments. This document grants no license. There is no effective LICENSE file; terms for further use and redistribution remain pending.
+The owner intends the exchange specifications to form an open standard without a commercial license. The exact licenses for specifications, code and documentation, contribution terms, and patent policy are still subject to approval. Publication of the material set in [vsdolgov/VL-Exchange](https://github.com/vsdolgov/VL-Exchange) does not adopt Apache-2.0, CC-BY-4.0 or patent commitments. This document grants no license. There is no effective LICENSE file; terms for further use and redistribution remain pending.
 
 | Material | Proposal | Reason and limits |
 |---|---|---|
