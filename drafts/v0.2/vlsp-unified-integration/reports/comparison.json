@@ -1,0 +1,1807 @@
+{
+  "status": "pass",
+  "checked_at": "2026-11-02T22:30:58.313411+00:00",
+  "test": "protected-vlsp-with-vlmp-0.2-reference-vs-independent-real-videopipe",
+  "pins": {
+    "previous_scenario_zip_sha256": "1461028eb6176c72bb0229eb8b28b7e697b6a4fcc1f7d420e095631bf4e0f332",
+    "scenario": {
+      "zip_sha256": "8cc70e824b94e786ed8f213bdfcaa42183fe3e2b0f1b3269482e81767942ebd9",
+      "manifest_sha256": "66922ee2c58efe0c560cedf598add136c804df4c9e94d3d228cc1b0dda3e4893"
+    },
+    "detector": {
+      "zip_sha256": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+      "manifest_sha256": "eef4d794eb2d0e104e90e8f6c606351331740450be9607f2d0a775422fd99131",
+      "weights_sha256": "6b1d0aa8d6cd61470f5127e050a9304accc401f65ddf3ee6e2a265845ad8d69f"
+    },
+    "classifier_a": {
+      "zip_sha256": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+      "manifest_sha256": "28d0a6ecb587188967e4b2a9210c2765d0e9152aa694abc6accf9a105e8674b4",
+      "weights_sha256": "c283bda709b4f53d2254dd289c53ca7e23b15d8747e6e0c609eee3119da4d2fa"
+    },
+    "classifier_b": {
+      "zip_sha256": "518c54cb847d337e2f5af503147a9749d0eece46aa8dbad22f44c3fa72e2193b",
+      "manifest_sha256": "c49c357101e6e65a00226dcba7ae0c6cdeacb6fd253ff2cf56e7bee6ba3ea437",
+      "weights_sha256": "0a5baac904fdd9de8c010cd6e235712eb89359167c07db300d0d3f4f24acd3a8"
+    }
+  },
+  "videopipe_commit": "2a3b461e555725681ec2c0b3693e743e10408299",
+  "binary_sha256": "67721c3f4f61d3096ab5211bf1d56a733ea7097e39d937e11fe409efc65861c5",
+  "environment": {
+    "python": "3.12.0",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "numpy": "1.26.4",
+    "onnxruntime": "1.20.1",
+    "available_providers": [
+      "CoreMLExecutionProvider",
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ]
+  },
+  "sources_sha256": {
+    "drafts/v0.2/model/spec/model-package.schema.json": "e0e66693cfb913bf281bacd8b8ec7530532bc2b434a7b2db4abf542bf6897f93",
+    "drafts/v0.2/model/spec/schemas/detections.schema.json": "132a81bdd6bc59c9cc6090a565f530ae2bfff3892af7d57a207690b4cdaafaa3",
+    "drafts/v0.2/model/src/model_package_v02/__init__.py": "4da0b1002e9bc2ca0d737b9ad5b626a791bcc4651ab7d49bd24c7a8d2025210b",
+    "drafts/v0.2/model/src/model_package_v02/runtime.py": "c37050d3432ac68203bd3c7690db2a75adfbf21a14ea47115d221fbcb5a9f1f1",
+    "drafts/v0.2/scenario/examples/vlsp-color-cascade.zip": "1461028eb6176c72bb0229eb8b28b7e697b6a4fcc1f7d420e095631bf4e0f332",
+    "drafts/v0.2/scenario/spec/async-message-fixture.json": "edf9446493ac14fbbb0a04d8e418f22788ef26e1a2e6828dda1bd8000b6a9a69",
+    "drafts/v0.2/scenario/spec/async-reference-id-test-vectors.json": "c31c17b59697a5ebad394be408bec778e96026eff1428039d68dae63b91c2ba4",
+    "drafts/v0.2/scenario/spec/error-vectors.json": "57a90e4830c107aa4815435fe29efb4d4f3f1ffc9db0d96655f5cbf35eb2f8ca",
+    "drafts/v0.2/scenario/spec/event-id-test-vector.json": "dfb1db071f363b2517023a5efcfc12427c0c0f5639d151c93584e8a1adfb8cb7",
+    "drafts/v0.2/scenario/spec/object-id-test-vectors.json": "3131bb0ded0743d78db72b519ebb80eb2918fab5fcf94e5fd43efd8c454fa453",
+    "drafts/v0.2/scenario/spec/scenario-package.schema.json": "60e18fa12d47e510bce6b6a7db9dbb2725a7e0c9c87f897a5b8a3d90152e734d",
+    "drafts/v0.2/scenario/spec/schemas/async-mllm.schema.json": "09ef8d0646f62ad296880bff72d185521e3174bcd84869e93578614dc8e93f94",
+    "drafts/v0.2/scenario/spec/schemas/async-sequence.schema.json": "363fbfeb6c97ca5be9884d0cb1dd429818fd04603cc87d87ba23003b772de1a0",
+    "drafts/v0.2/scenario/spec/schemas/context.schema.json": "8a72f314f72115c058c6a02b6a03196d49e9b80f1f60765a4499ba9bde39699c",
+    "drafts/v0.2/scenario/spec/schemas/diagnostic.schema.json": "344062b9fabcdd9d0ec67b878bfa935b60b4943a5b3d8f023986367504f33733",
+    "drafts/v0.2/scenario/spec/schemas/error.schema.json": "4f0a2738ba714ce7f72830f5049ae5732513dab99fb38bf8178dc8fbddcc3a5c",
+    "drafts/v0.2/scenario/spec/schemas/event.schema.json": "50b8af4727d1cd98ad01fd2c66e19b8bbb6f83e78e257a0a2d6ff97dab88f879",
+    "drafts/v0.2/scenario/spec/schemas/hardware-async-models.schema.json": "9eee50dcc84ec36380640b61a3d5b1d8499b1ef45668746be31e9deb72cc6eae",
+    "drafts/v0.2/scenario/spec/schemas/host-capabilities.schema.json": "c161eb21c38cfb5ee91543ecc12f14253a274e2ceecdaa99203fbc01f3a8cb68",
+    "drafts/v0.2/scenario/spec/schemas/sequence.schema.json": "d2ae045c817da2f0f8a5f068fad47a9255bd619c76661f555678ade48c7e0d9e",
+    "drafts/v0.2/scenario/spec/schemas/services.schema.json": "d3dd7da481b7e9394118e5e19eda13071efa2672beb3e9b0d7d311cdce81f67d",
+    "drafts/v0.2/scenario/spec/schemas/stream-policy.schema.json": "c6d3a7f33d708d7f06480eccb2779b47dc069e8387f75645bad633bfb7fe687d",
+    "drafts/v0.2/scenario/src/vl_scenario_async/__init__.py": "9646066a5abe6d399098f515d26f58c059fc9c4b04e6274900a9ec905c62782c",
+    "drafts/v0.2/scenario/src/vl_scenario_async/demo.py": "97790942d772e62e820f82dba5b9f73c9dbb97f3187a19e1598db50f9f8894ac",
+    "drafts/v0.2/scenario/src/vl_scenario_async/integrated.py": "045113f3e1b7c85853cbea29ed0ea7972703f8a7b5cb3ec712abefc01bb604e0",
+    "drafts/v0.2/scenario/src/vl_scenario_async/openai_compatible.py": "73f3e881ceae85c1a0816194107026da8a818db876c7b2b248d8fa2a0ad7f61f",
+    "drafts/v0.2/scenario/src/vl_scenario_async/store.py": "cbaa420a62f3df33e9e27a1628a6dad43716ecb43ad39f8689248f14f8d2218b",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/__init__.py": "4ff16183610adfd52db6cc1382e9fa49f4273de23d42bb7f159b1df69d83ca62",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/common.py": "da2515fd0efda4295a970d46ec9898103e8e2e02ff13465e99693a755cf242fc",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/contracts.py": "f11428a8eb2b8d4649dfca6f195969cc1c683c7b5491c0b75c9c8ba6c515a35e",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/errors.py": "0f5605c0dc56d589bbadda9cb79bf69c3e6a34afc319ddb9b22c6fa3f693229f",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/executor.py": "d2ef531312712fb3488e08005fa800a3a9d7dd11e4c5774afa540e73669d5766",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/hardware.py": "32cd11abfa398ebddadd9c4024f6df40d1d76c9ba21b673647e315cd7c4762b3",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/services.py": "96ac808e64b1d9732eee8b3774200c40ab1f558203baae4597849bed1a24006d",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/stream_queue.py": "2d771c11457a93f177fb19f5bad2aa14542969ac742a2f599912ac410b9b5f86",
+    "drafts/v0.2/scenario/src/vl_scenario_v02/validation.py": "1e385a24cde80221b320be11bc4374e3975f072f92eec07fe7101588600899ed",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/__init__.py": "c4778da64832a8987548735e647ec7d31badf9602a7fb9a946adf95a5d1ad0c1",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/__main__.py": "f6941996cc801a0e4399fb12681158e5c28c20cceefa8b1b64f640aab7479ff0",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/persistent_lease.py": "b6e55066d94641c7030344c4e742ee111bf13498c4cebc338f9b2dd97ef1b249",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/protection.py": "2f5b2e16773de7b512485621ed5e3a75dc645766a4dc05c55686ad0e691c57b6",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/reference_server.py": "b4cbee84111e2f69d1be099855811ff13801964e3a76849aa12b6a389a21544c",
+    "drafts/v0.2/videopipe-pilot/independent/__init__.py": "b2f2d5077ab64257c3e083ef245c29dc75e16a5cefd94d94eaab2f01846b6c7c",
+    "drafts/v0.2/videopipe-pilot/independent/bootstrap.py": "7c1256162b6a58157731ecba476c82fa7400fb20c47011797095703efe87d54d",
+    "drafts/v0.2/videopipe-pilot/independent/engine.py": "1dd07e0210074ed70c9d914ca7e0dca0daaaa13d39045265f61191023bbabd81",
+    "drafts/v0.2/videopipe-pilot/independent/providers.py": "cdc066c8cfb7e6c0f5692cbb1742c1f6bbacb3b02e55426e689c1b88e1cf7274",
+    "drafts/v0.2/videopipe-pilot/independent/run_comparison.py": "f42484e77d1589215b61e0f83d57125b9148e3028ce9ef402a8f48e7115098fb",
+    "drafts/v0.2/videopipe-pilot/independent/stream_queue.py": "851228bae83662a5d49927aca2a3d95a8e574985dee3c5a0de91e2b390654186",
+    "drafts/v0.2/videopipe-pilot/independent/streaming_worker.py": "a513c6548e39b280c48515c91028a18eee436aece7b91dd845212dab40ab7fef",
+    "drafts/v0.2/videopipe-pilot/independent/tests/conftest.py": "9e831953436fb3ac27ca500bfc04c1190b5e4f89351e55f95552c6163205800d",
+    "drafts/v0.2/videopipe-pilot/independent/tests/test_contract_probes.py": "2629a2c2486cae944fe14ce42865c266fe6503c5b01fd134e12582aac957de6f",
+    "drafts/v0.2/videopipe-pilot/independent/tests/test_import_guard.py": "b9a984b1e30726f463a1a248ffbfc63a547d627b2311954e6005abd240c625d4",
+    "drafts/v0.2/videopipe-pilot/independent/tests/test_independent_stream_queue.py": "ec1a27ff995d3b1f98341d538f5ebf0dc574b85fc82f72e8059eaac21b489c97",
+    "drafts/v0.2/videopipe-pilot/independent/worker.py": "9b60890820e9cec1f23488739b8af618e2f9733a37a99ef8e69bceaea9912e36",
+    "drafts/v0.2/videopipe-pilot/python/bootstrap.py": "14a906300b11102b3550cb64b654eba38ce8c09dac04d610e8966f1f82f7c5a3",
+    "drafts/v0.2/videopipe-pilot/python/cases.py": "dacd96d9595243742257cb24b2a00d7342ec3625aa21cbf9122060566005a72e",
+    "drafts/v0.2/videopipe-pilot/python/integration_host.py": "3abdf88a9c9b5ea2139a1d833582629dfbac56764cfcc3892458575a19b0bc9b",
+    "drafts/v0.2/videopipe-pilot/python/prepare.py": "0412dd136f5b75e0d66af1462e3508f3996009fb5f12b6d9a50492311d0e2be4",
+    "drafts/v0.2/videopipe-pilot/python/run_pilot.py": "d065d508332e7aa34e7513b2efe97207d0660869903f5009b3d638bb8bf8bf59",
+    "drafts/v0.2/videopipe-pilot/python/runtime.py": "632101ff391a1445e6defc4830c3ba78a70c90cb5316b5158ff1ac71614382d8",
+    "drafts/v0.2/videopipe-pilot/python/worker.py": "8de5a713800ffdbe076904340214a6e51a3c2f2e4954d5a22c6477c7054eac77",
+    "drafts/v0.2/vlmp-unified/independent/__init__.py": "c9d21cc6f60fbaf0bee11facbf1c1db312c04c1e36977794877e2e3dde4bcb9e",
+    "drafts/v0.2/vlmp-unified/independent/_storage.py": "1c5b9fc0b93f585e5cf12789474efb09131ebc70fbfbfdb53fcb5b0a253bbdac",
+    "drafts/v0.2/vlmp-unified/independent/host.py": "1b8286c4e8fdd596cbdfc271443c56647c42b12f04199f4acaab1c57a0634c81",
+    "drafts/v0.2/vlmp-unified/independent/tests/test_host_safety.py": "5061f9ca60e0101f8cd86e85ab80803c1cb27f590d226538b1d37a5da6e50a5b",
+    "drafts/v0.2/vlmp-unified/reference/runtime.py": "b1670922700d51f531728a5516ec44f98df80a2ec4ec6775a3c67c3889651d27",
+    "drafts/v0.2/vlmp-unified/reference/tests/test_reference.py": "e6b9c028e162548b3f8a3adcdcd9094f14917cc142add32f02761f6168ea189a",
+    "drafts/v0.2/vlsp-unified-integration/compare.py": "041283a890719fe152c81aca6420c350c472e02c0ce534ea3ae61cd2ac4a7884",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/build.py": "b1767fc409eedbda24b11e28faa41d5d457723506047f69869946eb87dacf344",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/classifier_a.zip": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/classifier_b.zip": "518c54cb847d337e2f5af503147a9749d0eece46aa8dbad22f44c3fa72e2193b",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/detector.zip": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/pins.json": "97d56d7b4b78a610eaaa8f328e609f6bd242aae647a68d0f6b201057a4408c35",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/scenario.zip": "8cc70e824b94e786ed8f213bdfcaa42183fe3e2b0f1b3269482e81767942ebd9",
+    "drafts/v0.2/vlsp-unified-integration/independent/worker.py": "9340ea2513bf2e930886a45bf290c70a1c84df47391e647dd0495b85489e6905",
+    "drafts/v0.2/vlsp-unified-integration/reference/worker.py": "98f23e2c73bf0bd20a32c147085ea19a5111c71500b8743a3932441d55dbd7e8",
+    "drafts/v0.2/vlsp-unified-integration/tests/test_workers.py": "b2c174b1820c07d9b494fe19498e07d72d0853117649a20eb46da8ebb44fb4e5",
+    "model/spec/model-package.schema.json": "4da0567745b43144298349b7c01182c655520134bbe728c4cd96bacd7a145d00",
+    "model/src/public_model.py": "687c80f0c618d3de02ddda6e74451906cbeaee700582e6e134077a705577b33e"
+  },
+  "suites": 27,
+  "commands_compared": 200,
+  "process_commands": 114,
+  "expected_rejections": 53,
+  "classifier_red_crop_scores": {
+    "classifier_a": 0.5761169195175171,
+    "classifier_b": 0.7869859933853149
+  },
+  "comparisons": [
+    {
+      "id": 1,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 2,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 3,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 4,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 5,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 6,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 7,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 8,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 9,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 10,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 11,
+      "suite": "offline/baseline-nine-golden-steps",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 12,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 13,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 14,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 15,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 16,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 17,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 18,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 19,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 20,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 21,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 22,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 23,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 24,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 25,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 26,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 27,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 28,
+      "suite": "offline/source-run-isolation-and-scoped-resets",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 29,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 30,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 31,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 32,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 33,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 34,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 35,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_contract",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 36,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 37,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 38,
+      "suite": "offline/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 39,
+      "suite": "offline/object-correlation-survives-detection-order-reversal",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 40,
+      "suite": "offline/object-correlation-survives-detection-order-reversal",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 41,
+      "suite": "offline/object-correlation-survives-detection-order-reversal",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 42,
+      "suite": "offline/object-correlation-survives-detection-order-reversal",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 43,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 44,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 45,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 46,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_failed",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 47,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 48,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 49,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 50,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 51,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 52,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 53,
+      "suite": "offline/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 54,
+      "suite": "offline/detector-duplicate-object-id-rejected",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 55,
+      "suite": "offline/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 56,
+      "suite": "offline/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 57,
+      "suite": "offline/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 58,
+      "suite": "offline/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 59,
+      "suite": "offline/detector-duplicate-object-id-rejected",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 60,
+      "suite": "offline/detector-duplicate-object-id-rejected",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 61,
+      "suite": "offline/tracker-unknown-object-id-rejected",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 62,
+      "suite": "offline/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 63,
+      "suite": "offline/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 64,
+      "suite": "offline/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 65,
+      "suite": "offline/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 66,
+      "suite": "offline/tracker-unknown-object-id-rejected",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 67,
+      "suite": "offline/tracker-unknown-object-id-rejected",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 68,
+      "suite": "offline/tracker-duplicate-track-id-rejected",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 69,
+      "suite": "offline/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 70,
+      "suite": "offline/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 71,
+      "suite": "offline/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 72,
+      "suite": "offline/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 73,
+      "suite": "offline/tracker-duplicate-track-id-rejected",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 74,
+      "suite": "offline/tracker-duplicate-track-id-rejected",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 75,
+      "suite": "offline/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 76,
+      "suite": "offline/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 77,
+      "suite": "offline/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 78,
+      "suite": "offline/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 79,
+      "suite": "offline/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 80,
+      "suite": "offline/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 81,
+      "suite": "offline/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 82,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "open",
+      "ok": false,
+      "error": {
+        "stage": "requirements",
+        "code": "dependency_missing",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 83,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 84,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "open",
+      "ok": false,
+      "error": {
+        "stage": "requirements",
+        "code": "model_link_mismatch",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 85,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 86,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 87,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 88,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 89,
+      "suite": "offline/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 90,
+      "suite": "offline/lease-expires-after-real-inference-before-commit",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 91,
+      "suite": "offline/lease-expires-after-real-inference-before-commit",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 92,
+      "suite": "offline/lease-expires-after-real-inference-before-commit",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "fatal": false,
+        "retryable": true
+      }
+    },
+    {
+      "id": 93,
+      "suite": "offline/lease-expires-after-real-inference-before-commit",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 94,
+      "suite": "offline/lease-expires-before-process",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 95,
+      "suite": "offline/lease-expires-before-process",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 96,
+      "suite": "offline/lease-expires-before-process",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "fatal": false,
+        "retryable": true
+      }
+    },
+    {
+      "id": 97,
+      "suite": "offline/lease-expires-before-process",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 98,
+      "suite": "offline/offline-expired-before-import",
+      "op": "open",
+      "ok": false,
+      "error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 99,
+      "suite": "offline/offline-expired-before-import",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 100,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 101,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 102,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 103,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 104,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 105,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 106,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 107,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 108,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 109,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 110,
+      "suite": "online/baseline-nine-golden-steps",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 111,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 112,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 113,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 114,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 115,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 116,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 117,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 118,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 119,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 120,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 121,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 122,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 123,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 124,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 125,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "reset",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 126,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 127,
+      "suite": "online/source-run-isolation-and-scoped-resets",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 128,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 129,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 130,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 131,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 132,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 133,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_order",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 134,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "input",
+        "code": "input_contract",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 135,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 136,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 137,
+      "suite": "online/order-rejections-remain-healthy-and-allow-gap-equal-time",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 138,
+      "suite": "online/object-correlation-survives-detection-order-reversal",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 139,
+      "suite": "online/object-correlation-survives-detection-order-reversal",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 140,
+      "suite": "online/object-correlation-survives-detection-order-reversal",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 141,
+      "suite": "online/object-correlation-survives-detection-order-reversal",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 142,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 143,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 144,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 145,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_failed",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 146,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 147,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 148,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 149,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 150,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 151,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 152,
+      "suite": "online/late-classifier-exception-atomicity-fatal-and-fresh-recovery",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 153,
+      "suite": "online/detector-duplicate-object-id-rejected",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 154,
+      "suite": "online/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 155,
+      "suite": "online/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 156,
+      "suite": "online/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 157,
+      "suite": "online/detector-duplicate-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 158,
+      "suite": "online/detector-duplicate-object-id-rejected",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 159,
+      "suite": "online/detector-duplicate-object-id-rejected",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 160,
+      "suite": "online/tracker-unknown-object-id-rejected",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 161,
+      "suite": "online/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 162,
+      "suite": "online/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 163,
+      "suite": "online/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 164,
+      "suite": "online/tracker-unknown-object-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 165,
+      "suite": "online/tracker-unknown-object-id-rejected",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 166,
+      "suite": "online/tracker-unknown-object-id-rejected",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 167,
+      "suite": "online/tracker-duplicate-track-id-rejected",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 168,
+      "suite": "online/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 169,
+      "suite": "online/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 170,
+      "suite": "online/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 171,
+      "suite": "online/tracker-duplicate-track-id-rejected",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 172,
+      "suite": "online/tracker-duplicate-track-id-rejected",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 173,
+      "suite": "online/tracker-duplicate-track-id-rejected",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 174,
+      "suite": "online/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 175,
+      "suite": "online/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 176,
+      "suite": "online/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 177,
+      "suite": "online/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 178,
+      "suite": "online/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 179,
+      "suite": "online/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "reset",
+      "ok": false,
+      "error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "fatal": true,
+        "retryable": false
+      }
+    },
+    {
+      "id": 180,
+      "suite": "online/late-classifier-invalid-score-rejected-without-candidate-leak",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 181,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "open",
+      "ok": false,
+      "error": {
+        "stage": "requirements",
+        "code": "dependency_missing",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 182,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 183,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "open",
+      "ok": false,
+      "error": {
+        "stage": "requirements",
+        "code": "model_link_mismatch",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 184,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 185,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 186,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 187,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 188,
+      "suite": "online/required-bindings-rejected-before-import-and-clean-reopen",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 189,
+      "suite": "online/lease-expires-after-real-inference-before-commit",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 190,
+      "suite": "online/lease-expires-after-real-inference-before-commit",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 191,
+      "suite": "online/lease-expires-after-real-inference-before-commit",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "fatal": false,
+        "retryable": true
+      }
+    },
+    {
+      "id": 192,
+      "suite": "online/lease-expires-after-real-inference-before-commit",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 193,
+      "suite": "online/lease-expires-before-process",
+      "op": "open",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 194,
+      "suite": "online/lease-expires-before-process",
+      "op": "process",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 195,
+      "suite": "online/lease-expires-before-process",
+      "op": "process",
+      "ok": false,
+      "error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "fatal": false,
+        "retryable": true
+      }
+    },
+    {
+      "id": 196,
+      "suite": "online/lease-expires-before-process",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 197,
+      "suite": "online/online-expired-before-import",
+      "op": "open",
+      "ok": false,
+      "error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 198,
+      "suite": "online/online-expired-before-import",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    },
+    {
+      "id": 199,
+      "suite": "online/online-revoked-before-import",
+      "op": "open",
+      "ok": false,
+      "error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "fatal": false,
+        "retryable": false
+      }
+    },
+    {
+      "id": 200,
+      "suite": "online/online-revoked-before-import",
+      "op": "close",
+      "ok": true,
+      "error": {}
+    }
+  ],
+  "lifecycle_flags_and_committed_calls_match": true,
+  "lifecycle_counter_differences": 62,
+  "lifecycle_counter_note": "Host-specific counters can differ, including whether a rejected input counts as a process call; lifecycle flags are compared.",
+  "scope": "scenario archive protected; model ZIPs validated by digest and profile, not separately encrypted",
+  "limitations": [
+    "Local loopback online issuer and ephemeral test keys",
+    "Synthetic CPU ONNX models and 4x2 lossless frames",
+    "Independent implementations share security library and ONNX Runtime",
+    "No GPU, RTSP, load, asynchronous MLLM or external licensing service",
+    "VideoPipe is a demonstration integration, not a production deployment"
+  ]
+}

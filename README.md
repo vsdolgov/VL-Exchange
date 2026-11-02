@@ -37,6 +37,7 @@ The same idea can later describe other scenarios, such as a person in a zone, af
 ## What is available today
 
 - [VLMP 0.2.0](drafts/v0.2/vlmp-unified/README.md) defines one package format with classification and detection profiles. Both can be tested locally on two independently implemented hosts; each host was also tested with one ZIP of each earlier format.
+- The [VLSP and unified VLMP experiment](drafts/v0.2/vlsp-unified-integration/README.md) connects a detector and two classifiers to one protected scenario and compares the reference executor with an independent VideoPipe integration.
 - Local tests exercise two separately implemented hosts. The public VLMP example uses the same ONNX Runtime in both; the historical Box 5 pilot used a different VLMP profile.
 - A protected-delivery prototype tests signatures, encryption and online/offline execution rights with a local test service. It is not a sandbox or a production license server.
 - The [VLSP 0.2 release](drafts/v0.2/README.md) describes a multi-model scenario, optional asynchronous MLLM and input-queue profiles, and a separate VLMP detection profile. VideoPipe is an example of another execution environment used to demonstrate portability; the comparison covered the synchronous scenario, not asynchronous MLLM. The prototypes and pilot remain experimental.

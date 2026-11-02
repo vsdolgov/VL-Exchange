@@ -2,6 +2,10 @@
 
 English | [Русский](CHANGELOG.ru.md)
 
+## 2026-11-03 — VLSP and unified VLMP integration experiment
+
+Added a synthetic VLSP scenario bound to unified VLMP detection and classification packages, with a comparison of the reference executor and an independent VideoPipe integration under offline and online scenario protection. The earlier scenario ZIP is unchanged. See the [experiment and its limits](drafts/v0.2/vlsp-unified-integration/README.md).
+
 ## 2026-11-03 — Unified VLMP 0.2.0
 
 Added a common VLMP 0.2.0 manifest and two explicit static CPU ONNX profiles for classification and detection, with two independently implemented hosts and reproducible synthetic examples. Each host is also checked against one unchanged ZIP of each earlier published format; original schemas, loaders and ZIPs remain available. See the [specification, results and compatibility limits](drafts/v0.2/vlmp-unified/README.md).

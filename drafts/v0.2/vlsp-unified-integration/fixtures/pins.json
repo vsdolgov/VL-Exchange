@@ -1,0 +1,22 @@
+{
+  "previous_scenario_zip_sha256": "1461028eb6176c72bb0229eb8b28b7e697b6a4fcc1f7d420e095631bf4e0f332",
+  "scenario": {
+    "zip_sha256": "8cc70e824b94e786ed8f213bdfcaa42183fe3e2b0f1b3269482e81767942ebd9",
+    "manifest_sha256": "66922ee2c58efe0c560cedf598add136c804df4c9e94d3d228cc1b0dda3e4893"
+  },
+  "detector": {
+    "zip_sha256": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+    "manifest_sha256": "eef4d794eb2d0e104e90e8f6c606351331740450be9607f2d0a775422fd99131",
+    "weights_sha256": "6b1d0aa8d6cd61470f5127e050a9304accc401f65ddf3ee6e2a265845ad8d69f"
+  },
+  "classifier_a": {
+    "zip_sha256": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+    "manifest_sha256": "28d0a6ecb587188967e4b2a9210c2765d0e9152aa694abc6accf9a105e8674b4",
+    "weights_sha256": "c283bda709b4f53d2254dd289c53ca7e23b15d8747e6e0c609eee3119da4d2fa"
+  },
+  "classifier_b": {
+    "zip_sha256": "518c54cb847d337e2f5af503147a9749d0eece46aa8dbad22f44c3fa72e2193b",
+    "manifest_sha256": "c49c357101e6e65a00226dcba7ae0c6cdeacb6fd253ff2cf56e7bee6ba3ea437",
+    "weights_sha256": "0a5baac904fdd9de8c010cd6e235712eb89359167c07db300d0d3f4f24acd3a8"
+  }
+}

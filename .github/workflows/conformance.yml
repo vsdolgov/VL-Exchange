@@ -30,4 +30,6 @@ jobs:
         run: |
           python -m pytest -q -p no:cacheprovider --import-mode=importlib drafts/v0.2/vlmp-unified/tests drafts/v0.2/vlmp-unified/reference/tests drafts/v0.2/vlmp-unified/independent/tests
           python drafts/v0.2/vlmp-unified/tools/compare_hosts.py > /tmp/vlmp-unified-comparison.json
+      - name: Smoke test protected VLSP with unified VLMP workers (without VideoPipe)
+        run: python -m pytest -q -p no:cacheprovider --import-mode=importlib drafts/v0.2/vlsp-unified-integration/tests
       - run: python tools/check_links.py

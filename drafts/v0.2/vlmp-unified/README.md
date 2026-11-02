@@ -16,7 +16,7 @@ The [verification report in Russian](reports/VERIFICATION.md) and [machine-reada
 
 Both hosts retain separate paths for the published `0.2.0-draft.1` classification and `0.2.0-detection-draft.1` detection formats. Each host was tested with one previous ZIP of each format; complete compatibility with every valid legacy package is not claimed. The original ZIPs, schemas and loaders remain unchanged. The new hosts apply additional ZIP-path limits; the independent host also limits manifest size and rejects external ONNX tensor data. See [its documentation](independent/README.md). The legacy classification ABI executes publisher-supplied Python and requires a trusted environment; neither host is a sandbox. Historical VLMP 0.1 / CustomModelProtocol with a private SDK is outside this verification.
 
-Migrating a model to the new manifest creates a new ZIP and new hashes. Protected delivery needs new signatures and execution rights. A VLSP scenario pinned to the old model-manifest digest needs an explicitly updated binding and a new scenario package: its existing ZIP does not change automatically. Running the new model package through existing VLSP hosts and protected delivery was not separately tested here.
+Migrating a model to the new manifest creates a new ZIP and new hashes. Protected delivery needs new signatures and execution rights. A VLSP scenario pinned to the old model-manifest digest needs an explicitly updated binding and a new scenario package: its existing ZIP does not change automatically. The subsequent [VLSP integration experiment](../vlsp-unified-integration/README.md) tests these model profiles in both hosts with protected scenario delivery.
 
 ## Reproduce the checks
 
