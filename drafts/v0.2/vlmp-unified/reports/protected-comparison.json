@@ -1,0 +1,1387 @@
+{
+  "status": "pass",
+  "checked_at": "2026-11-02T22:50:18.607966+00:00",
+  "test": "signed-encrypted-vlmp-models-two-hosts",
+  "policies": [
+    "offline",
+    "online"
+  ],
+  "same_protected_envelope_for_each_host": true,
+  "profiles": [
+    "detection-onnx-cpu-v1",
+    "classification-onnx-cpu-v1"
+  ],
+  "positive_mode_model_pairs": 6,
+  "negative_host_cases": 84,
+  "actual_onnx_inference_in_all_positive_cases": true,
+  "negative_error_codes_match": true,
+  "runs": [
+    {
+      "mode": "offline",
+      "model": "detector",
+      "profile": "detection-onnx-cpu-v1",
+      "zip_sha256": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+      "manifest_sha256": "eef4d794eb2d0e104e90e8f6c606351331740450be9607f2d0a775422fd99131",
+      "same_ciphertext_for_both_hosts": true,
+      "hosts": {
+        "reference": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "independent": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "profile": "classification-onnx-cpu-v1",
+      "zip_sha256": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+      "manifest_sha256": "28d0a6ecb587188967e4b2a9210c2765d0e9152aa694abc6accf9a105e8674b4",
+      "same_ciphertext_for_both_hosts": true,
+      "hosts": {
+        "reference": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            }
+          ]
+        },
+        "independent": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "profile": "classification-onnx-cpu-v1",
+      "zip_sha256": "518c54cb847d337e2f5af503147a9749d0eece46aa8dbad22f44c3fa72e2193b",
+      "manifest_sha256": "c49c357101e6e65a00226dcba7ae0c6cdeacb6fd253ff2cf56e7bee6ba3ea437",
+      "same_ciphertext_for_both_hosts": true,
+      "hosts": {
+        "reference": {
+          "calls": 5,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.7869860529899597
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.45186275243759155
+              }
+            }
+          ]
+        },
+        "independent": {
+          "calls": 5,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.7869860529899597
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.45186275243759155
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "profile": "detection-onnx-cpu-v1",
+      "zip_sha256": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+      "manifest_sha256": "eef4d794eb2d0e104e90e8f6c606351331740450be9607f2d0a775422fd99131",
+      "same_ciphertext_for_both_hosts": true,
+      "hosts": {
+        "reference": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "independent": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "profile": "classification-onnx-cpu-v1",
+      "zip_sha256": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+      "manifest_sha256": "28d0a6ecb587188967e4b2a9210c2765d0e9152aa694abc6accf9a105e8674b4",
+      "same_ciphertext_for_both_hosts": true,
+      "hosts": {
+        "reference": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            }
+          ]
+        },
+        "independent": {
+          "calls": 4,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "profile": "classification-onnx-cpu-v1",
+      "zip_sha256": "518c54cb847d337e2f5af503147a9749d0eece46aa8dbad22f44c3fa72e2193b",
+      "manifest_sha256": "c49c357101e6e65a00226dcba7ae0c6cdeacb6fd253ff2cf56e7bee6ba3ea437",
+      "same_ciphertext_for_both_hosts": true,
+      "hosts": {
+        "reference": {
+          "calls": 5,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.7869860529899597
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.45186275243759155
+              }
+            }
+          ]
+        },
+        "independent": {
+          "calls": 5,
+          "predictions": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.7869859933853149
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.7869860529899597
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.45186275243759155
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "negative_cases": [
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "reference",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "reference",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "reference",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "reference",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "reference",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "reference",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "independent",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "independent",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "independent",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "independent",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "independent",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "detector",
+      "host": "independent",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "offline",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "revoked-before-open",
+      "code": "online_unavailable"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "reference",
+      "case": "grant-expires-during-onnx-license-still-valid",
+      "code": "grant_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "revoked-before-open",
+      "code": "online_unavailable"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "detector",
+      "host": "independent",
+      "case": "grant-expires-during-onnx-license-still-valid",
+      "code": "grant_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "revoked-before-open",
+      "code": "online_unavailable"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "reference",
+      "case": "grant-expires-during-onnx-license-still-valid",
+      "code": "grant_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "revoked-before-open",
+      "code": "online_unavailable"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_a",
+      "host": "independent",
+      "case": "grant-expires-during-onnx-license-still-valid",
+      "code": "grant_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "revoked-before-open",
+      "code": "online_unavailable"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "reference",
+      "case": "grant-expires-during-onnx-license-still-valid",
+      "code": "grant_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "wrong-issuer",
+      "code": "invalid_signature"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "wrong-recipient",
+      "code": "installation_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "expired-before-open",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "tampered-ciphertext",
+      "code": "ciphertext_mismatch"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "revoked-before-open",
+      "code": "online_unavailable"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "expired-before-predict",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "license-expires-during-onnx",
+      "code": "license_expired"
+    },
+    {
+      "mode": "online",
+      "model": "classifier_b",
+      "host": "independent",
+      "case": "grant-expires-during-onnx-license-still-valid",
+      "code": "grant_expired"
+    }
+  ],
+  "sources_sha256": {
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/__init__.py": "c4778da64832a8987548735e647ec7d31badf9602a7fb9a946adf95a5d1ad0c1",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/__main__.py": "f6941996cc801a0e4399fb12681158e5c28c20cceefa8b1b64f640aab7479ff0",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/persistent_lease.py": "b6e55066d94641c7030344c4e742ee111bf13498c4cebc338f9b2dd97ef1b249",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/protection.py": "2f5b2e16773de7b512485621ed5e3a75dc645766a4dc05c55686ad0e691c57b6",
+    "drafts/v0.2/security-runtime/src/vl_exchange_security/reference_server.py": "b4cbee84111e2f69d1be099855811ff13801964e3a76849aa12b6a389a21544c",
+    "drafts/v0.2/vlmp-unified/independent/__init__.py": "c9d21cc6f60fbaf0bee11facbf1c1db312c04c1e36977794877e2e3dde4bcb9e",
+    "drafts/v0.2/vlmp-unified/independent/_storage.py": "1c5b9fc0b93f585e5cf12789474efb09131ebc70fbfbfdb53fcb5b0a253bbdac",
+    "drafts/v0.2/vlmp-unified/independent/host.py": "8e5022b74a1a49c00b401cd6445ac7e450e8e3ac6c9c0ce9320ed5145890dc1e",
+    "drafts/v0.2/vlmp-unified/independent/tests/test_host_safety.py": "5061f9ca60e0101f8cd86e85ab80803c1cb27f590d226538b1d37a5da6e50a5b",
+    "drafts/v0.2/vlmp-unified/independent/tests/test_protected.py": "a78015b2f84f02153b023ef5d8035f497dddc9546051ea7756e4b53267cfaa18",
+    "drafts/v0.2/vlmp-unified/protected/compare.py": "7166180dcfa134f3c4752139a86bc27e781dfee61922424ca9bc2cab752b173c",
+    "drafts/v0.2/vlmp-unified/reference/runtime.py": "24c332e1eefdf8733c24e960ee7eaf6e0016d5794eed28a74c208ac95ffbd99c",
+    "drafts/v0.2/vlmp-unified/reference/tests/test_protected.py": "c8453c46d424794a3deb9eba162061a3963c1965d5068b3ccbeeff28135408e9",
+    "drafts/v0.2/vlmp-unified/reference/tests/test_reference.py": "e6b9c028e162548b3f8a3adcdcd9094f14917cc142add32f02761f6168ea189a",
+    "drafts/v0.2/vlmp-unified/spec/model-package.schema.json": "abf7246d859cb97ba6cb9e3fec0d39355a6eabf814f9ea17e701124b172cbbe8",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/classifier_a.zip": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/classifier_b.zip": "518c54cb847d337e2f5af503147a9749d0eece46aa8dbad22f44c3fa72e2193b",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/detector.zip": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+    "drafts/v0.2/vlsp-unified-integration/fixtures/pins.json": "97d56d7b4b78a610eaaa8f328e609f6bd242aae647a68d0f6b201057a4408c35"
+  },
+  "environment": {
+    "python": "3.12.0",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "numpy": "1.26.4",
+    "onnxruntime": "1.20.1"
+  },
+  "limitations": [
+    "Ephemeral test keys and local loopback online server, not production PKI",
+    "Synthetic CPU ONNX models; no GPU, RTSP, external license provider or production threat assessment",
+    "The two hosts share the security implementation and ONNX Runtime",
+    "Trusted host process; decrypted data and in-memory model cannot be protected from a hostile administrator"
+  ]
+}

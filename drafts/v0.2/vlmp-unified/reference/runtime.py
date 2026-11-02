@@ -7,11 +7,13 @@ archive extraction or Python imports are needed for the built-in CPU profiles.
 from __future__ import annotations
 
 import copy
+from contextlib import ExitStack
 import hashlib
 import io
 import importlib.util
 import json
 import math
+import os
 from pathlib import Path, PurePosixPath, PureWindowsPath
 import stat
 import sys
@@ -507,8 +509,7 @@ class LegacyModel(_ContextModel):
         self._snapshot.assert_unchanged()
 
 
-def load_package(path):
-    snapshot = ArchiveSnapshot(path)
+def _load_snapshot(snapshot):
     manifest = snapshot.manifest
     if type(manifest) is not dict or manifest.get("format") != "vl.model-package":
         raise PackageError("unsupported package format")
@@ -518,3 +519,155 @@ def load_package(path):
     if version in {"0.2.0-draft.1", "0.2.0-detection-draft.1"}:
         return LegacyModel(snapshot)
     raise PackageError("unsupported package version")
+
+
+def load_package(path):
+    """Load an unprotected ZIP. Protection is explicitly selected by the caller."""
+    return _load_snapshot(ArchiveSnapshot(path))
+
+
+class _ProtectedSnapshot(ArchiveSnapshot):
+    """Snapshot the authenticated extracted payload, retaining its signed ZIP hash.
+
+    The security runtime authenticates the original ZIP and extracts it in a
+    private directory. We do not reconstruct a ZIP or mistake it for the signed
+    original. Each prediction checks that the extracted files remain unchanged.
+    """
+    def __init__(self, authorization):
+        claims = authorization.claims
+        if (type(claims) is not dict or claims.get("package_format") != "vl.model-package"
+                or claims.get("manifest_path") != "model-package.json"):
+            raise PackageError("protected payload is not a VLMP model package")
+        self._path = Path(authorization.root)
+        self._files = self._read_directory()
+        if "model-package.json" not in self._files:
+            raise PackageError("missing protected model manifest")
+        self._manifest_sha256 = digest(self._files["model-package.json"])
+        if self._manifest_sha256 != claims.get("manifest_sha256"):
+            raise PackageError("protected manifest digest mismatch")
+        signed_zip = claims.get("package_sha256")
+        if (type(signed_zip) is not str or len(signed_zip) != 64
+                or any(c not in "0123456789abcdef" for c in signed_zip)
+                or authorization.package_sha256 != signed_zip):
+            raise PackageError("protected package digest mismatch")
+        self._zip_sha256 = signed_zip
+        self._manifest = strict_json(self._files["model-package.json"])
+
+    def _read_directory(self):
+        root = self._path
+        if root.is_symlink() or not root.is_dir():
+            raise PackageError("protected payload directory is invalid")
+        files = {}
+        total = 0
+        def onerror(error):
+            raise PackageError("cannot read protected payload") from error
+        for base, dirs, names in os.walk(root, topdown=True, followlinks=False, onerror=onerror):
+            directory = Path(base)
+            for name in dirs:
+                child = directory / name
+                _name(child.relative_to(root).as_posix())
+                if child.is_symlink() or not child.is_dir():
+                    raise PackageError("invalid protected directory entry")
+            for name in names:
+                path = directory / name
+                relative = _name(path.relative_to(root).as_posix())
+                if path.is_symlink() or not path.is_file():
+                    raise PackageError("invalid protected file entry")
+                if len(files) >= self.MAX_FILES:
+                    raise PackageError("too many protected files")
+                with path.open("rb") as stream:
+                    data = stream.read(self.MAX_FILE + 1)
+                if len(data) > self.MAX_FILE:
+                    raise PackageError("protected file exceeds size limit")
+                total += len(data)
+                if total > self.MAX_TOTAL:
+                    raise PackageError("protected payload exceeds size limit")
+                files[relative] = data
+        return files
+
+    def assert_unchanged(self):
+        if self._read_directory() != self._files:
+            raise PackageError("protected payload changed during execution")
+
+
+class _ProtectedModel:
+    """Own the authorization context until model close and guard each result."""
+    def __init__(self, model, authorization, resources):
+        self._model = model
+        self._authorization = authorization
+        self._resources = resources
+        self._closed = False
+
+    @property
+    def manifest(self): return self._model.manifest
+    @property
+    def profile(self): return self._model.profile
+    @property
+    def snapshot(self): return self._model.snapshot
+    @property
+    def zip_sha256(self): return self._model.zip_sha256
+    @property
+    def manifest_sha256(self): return self._model.manifest_sha256
+    @property
+    def inference_calls(self): return self._model.inference_calls
+
+    def predict(self, image):
+        if self._closed:
+            raise PackageError("model already closed")
+        from vl_exchange_security import ExecutionLease
+        lease = self._authorization.before_process()
+        if not isinstance(lease, ExecutionLease):
+            raise PackageError("verifier did not issue an execution lease")
+        result = self._model.predict(image)
+        lease.assert_current()
+        return result
+
+    def close(self):
+        if self._closed:
+            return
+        self._closed = True
+        try:
+            self._model.close()
+        finally:
+            self._resources.close()
+
+    def __enter__(self):
+        if self._closed:
+            raise PackageError("model already closed")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
+        return False
+
+
+def load_protected(envelope, *, verifier):
+    """Authorize/decrypt a VLMP envelope, load the model, and own its lifetime.
+
+    `verifier` is a trusted callable returning the existing security runtime's
+    authorized_package context manager with the operator's selected policy.
+    Authorization is checked before any ONNX session is built and again after
+    initialization. Every predict captures and rechecks its original lease.
+    """
+    from vl_exchange_security import AuthorizedPackage, ExecutionLease
+    if not callable(verifier):
+        raise PackageError("a trusted protected-package verifier is required")
+    resources = ExitStack()
+    model = None
+    try:
+        authorization = resources.enter_context(verifier(envelope))
+        if not isinstance(authorization, AuthorizedPackage):
+            raise PackageError("verifier did not return an AuthorizedPackage")
+        lease = authorization.before_process()
+        if not isinstance(lease, ExecutionLease):
+            raise PackageError("verifier did not issue an execution lease")
+        model = _load_snapshot(_ProtectedSnapshot(authorization))
+        lease.assert_current()
+        return _ProtectedModel(model, authorization, resources)
+    except BaseException:
+        try:
+            if model is not None:
+                model.close()
+        finally:
+            resources.close()
+        raise

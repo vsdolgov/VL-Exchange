@@ -8,6 +8,8 @@ The [fixtures](fixtures/) include a new scenario package and its model bindings.
 
 The comparison records events, state, model calls and errors for protected offline and online execution, including negative checks. The reports describe the checks actually performed; they do not imply production certification. The model hosts share ONNX Runtime, NumPy and other dependencies. The scenario is synthetic, uses small static CPU inputs and is not a measure of detection quality or production throughput.
 
+
+[A subsequent experiment](model-protected/README.md) runs the same scenario with all three model ZIPs separately protected.
 ## Comparison results
 
 The [summary](reports/comparison.json) and detailed [reference](reports/reference.json) and [VideoPipe](reports/videopipe.json) traces record the macOS arm64 run: 27 suites, 200 commands, 114 frame operations and 53 expected rejections. Both policies matched events, state, ordering, error fields (`stage`, `code`, `fatal`, `retryable`), computed ONNX and tracker traces, lifecycle flags and committed-call counts. Tests cover a wrong model binding, an expired license, online revocation and expiry during processing without a commit. In the latter test both the license and online grant expire; expiry of the grant alone is not isolated.

@@ -12,6 +12,14 @@ The synthetic [classification.zip](examples/classification.zip) and [detection.z
 
 The [verification report in Russian](reports/VERIFICATION.md) and [machine-readable results](reports/comparison.json) record ZIP, ONNX graph and source hashes, each output and negative checks. The separate [reference](reference/tests) and [independent](independent/tests) tests cover path safety, integrity, graph contracts and invalid inputs.
 
+## Protected model delivery
+
+Both hosts support optional protected delivery: `load_protected(envelope, verifier=...)` uses the operator-configured verifier to authenticate execution rights and decrypt the exact original ZIP. Each model has a separate envelope and entitlement. Each `predict` captures an execution lease and rechecks it after inference before releasing a result. Trust keys and policy come from the recipient; the existing `load_package` remains available for unprotected delivery. See the [protected-delivery profile](PROTECTED-DELIVERY.md) for requirements and limits.
+
+The [comparison results](reports/protected-comparison.json) cover the same detector and two classifier ZIPs in offline and online envelopes on both hosts, with ephemeral keys and a local grant server. Rejection cases include wrong keys, modified ciphertext, revocation and expiry during real ONNX execution, including expiry of an online grant while its license remains valid. In this test protocol revocation is reported as `online_unavailable`, so that code alone does not distinguish revocation from service unavailability. The experiment does not demonstrate resistance to a hostile host administrator, hardware key storage or an external production service.
+
+To reproduce with the project dependencies and loopback enabled, run `python drafts/v0.2/vlmp-unified/protected/compare.py --output /tmp/vlmp-protected-comparison.json`.
+
 ## Older packages
 
 Both hosts retain separate paths for the published `0.2.0-draft.1` classification and `0.2.0-detection-draft.1` detection formats. Each host was tested with one previous ZIP of each format; complete compatibility with every valid legacy package is not claimed. The original ZIPs, schemas and loaders remain unchanged. The new hosts apply additional ZIP-path limits; the independent host also limits manifest size and rejects external ONNX tensor data. See [its documentation](independent/README.md). The legacy classification ABI executes publisher-supplied Python and requires a trusted environment; neither host is a sandbox. Historical VLMP 0.1 / CustomModelProtocol with a private SDK is outside this verification.

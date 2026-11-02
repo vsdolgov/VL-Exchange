@@ -2,6 +2,10 @@
 
 English | [Русский](CHANGELOG.ru.md)
 
+## 2026-11-03 — protected VLMP model delivery
+
+Added online and offline protected delivery for VLMP model packages and tests on both hosts. Signatures, execution rights and the original inference lease are checked; the original ZIPs are unchanged. A protected scenario with three protected models was also tested through VideoPipe. See the [profile and results](drafts/v0.2/vlmp-unified/README.md#protected-model-delivery).
+
 ## 2026-11-03 — VLSP and unified VLMP integration experiment
 
 Added a synthetic VLSP scenario bound to unified VLMP detection and classification packages, with a comparison of the reference executor and an independent VideoPipe integration under offline and online scenario protection. The earlier scenario ZIP is unchanged. See the [experiment and its limits](drafts/v0.2/vlsp-unified-integration/README.md).

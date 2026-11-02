@@ -10,6 +10,7 @@ from __future__ import annotations
 import importlib.metadata
 import importlib.util
 import copy
+from contextlib import ExitStack
 import hashlib
 import io
 import math
@@ -228,6 +229,8 @@ class IndependentModel:
     def __init__(self, zip_path):
         self._lock = threading.RLock()
         self._context = unpack(zip_path)
+        self._authorization = None
+        self._authorization_stack = None
         self._root = None
         self._namespace = None
         self._legacy_model = None
@@ -252,6 +255,70 @@ class IndependentModel:
             if isinstance(exc, PackageError):
                 raise
             raise PackageError("model package initialization failed") from exc
+
+    @classmethod
+    def _open_authorized(cls, authorization, stack):
+        """Initialize directly from the verifier's protected, extracted root.
+
+        The signed digest identifies the original ZIP; no reconstructed ZIP is
+        treated as equivalent to that byte sequence.
+        """
+        from vl_exchange_security import ExecutionLease
+        self = cls.__new__(cls)
+        self._lock = threading.RLock()
+        self._context = None
+        self._authorization = authorization
+        self._authorization_stack = stack
+        self._root = Path(authorization.root)
+        self._zip_sha256 = authorization.package_sha256
+        self._archive_path = None
+        self._namespace = None
+        self._legacy_model = None
+        self._session = None
+        self._closed = False
+        self.inference_calls = 0
+        try:
+            lease = authorization.before_process()
+            if not isinstance(lease, ExecutionLease):
+                raise PackageError("verifier did not issue an execution lease")
+            claims = authorization.claims
+            if (claims.get("manifest_path") != "model-package.json"
+                    or claims.get("package_format") != "vl.model-package"
+                    or claims.get("package_sha256") != self._zip_sha256):
+                raise PackageError("protected license is not bound to a VLMP package")
+            manifest_path = self._root / "model-package.json"
+            if manifest_path.is_symlink() or not manifest_path.is_file() or manifest_path.stat().st_size > 1024 * 1024:
+                raise PackageError("missing or oversized protected model manifest")
+            candidate = strict_json(manifest_path.read_bytes())
+            version = candidate.get("spec_version") if isinstance(candidate, dict) else None
+            if version not in _SCHEMAS:
+                raise PackageError("unsupported model package version")
+            self._manifest, self._manifest_sha256 = read_manifest(self._root, _SCHEMAS[version])
+            if self._manifest_sha256 != claims.get("manifest_sha256") or self._manifest.get("format") != claims["package_format"]:
+                raise PackageError("protected model manifest does not match signed license")
+            self._spec_version = version
+            self._initialize()
+            self._assert_protected_integrity()
+            lease.assert_current()
+            return self
+        except BaseException:
+            self._cleanup()
+            raise
+
+    def _assert_protected_integrity(self):
+        manifest, digest = read_manifest(self._root, _SCHEMAS[self._spec_version])
+        if (digest != self._manifest_sha256 or manifest != self._manifest
+                or digest != self._authorization.claims.get("manifest_sha256")):
+            raise PackageError("protected package changed during execution")
+
+    def __enter__(self):
+        if self._closed:
+            raise PackageError("model already closed")
+        return self
+
+    def __exit__(self, exc_type, exc, traceback):
+        self.close()
+        return False
 
     @property
     def manifest(self):
@@ -374,6 +441,20 @@ class IndependentModel:
         with self._lock:
             if self._closed:
                 raise PackageError("model already closed")
+            if self._authorization is not None:
+                from vl_exchange_security import ExecutionLease
+                lease = self._authorization.before_process()
+                if not isinstance(lease, ExecutionLease):
+                    raise PackageError("verifier did not issue an execution lease")
+                self._assert_protected_integrity()
+                try:
+                    result = self._predict_frame(frame)
+                finally:
+                    self._assert_protected_integrity()
+                    # Never renew here: the original in-flight lease must still
+                    # be valid before any result can leave the host.
+                    lease.assert_current()
+                return result
             if archive_digest(self._archive_path) != self._zip_sha256:
                 raise PackageError("archive changed before inference")
             try:
@@ -453,14 +534,46 @@ class IndependentModel:
         self._closed = True
         if self._root is not None:
             self._root = None
-            self._context.__exit__(None, None, None)
+            if self._context is not None:
+                self._context.__exit__(None, None, None)
+        if self._authorization_stack is not None:
+            stack, self._authorization_stack = self._authorization_stack, None
+            stack.close()
+        self._authorization = None
 
     def close(self):
         with self._lock:
             if not self._closed:
-                self._cleanup()
+                try:
+                    if self._authorization is not None:
+                        self._assert_protected_integrity()
+                finally:
+                    # Close the session and erase the authorization's plaintext
+                    # even if the final integrity check detects tampering.
+                    self._cleanup()
 
 
 def load_package(zip_path):
     """Load one ZIP, validating before ONNX or legacy publisher Python is executed."""
     return IndependentModel(zip_path)
+
+
+def load_protected(envelope_path, *, verifier):
+    """Authorize a VLMP envelope before loading its model; own cleanup until close.
+
+    ``verifier`` is trusted host configuration returning a context manager for
+    the security runtime's AuthorizedPackage. Its keys and authorization policy
+    must come from outside the model archive.
+    """
+    from vl_exchange_security import AuthorizedPackage
+    if not callable(verifier):
+        raise PackageError("a trusted protected-package verifier is required")
+    stack = ExitStack()
+    try:
+        authorization = stack.enter_context(verifier(Path(envelope_path)))
+        if not isinstance(authorization, AuthorizedPackage):
+            raise PackageError("verifier did not return an AuthorizedPackage")
+        return IndependentModel._open_authorized(authorization, stack)
+    except BaseException:
+        stack.close()
+        raise
