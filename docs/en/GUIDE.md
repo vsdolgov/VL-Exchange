@@ -1,12 +1,12 @@
 # VL Exchange practical guide
 
-**Draft / Experimental · [Русский](../ru/GUIDE.md)**
+**Guide to the final VL Exchange project specifications · [Русский](../ru/GUIDE.md)**
 
-This guide shows how to package a model or scenario and connect it to a receiving platform. The examples are synthetic and run locally.
+This guide shows how to package a model or scenario and connect it to a receiving platform. The examples below use the classification profile's final project specification and the legacy VLSP 0.1 interface; they are synthetic and run locally. The model's wire identifier remains pre-release, and the implementations remain prototypes. For the distinct multi-model interface, see [VLSP 0.2](../../drafts/v0.2/scenario/spec/SPECIFICATION.md). Final project status does not establish industry approval, production readiness or support by third-party platforms.
 
 ## Exporting a model
 
-First choose a supported profile. The original VLMP 0.1 requires `CustomModelProtocol` and its SDK. The public profile 0.2.0-draft.1 is a separate proposal that does not require a private SDK. They are not interchangeable. Start with the [synthetic example](../../model/examples/channel-classifier) and its [interface specification](../../model/spec/SPECIFICATION.en.md).
+First choose a supported profile. The original VLMP 0.1 requires `CustomModelProtocol` and its SDK. The public classification specification retains the pre-release wire identifier `0.2.0-draft.1` for compatibility and does not require a private SDK. The `draft` fragment is part of the identifier, not the current document status. These profiles are not interchangeable. Start with the [synthetic example](../../model/examples/channel-classifier) and its [interface specification](../../model/spec/SPECIFICATION.en.md).
 
 To prepare a package:
 
@@ -58,7 +58,7 @@ The receiving platform needs an adapter to prepare inputs, run the package and h
 
 ## Attribution and branding
 
-Add the optional `org.vl-exchange.attribution` extension to a VLMP or VLSP manifest to describe the publisher and one or more model or scenario authors. A supporting host validates and carries the declaration, and may present it in a live view, a derived video or a separate analytics export. Older hosts may ignore the extension. See the [experimental profile](ATTRIBUTION.md) for the schema, policy, offline operation and trust boundaries.
+Add the optional `org.vl-exchange.attribution` extension to a VLMP or VLSP manifest to describe the publisher and one or more model or scenario authors. A supporting host validates and carries the declaration, and may present it in a live view, a derived video or a separate analytics export. Older hosts may ignore the extension. See the [Attribution & Branding profile](ATTRIBUTION.md) for the schema, policy, offline operation and trust boundaries. The specification's final project status does not establish support by third-party hosts.
 
 ## Protected end-to-end example
 

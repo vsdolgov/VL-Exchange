@@ -18,6 +18,6 @@ Run the same package on two independently implemented hosts. Keep the files and 
 
 Do not publish commercial model weights, customer data, private SDKs, license keys, or third-party code without redistribution rights. You do not have to disclose your commercial implementation to contribute.
 
-The exchange specifications are intended to form an open standard without a commercial license. The final licenses for project materials and contributions are still awaiting approval; publishing the drafts does not itself grant rights.
+The exchange specifications are intended to form an open standard without a commercial license. The final licenses for project materials and contributions are still awaiting approval; publication does not itself grant rights.
 
 See [change governance](docs/governance/GOVERNANCE.en.md), [the first partner pilot](docs/governance/PILOT.en.md), and the [license proposal](docs/governance/LICENSE-PROPOSAL.en.md).

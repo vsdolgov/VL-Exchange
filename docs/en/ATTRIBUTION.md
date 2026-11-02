@@ -1,18 +1,18 @@
 # Attribution & Branding profile
 
-**Draft / Experimental · [Русский](../ru/ATTRIBUTION.md)**
+**Final project edition · 2026-11-03 · [Русский](../ru/ATTRIBUTION.md)**
 
 An optional profile for retaining a model or scenario developer's identity as a package travels between platforms. A publisher can describe its own identity, separate model and scenario authors, a preferred credit, and display preferences. For example, a receiving platform can show `Analytics by Detector Lab` or include the authors in an export. The platform vendor is a separate party and must not be represented as the model or scenario author unless that is actually true. Multiple authors are supported.
 
 ## Status and scope
 
-This profile is an experiment, not an approved industry standard. The package contains a declaration; a receiving platform must implement the profile to validate, display or propagate it. An older host can ignore the optional extension and continue to run the base package. Therefore an author who requires attribution must check the receiving platform's capabilities and applicable license before distribution. No claim is made that another vendor's platform supports this profile or that a host cannot disable attribution.
+This is a final project edition, not an approved industry standard or a claim of production readiness. The package contains a declaration; a receiving platform must implement the profile to validate, display or propagate it. An older host can ignore the optional extension and continue to run the base package. Therefore an author who requires attribution must check the receiving platform's capabilities and applicable license before distribution. No claim is made that another vendor's platform supports this profile or that a host cannot disable attribution.
 
 The exchange specifications are intended to be open without a commercial license. The legal licenses for this project's specifications, schemas and code remain pending; publication alone grants no proposed rights. A model or scenario can have its own terms. See the [license proposal](../governance/LICENSE-PROPOSAL.en.md).
 
 ## Declaration in a VLMP or VLSP manifest
 
-Use the existing `extensions` object and the key `org.vl-exchange.attribution`. Its envelope uses `required: false` so hosts unaware of this experimental extension remain compatible. The base package versions and core event schemas are unchanged. A package without attribution remains valid. When present, a supporting host validates `data` against [attribution.schema.json](../../attribution/attribution.schema.json) as well as the package's normal manifest, inventory and security requirements.
+Use the existing `extensions` object and the key `org.vl-exchange.attribution`. Its envelope uses `required: false` so hosts unaware of this extension remain compatible. The base package versions and core event schemas are unchanged. A package without attribution remains valid. When present, a supporting host validates `data` against [attribution.schema.json](../../attribution/attribution.schema.json) as well as the package's normal manifest, inventory and security requirements.
 
 ```json
 {

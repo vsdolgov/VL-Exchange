@@ -1,8 +1,8 @@
 # VL Exchange
 
-**An experimental proposal by VL · English | [Русский](README.ru.md)**
+**A VL initiative · English | [Русский](README.ru.md)**
 
-VL Exchange is a project developing an **open standard for exchanging video analytics models and scenarios** between compatible platforms. This repository contains draft specifications, reference implementations, examples and tests.
+VL Exchange is a project developing an **open standard for exchanging video analytics models and scenarios** between compatible platforms. This repository contains the project's final specifications, reference implementations, examples and tests; individual prototypes and other documents may still be experimental.
 
 Our goal: a developer can sell a solution on any compatible platform, a customer can choose a platform without losing analytics already paid for, and an integrator can transfer a working solution instead of building it again. Portability also depends on the solution owner's license.
 
@@ -22,11 +22,11 @@ AI can help developers understand another platform and write adapters. Shared ex
 
 **VLMP (VL Model Package)** packages a model, its dependencies, data processing, result descriptions and test examples. **VLSP (VL Scenario Package)** packages executable scenario logic with its inputs, parameters, state and events. An adapter can be implemented independently; a VL runtime, cloud or visual editor is not required. The separate internal VL block format VLBP is not part of the public exchange interface.
 
-VL Exchange complements ONNX, RTSP and ONVIF: those technologies address model computation, video transport and device interoperability; the proposed packages add application-level information needed to run the solution.
+VL Exchange complements ONNX, RTSP and ONVIF: those technologies address model computation, video transport and device interoperability; the packages add application-level information needed to run the solution.
 
 ## Attribution and branding
 
-An optional experimental profile lets a model or scenario package describe its publisher, authors, preferred credit and display policy. A receiving platform that supports it can carry this information in analytics exports and show a credit such as `Analytics by Detector Lab` on a live view or a derived video. Different model, scenario and platform authors remain distinct. The profile works without a network connection; an older host may ignore it. Support by third-party platforms is not yet established. See the [Attribution & Branding profile](docs/en/ATTRIBUTION.md).
+An optional profile, finalized within VL Exchange, lets a model or scenario package describe its publisher, authors, preferred credit and display policy. A receiving platform that supports it can carry this information in analytics exports and show a credit such as `Analytics by Detector Lab` on a live view or a derived video. Different model, scenario and platform authors remain distinct. The profile works without a network connection; an older host may ignore it. Support by third-party platforms is not yet established. See the [Attribution & Branding profile](docs/en/ATTRIBUTION.md).
 
 ## A real example in this repository
 
@@ -36,12 +36,14 @@ The same idea can later describe other scenarios, such as a person in a zone, af
 
 ## What is available today
 
-- Draft VLMP and VLSP specifications and synthetic examples can be examined and tested locally.
+- The VL Exchange project has finalized VLSP 0.2 and the separate VLMP classification and detection profiles. Their specifications and synthetic examples can be examined and tested locally.
 - Local tests exercise two separately implemented hosts. The public VLMP example uses the same ONNX Runtime in both; the historical Box 5 pilot used a different VLMP profile.
 - A protected-delivery prototype tests signatures, encryption and online/offline execution rights with a local test service. It is not a sandbox or a production license server.
-- The [0.2 drafts](drafts/v0.2/README.md) add a multi-model VLSP scenario, optional asynchronous MLLM and input-queue profiles, and a separate VLMP detection draft. VideoPipe is used as an example of another execution environment to demonstrate the portability of the approach; the comparison covered the synchronous scenario, not asynchronous MLLM. All remain experimental.
+- The [VLSP 0.2 release](drafts/v0.2/README.md) describes a multi-model scenario, optional asynchronous MLLM and input-queue profiles, and a separate VLMP detection profile. VideoPipe is an example of another execution environment used to demonstrate portability; the comparison covered the synchronous scenario, not asynchronous MLLM. The prototypes and pilot remain experimental.
 
-This proposal is **not an approved industry standard**, and compatibility with other vendors' platforms has not been tested. The public VLMP classification profile `0.2.0-draft.1` has not been tested with Box 5 and does not inherit the earlier 0.1 pilot's result. The VLSP 0.2 draft describes tracker services, but does not claim support for arbitrary models, GPUs, trackers or all video analytics. See the [compatibility matrix](docs/en/COMPATIBILITY.md) for profiles, tests and limits.
+These specifications are final within VL Exchange; they are **not an approved industry standard**, and compatibility with other vendors' platforms has not been tested. The public VLMP classification profile `0.2.0-draft.1` has not been tested with Box 5 and does not inherit the earlier 0.1 pilot's result. VLSP 0.2 describes tracker services, but does not claim support for arbitrary models, GPUs, trackers or all video analytics. The `draft` fragments in the existing classification and detection wire identifiers remain unchanged for compatibility; they do not indicate the current status of their specification documents. See the [compatibility matrix](docs/en/COMPATIBILITY.md) for profiles, tests and limits.
+
+The [specification release note](docs/governance/SPECIFICATION-RELEASE-2026-11-03.en.md) records its scope, retained pre-release format identifiers, evidence and outstanding checks.
 
 ## Try the examples
 
@@ -73,10 +75,10 @@ Both checks print a JSON report containing `"status": "pass"` on success. The fi
 |---|---|---|
 | Public VLMP: exact contract | [Specification](model/spec/SPECIFICATION.en.md) | [Спецификация](model/spec/SPECIFICATION.ru.md) |
 | VLSP: code, state, events | [Specification](scenario/spec/SPECIFICATION.en.md) | [Спецификация](scenario/spec/SPECIFICATION.md) |
-| VLSP 0.2 and VLMP detection drafts | [Overview](drafts/v0.2/README.md) | [Обзор](drafts/v0.2/README.ru.md) |
+| VLSP 0.2 and VLMP detection specifications | [Overview](drafts/v0.2/README.md) | [Обзор](drafts/v0.2/README.ru.md) |
 | Create a package and platform adapter | [Guide](docs/en/GUIDE.md) | [Руководство](docs/ru/GUIDE.md) |
 | Compatibility and results | [Matrix](docs/en/COMPATIBILITY.md) | [Матрица](docs/ru/COMPATIBILITY.md) |
-| Attribution & Branding | [Experimental profile](docs/en/ATTRIBUTION.md) | [Профиль](docs/ru/ATTRIBUTION.md) |
+| Attribution & Branding | [Profile](docs/en/ATTRIBUTION.md) | [Профиль](docs/ru/ATTRIBUTION.md) |
 | Protection and licensing | [Profile](docs/security/SPECIFICATION.en.md) | [Профиль](docs/security/SPECIFICATION.ru.md) |
 | Threat model | [Limitations](docs/security/THREAT-MODEL.en.md) | [Ограничения](docs/security/THREAT-MODEL.ru.md) |
 | Development rules | [Governance](docs/governance/GOVERNANCE.en.md) | [Governance](docs/governance/GOVERNANCE.ru.md) |

@@ -1,6 +1,8 @@
 # Compatibility and evidence
 
-**2026-11-01 · Draft / Experimental · [Русский](../ru/COMPATIBILITY.md)**
+**Historical test matrix as of 2026-11-01 · [Русский](../ru/COMPATIBILITY.md)**
+
+This page records the scope and results known on that date. For VLSP 0.2, the separate detection profile and later test results, see the [0.2 overview](../../drafts/v0.2/README.md). Finalization of a project specification does not retroactively expand any test result or establish industry adoption.
 
 A normative specification states a requirement; a report records an actual run. “Prepared” does not mean “verified,” and two local hosts are not two vendor platforms.
 

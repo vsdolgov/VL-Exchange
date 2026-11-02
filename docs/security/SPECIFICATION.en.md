@@ -1,8 +1,8 @@
 # VL Exchange Security 0.1 — protected delivery
 
-[Русский](SPECIFICATION.ru.md) · Draft / Experimental · 2026-11-01
+[Русский](SPECIFICATION.ru.md) · Final project edition · 2026-11-03
 
-An open interface does not require authors to disclose source code or weights. This profile defines encrypted VLMP/VLSP delivery and execution authorization; the public library is a test prototype. VL's internal block format is outside the cross-vendor interface.
+An open interface does not require authors to disclose source code or weights. This final project edition defines encrypted VLMP/VLSP delivery and execution authorization; the public library is a test prototype. Final project status does not imply industry approval or production readiness. VL's internal block format is outside the cross-vendor interface.
 
 ## 1. Trust and scope
 

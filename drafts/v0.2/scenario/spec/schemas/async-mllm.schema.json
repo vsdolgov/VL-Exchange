@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:vl-exchange:scenario-async-mllm:0.2.0-draft",
   "title": "VLSP async MLLM optional profile message definitions",
-  "description": "Draft shapes. Semantic identity, text/image presence, temporal and auth invariants require host validation; standalone reference prototype does not yet implement this full schema.",
+  "description": "Message shapes for the VL Exchange async MLLM profile. Semantic identity, text/image presence, temporal and auth invariants require host validation; the reference prototype does not yet implement the full profile.",
   "$defs": {
     "namespace": {
       "type": "object",
