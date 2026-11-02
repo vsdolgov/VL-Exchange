@@ -1,0 +1,182 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "host_id",
+    "contracts",
+    "capabilities",
+    "model_profiles",
+    "tracker_implementations",
+    "delivery_modes",
+    "data_semantics",
+    "limits"
+  ],
+  "properties": {
+    "format": {
+      "const": "vlsp.host-capabilities"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "host_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "spec_version",
+          "contract"
+        ],
+        "properties": {
+          "spec_version": {
+            "const": "0.2.0"
+          },
+          "contract": {
+            "const": "python-scenario-services-json-v1"
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+      "uniqueItems": true
+    },
+    "model_profiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "profile"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "detection",
+              "classification"
+            ]
+          },
+          "profile": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "tracker_implementations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "implementation",
+          "version"
+        ],
+        "properties": {
+          "implementation": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "delivery_modes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "development",
+          "offline",
+          "online"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "data_semantics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "semantic_id",
+          "version",
+          "attributes"
+        ],
+        "properties": {
+          "semantic_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "attributes": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            }
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_frame_width",
+        "max_frame_height"
+      ],
+      "properties": {
+        "max_frame_width": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "max_frame_height": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:host-capabilities:1.0.0"
+}

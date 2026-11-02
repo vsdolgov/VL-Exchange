@@ -2,6 +2,10 @@
 
 English | [Русский](CHANGELOG.ru.md)
 
+## 2026-11-02 — VLSP 0.2 and detection drafts
+
+Added experimental VLSP 0.2 specifications for multiple model and tracker services, error/lifecycle rules, optional input queues and asynchronous MLLM jobs. Added a separate VLMP detection draft, synthetic examples, selected reference components and tests. The historical VideoPipe and queue comparison is recorded with its limitations; it does not establish async support in VideoPipe or production performance. Detection and the earlier classification proposal have different draft identifiers and schemas. See the [0.2 overview](drafts/v0.2/README.md).
+
 ## 2026-11-01 — Draft / Experimental publication candidate
 
 Prepared a standalone bilingual repository. VLSP0.1 and the common security profile were curated without private platform source; the public security API defaults to a scenario manifest. Added **proposed** VLMP0.2.0-draft.1 / python-numpy-classification-v1 for reproduction without a private SDK; it neither replaces VLMP0.1 nor has been tested with Box5. Added two independent model hosts, two scenario hosts, synthetic ZIPs, conformance/security tests, actual inference→protected scenario integration and GitHub Actions. Publication of the material set in vsdolgov/VL-Exchange is approved; licenses and patent policy remain pending. README links the repository to the published initiative, technical portal and article.

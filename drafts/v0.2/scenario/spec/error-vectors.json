@@ -1,0 +1,162 @@
+{
+  "format": "vlsp.error-vectors",
+  "version": "0.2.0",
+  "vectors": [
+    {
+      "id": "missing-model",
+      "phase": "open",
+      "expected_error": {
+        "stage": "requirements",
+        "code": "dependency_missing",
+        "message": "diagnostic text; not compared",
+        "fatal": false,
+        "retryable": false
+      },
+      "instance_after": "not-created",
+      "commit": false
+    },
+    {
+      "id": "wrong-model-digest",
+      "phase": "open",
+      "expected_error": {
+        "stage": "requirements",
+        "code": "model_link_mismatch",
+        "message": "diagnostic text; not compared",
+        "fatal": false,
+        "retryable": false
+      },
+      "instance_after": "not-created",
+      "commit": false
+    },
+    {
+      "id": "invalid-order",
+      "phase": "before-process",
+      "expected_error": {
+        "stage": "input",
+        "code": "input_order",
+        "message": "diagnostic text; not compared",
+        "fatal": false,
+        "retryable": false
+      },
+      "instance_after": "ready",
+      "commit": false
+    },
+    {
+      "id": "invalid-input",
+      "phase": "before-process",
+      "expected_error": {
+        "stage": "input",
+        "code": "input_contract",
+        "message": "diagnostic text; not compared",
+        "fatal": false,
+        "retryable": false
+      },
+      "instance_after": "ready",
+      "commit": false
+    },
+    {
+      "id": "bad-detector-response",
+      "phase": "process",
+      "expected_error": {
+        "stage": "execution",
+        "code": "service_contract",
+        "message": "diagnostic text; not compared",
+        "fatal": true,
+        "retryable": false
+      },
+      "instance_after": "failed",
+      "commit": false
+    },
+    {
+      "id": "model-throws",
+      "phase": "process",
+      "expected_error": {
+        "stage": "execution",
+        "code": "service_failed",
+        "message": "diagnostic text; not compared",
+        "fatal": true,
+        "retryable": false
+      },
+      "instance_after": "failed",
+      "commit": false
+    },
+    {
+      "id": "mutated-input",
+      "phase": "process",
+      "expected_error": {
+        "stage": "input",
+        "code": "input_mutation",
+        "message": "diagnostic text; not compared",
+        "fatal": true,
+        "retryable": false
+      },
+      "instance_after": "failed",
+      "commit": false
+    },
+    {
+      "id": "bad-event",
+      "phase": "process",
+      "expected_error": {
+        "stage": "output",
+        "code": "event_contract",
+        "message": "diagnostic text; not compared",
+        "fatal": true,
+        "retryable": false
+      },
+      "instance_after": "failed",
+      "commit": false
+    },
+    {
+      "id": "bad-state",
+      "phase": "process",
+      "expected_error": {
+        "stage": "state",
+        "code": "state_contract",
+        "message": "diagnostic text; not compared",
+        "fatal": true,
+        "retryable": false
+      },
+      "instance_after": "failed",
+      "commit": false
+    },
+    {
+      "id": "expired-lease",
+      "phase": "before-commit",
+      "expected_error": {
+        "stage": "security",
+        "code": "authorization_failed",
+        "message": "diagnostic text; not compared",
+        "fatal": false,
+        "retryable": true
+      },
+      "instance_after": "ready",
+      "commit": false
+    },
+    {
+      "id": "process-after-failure",
+      "phase": "process",
+      "expected_error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "message": "diagnostic text; not compared",
+        "fatal": true,
+        "retryable": false
+      },
+      "instance_after": "failed",
+      "commit": false
+    },
+    {
+      "id": "process-after-close",
+      "phase": "process",
+      "expected_error": {
+        "stage": "lifecycle",
+        "code": "lifecycle",
+        "message": "diagnostic text; not compared",
+        "fatal": false,
+        "retryable": false
+      },
+      "instance_after": "closed",
+      "commit": false
+    }
+  ]
+}

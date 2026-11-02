@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object", "additionalProperties":false,
+  "required":["format","spec_version","model_id","version","files","profile","source_input","result","golden"],
+  "properties":{
+    "format":{"const":"vl.model-package"}, "spec_version":{"const":"0.2.0-detection-draft.1"},
+    "model_id":{"type":"string","pattern":"^[a-z][a-z0-9-]*(?:\\.[a-z0-9-]+)+$"},
+    "version":{"type":"string","pattern":"^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "files":{"type":"object","minProperties":1,"additionalProperties":{"type":"string","pattern":"^[a-f0-9]{64}$"}},
+    "profile":{"type":"object","additionalProperties":false,"required":["id","weights","input_name","output_boxes","output_scores","output_classes","input_shape","max_detections","threshold","categories"],"properties":{
+      "id":{"const":"detection-onnx-cpu-v1"},"weights":{"type":"string","minLength":1},
+      "input_name":{"type":"string","minLength":1},"output_boxes":{"type":"string","minLength":1},"output_scores":{"type":"string","minLength":1},"output_classes":{"type":"string","minLength":1},
+      "input_shape":{"type":"array","prefixItems":[{"const":1},{"const":3},{"type":"integer","minimum":1,"maximum":8192},{"type":"integer","minimum":1,"maximum":8192}],"items":false,"minItems":4,"maxItems":4},
+      "max_detections":{"type":"integer","minimum":1,"maximum":1000},"threshold":{"type":"number","minimum":0,"maximum":1},
+      "categories":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["category_id","label"],"properties":{"category_id":{"type":"integer","minimum":0},"label":{"type":"string","minLength":1}}}}
+    }},
+    "source_input":{"type":"object","additionalProperties":false,"required":["dtype","layout","color_space","shape"],"properties":{"dtype":{"const":"uint8"},"layout":{"const":"HWC"},"color_space":{"const":"BGR"},"shape":{"type":"array","prefixItems":[{"type":"integer","minimum":1,"maximum":8192},{"type":"integer","minimum":1,"maximum":8192},{"const":3}],"items":false,"minItems":3,"maxItems":3}}},
+    "result":{"const":{"type":"vl.detections.v1","bbox_space":"normalized-xyxy-source-frame","object_id_scope":"one-inference-result"}},
+    "golden":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["input","expected"],"properties":{
+      "input":{"type":"string","minLength":1}, "expected":{"type":"object"}
+    }}}
+  }
+}

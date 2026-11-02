@@ -1,0 +1,127 @@
+{
+  "format": "vl.model-package",
+  "spec_version": "0.2.0-detection-draft.1",
+  "model_id": "org.vlexchange.examples.color-detector",
+  "version": "1.0.0",
+  "files": {
+    "artifacts/detector.onnx": "6b1d0aa8d6cd61470f5127e050a9304accc401f65ddf3ee6e2a265845ad8d69f",
+    "golden/both.npy": "ccef8e398a3e051857f9b7bf7985cef156ebc134cf0c4d95019d17ef70115543",
+    "golden/left.npy": "7277b86781ff95a97d0af46c34b47ebf75c22ebedc1568816a95680c1009cd7f",
+    "golden/none.npy": "de3f46b5afbd14b0bfea19f08c8febf9398469334a784c47750494cf1c697fea",
+    "golden/right.npy": "7c56373aaf9275c2aac584c2825ed8693a1c50f4613eaec2b35fc14fe695e972"
+  },
+  "profile": {
+    "id": "detection-onnx-cpu-v1",
+    "weights": "artifacts/detector.onnx",
+    "input_name": "images",
+    "output_boxes": "boxes",
+    "output_scores": "scores",
+    "output_classes": "classes",
+    "input_shape": [
+      1,
+      3,
+      2,
+      4
+    ],
+    "max_detections": 2,
+    "threshold": 0.2,
+    "categories": [
+      {
+        "category_id": 1,
+        "label": "person"
+      }
+    ]
+  },
+  "source_input": {
+    "dtype": "uint8",
+    "layout": "HWC",
+    "color_space": "BGR",
+    "shape": [
+      2,
+      4,
+      3
+    ]
+  },
+  "result": {
+    "type": "vl.detections.v1",
+    "bbox_space": "normalized-xyxy-source-frame",
+    "object_id_scope": "one-inference-result"
+  },
+  "golden": [
+    {
+      "input": "golden/none.npy",
+      "expected": {
+        "detections": []
+      }
+    },
+    {
+      "input": "golden/left.npy",
+      "expected": {
+        "detections": [
+          {
+            "object_id": "0",
+            "label": "person",
+            "category_id": 1,
+            "score": 0.8999999761581421,
+            "bbox": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "golden/right.npy",
+      "expected": {
+        "detections": [
+          {
+            "object_id": "1",
+            "label": "person",
+            "category_id": 1,
+            "score": 0.8999999761581421,
+            "bbox": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "golden/both.npy",
+      "expected": {
+        "detections": [
+          {
+            "object_id": "0",
+            "label": "person",
+            "category_id": 1,
+            "score": 0.8999999761581421,
+            "bbox": [
+              0.0,
+              0.0,
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "object_id": "1",
+            "label": "person",
+            "category_id": 1,
+            "score": 0.8999999761581421,
+            "bbox": [
+              0.5,
+              0.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -39,8 +39,9 @@ The same idea can later describe other scenarios, such as a person in a zone, af
 - Draft VLMP and VLSP specifications and synthetic examples can be examined and tested locally.
 - Local tests exercise two separately implemented hosts. The public VLMP example uses the same ONNX Runtime in both; the historical Box 5 pilot used a different VLMP profile.
 - A protected-delivery prototype tests signatures, encryption and online/offline execution rights with a local test service. It is not a sandbox or a production license server.
+- The [0.2 drafts](drafts/v0.2/README.md) add a multi-model VLSP scenario, optional asynchronous MLLM and input-queue profiles, and a separate VLMP detection draft. VideoPipe is used as an example of another execution environment to demonstrate the portability of the approach; the comparison covered the synchronous scenario, not asynchronous MLLM. All remain experimental.
 
-This proposal is **not an approved industry standard**, and compatibility with other vendors' platforms has not been tested. The public VLMP profile `0.2.0-draft.1` has not been tested with Box 5 and does not inherit the earlier 0.1 pilot's result. It does not claim support for arbitrary models, GPUs, tracks or all video analytics. See the [compatibility matrix](docs/en/COMPATIBILITY.md) for profiles, tests and limits.
+This proposal is **not an approved industry standard**, and compatibility with other vendors' platforms has not been tested. The public VLMP classification profile `0.2.0-draft.1` has not been tested with Box 5 and does not inherit the earlier 0.1 pilot's result. The VLSP 0.2 draft describes tracker services, but does not claim support for arbitrary models, GPUs, trackers or all video analytics. See the [compatibility matrix](docs/en/COMPATIBILITY.md) for profiles, tests and limits.
 
 ## Try the examples
 
@@ -72,6 +73,7 @@ Both checks print a JSON report containing `"status": "pass"` on success. The fi
 |---|---|---|
 | Public VLMP: exact contract | [Specification](model/spec/SPECIFICATION.en.md) | [Спецификация](model/spec/SPECIFICATION.ru.md) |
 | VLSP: code, state, events | [Specification](scenario/spec/SPECIFICATION.en.md) | [Спецификация](scenario/spec/SPECIFICATION.md) |
+| VLSP 0.2 and VLMP detection drafts | [Overview](drafts/v0.2/README.md) | [Обзор](drafts/v0.2/README.ru.md) |
 | Create a package and platform adapter | [Guide](docs/en/GUIDE.md) | [Руководство](docs/ru/GUIDE.md) |
 | Compatibility and results | [Matrix](docs/en/COMPATIBILITY.md) | [Матрица](docs/ru/COMPATIBILITY.md) |
 | Attribution & Branding | [Experimental profile](docs/en/ATTRIBUTION.md) | [Профиль](docs/ru/ATTRIBUTION.md) |

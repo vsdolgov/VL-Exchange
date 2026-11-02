@@ -1,0 +1,272 @@
+{
+  "format": "vl.scenario-package",
+  "spec_version": "0.2.0",
+  "scenario_id": "org.vlexchange.examples.async-mllm-cascade",
+  "name": "async-mllm-cascade",
+  "version": "1.0.0",
+  "description": "Untrained local ONNX cascade and an asynchronously bound MLLM; synthetic test only.",
+  "entrypoint": {
+    "root": "code",
+    "module": "scenario.py",
+    "class": "Scenario",
+    "contract": "python-scenario-services-json-v1"
+  },
+  "files": {
+    "code/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "code/scenario.py": "7bc28bce0032c4cf5f2f1e0a5f1ec7808470e3a361ed78b29baaa008d436d999",
+    "golden/basic.json": "f77da6138bd020b14c3ef6f850db19a4b5611469eaca4068977d643ad90ff6c1"
+  },
+  "runtime": {
+    "python_version_specifier": ">=3.12,<4"
+  },
+  "input_contract": {
+    "name": "frame",
+    "message_type": "vl.frame-ref.v1",
+    "clock_domain": "unix-utc-ms"
+  },
+  "event_contract": {
+    "identity": "sha256-scenario-run-v1",
+    "types": [
+      {
+        "event_type": "org.vlexchange.example.mllm-result.v1",
+        "payload_schema": {
+          "type": "object",
+          "required": [
+            "original_frame_id",
+            "track_id",
+            "color"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "original_frame_id": {
+              "type": "string"
+            },
+            "track_id": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "parameters": {
+    "target_label": {
+      "type": "string",
+      "default": "red"
+    },
+    "min_count": {
+      "type": "integer",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "deadline_ms": {
+      "type": "integer",
+      "default": 1924992000000,
+      "minimum": 1
+    }
+  },
+  "state": {
+    "scope": "instance-source-run",
+    "initial": {
+      "tracker": {
+        "next_id": 1,
+        "tracks": {}
+      },
+      "streaks": {},
+      "pending": {},
+      "answers": {}
+    },
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tracker",
+        "streaks",
+        "pending",
+        "answers"
+      ],
+      "properties": {
+        "tracker": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "next_id",
+            "tracks"
+          ],
+          "properties": {
+            "next_id": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "tracks": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            }
+          }
+        },
+        "streaks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000
+          }
+        },
+        "pending": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "frame_id",
+              "track_id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "frame_id": {
+                "type": "string"
+              },
+              "track_id": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "answers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "frame_id",
+              "track_id",
+              "status",
+              "color"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "frame_id": {
+                "type": "string"
+              },
+              "track_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ordering": {
+    "sequence": "strictly-increasing-per-source-run",
+    "event_time": "nondecreasing-per-source-run",
+    "unit": "milliseconds"
+  },
+  "limits": {
+    "max_process_ms": 60000,
+    "max_input_bytes": 65536,
+    "max_state_bytes": 65536,
+    "max_events_per_call": 16,
+    "max_event_bytes": 65536,
+    "max_model_calls": 8,
+    "max_tracker_calls": 1
+  },
+  "dependencies": [],
+  "models": [
+    {
+      "alias": "detector",
+      "kind": "detection",
+      "manifest_sha256": "b8a9cc09d367a10e9c0dc1ee50fa9004f3b1aab3716bcee98b6c84b51df579e7",
+      "profile": "detection-onnx-cpu-v1",
+      "required": true
+    },
+    {
+      "alias": "classifier_a",
+      "kind": "classification",
+      "manifest_sha256": "abcb2f3b91250490bdf4716c48f0e05ef1c9df11c48baf2d463865bd1413b315",
+      "profile": "python-numpy-classification-v1",
+      "required": true
+    },
+    {
+      "alias": "classifier_b",
+      "kind": "classification",
+      "manifest_sha256": "384947b8e6707c5c036b217bfc08b9b2e395ed181c95f36f7e33190ed86b66aa",
+      "profile": "python-numpy-classification-v1",
+      "required": true
+    }
+  ],
+  "trackers": [
+    {
+      "alias": "tracker",
+      "implementation": "org.vlexchange.demo.greedy-iou",
+      "version": "1.0.0",
+      "required": true
+    }
+  ],
+  "required_capabilities": [
+    "python-scenario-services-json-v1",
+    "frame-ref-v1",
+    "model-inference-v1",
+    "pure-tracker-v1",
+    "event-json-v1",
+    "source-run-state-v1",
+    "event-id-sha256-v1",
+    "async-mllm-v1"
+  ],
+  "golden": {
+    "atol": 0,
+    "rtol": 0,
+    "sequences": [
+      {
+        "id": "basic",
+        "path": "golden/basic.json"
+      }
+    ]
+  },
+  "delivery": {
+    "production": "vl.exchange.protected",
+    "version": "0.1.0",
+    "plaintext": "development-only"
+  },
+  "extensions": {
+    "org.vlexchange.async-mllm.v1": {
+      "required": true,
+      "data": {
+        "models": [
+          {
+            "alias": "vision",
+            "model_id": "qwen3.8-27b",
+            "revision": "alex-levashov/mgsn_qwen3-8-27b-sft-lora-merged-awq_v1.15.0",
+            "model_digest": null,
+            "input_types": [
+              "text",
+              "image"
+            ],
+            "output_types": [
+              "structured"
+            ],
+            "max_input_bytes": 65536,
+            "max_output_bytes": 65536
+          }
+        ]
+      }
+    }
+  }
+}

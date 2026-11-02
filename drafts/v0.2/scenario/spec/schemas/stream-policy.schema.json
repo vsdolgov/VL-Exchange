@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:stream-policy:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "source_id",
+    "run_id",
+    "max_queue_frames",
+    "overload_policy",
+    "max_wait_ms",
+    "on_end"
+  ],
+  "properties": {
+    "format": {
+      "const": "vlsp.stream-policy"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "max_queue_frames": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "overload_policy": {
+      "enum": [
+        "block",
+        "drop_oldest",
+        "drop_newest"
+      ]
+    },
+    "max_wait_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "on_end": {
+      "enum": [
+        "drain",
+        "discard"
+      ]
+    }
+  }
+}

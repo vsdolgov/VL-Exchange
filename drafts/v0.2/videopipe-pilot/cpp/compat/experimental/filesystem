@@ -1,0 +1,5 @@
+#pragma once
+// Portability bridge for upstream VideoPipe's pre-C++17 filesystem spelling.
+// No VideoPipe runtime implementation is replaced by this header.
+#include <filesystem>
+namespace std { namespace experimental { namespace filesystem = ::std::filesystem; } }

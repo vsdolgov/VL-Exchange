@@ -1,0 +1,316 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stage",
+    "code",
+    "message",
+    "fatal",
+    "retryable"
+  ],
+  "properties": {
+    "stage": {
+      "enum": [
+        "manifest",
+        "requirements",
+        "integrity",
+        "parameters",
+        "input",
+        "output",
+        "state",
+        "execution",
+        "lifecycle",
+        "golden",
+        "security"
+      ]
+    },
+    "code": {
+      "enum": [
+        "manifest_invalid",
+        "version_unsupported",
+        "capability_missing",
+        "dependency_missing",
+        "dependency_mismatch",
+        "model_link_mismatch",
+        "hardware_rejected",
+        "path_unsafe",
+        "file_missing",
+        "digest_mismatch",
+        "inventory_mismatch",
+        "parameter_invalid",
+        "input_contract",
+        "input_order",
+        "input_mutation",
+        "event_contract",
+        "state_contract",
+        "service_contract",
+        "service_failed",
+        "scenario_exception",
+        "process_timeout",
+        "lifecycle",
+        "golden_mismatch",
+        "policy_rejected",
+        "authorization_failed"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fatal": {
+      "type": "boolean"
+    },
+    "retryable": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "manifest_invalid",
+              "version_unsupported"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "manifest"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "capability_missing",
+              "dependency_missing",
+              "dependency_mismatch",
+              "model_link_mismatch",
+              "hardware_rejected"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "requirements"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "path_unsafe",
+              "file_missing",
+              "digest_mismatch",
+              "inventory_mismatch"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "integrity"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "parameter_invalid"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "parameters"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "input_contract",
+              "input_order",
+              "input_mutation"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "input"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "event_contract"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "output"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "state_contract"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "state"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "service_contract",
+              "service_failed",
+              "scenario_exception",
+              "process_timeout"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "execution"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "lifecycle"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "lifecycle"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "golden_mismatch"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "golden"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "code": {
+            "enum": [
+              "policy_rejected",
+              "authorization_failed"
+            ]
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "security"
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:error:0.2.0"
+}

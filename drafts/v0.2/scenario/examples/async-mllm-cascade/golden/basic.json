@@ -1,0 +1,48 @@
+{
+  "steps": [
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a1",
+          "frame_ref": "camera-a/a1",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 1,
+        "event_time_ms": 1700000001000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "tracker": {
+            "next_id": 3,
+            "tracks": {
+              "t0001": [
+                0.0,
+                0.0,
+                0.5,
+                1.0
+              ],
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0001": 1,
+            "t0002": 0
+          },
+          "pending": {},
+          "answers": {}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://vlexchange.org/draft/hardware-async-models-0.1.schema.json",
+  "type":"object", "additionalProperties":false, "required":["required","data"],
+  "properties": {
+    "required":{"const":true},
+    "data":{"type":"object", "additionalProperties":false, "required":["models"], "properties": {
+      "models":{"type":"array", "minItems":1, "items":{"type":"object", "additionalProperties":false,
+        "required":["alias","base_manifest_sha256","base_profile"],
+        "properties":{
+          "alias":{"type":"string","minLength":1,"maxLength":256},
+          "base_manifest_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+          "base_profile":{"type":"string","minLength":1,"maxLength":256}
+        }
+      }}
+    }}
+  }
+}

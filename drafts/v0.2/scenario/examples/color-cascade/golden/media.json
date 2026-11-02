@@ -1,0 +1,52 @@
+{
+  "frames": [
+    {
+      "source_id": "camera-a",
+      "run_id": "run-1",
+      "frame_id": "a1",
+      "frame_ref": "camera-a/a1",
+      "path": "golden/frames/both.npy",
+      "sha256": "7cc7e27f4de98679daf704446e4c101057ef455f8f5ffe293599195a3beffcea"
+    },
+    {
+      "source_id": "camera-b",
+      "run_id": "run-1",
+      "frame_id": "b1",
+      "frame_ref": "camera-b/b1",
+      "path": "golden/frames/both.npy",
+      "sha256": "7cc7e27f4de98679daf704446e4c101057ef455f8f5ffe293599195a3beffcea"
+    },
+    {
+      "source_id": "camera-a",
+      "run_id": "run-1",
+      "frame_id": "a2",
+      "frame_ref": "camera-a/a2",
+      "path": "golden/frames/both.npy",
+      "sha256": "7cc7e27f4de98679daf704446e4c101057ef455f8f5ffe293599195a3beffcea"
+    },
+    {
+      "source_id": "camera-a",
+      "run_id": "run-1",
+      "frame_id": "a3",
+      "frame_ref": "camera-a/a3",
+      "path": "golden/frames/right.npy",
+      "sha256": "8a527a1da9fcc4422aea0e726da7271d739e094439923d241ef3d927ffb3921a"
+    },
+    {
+      "source_id": "camera-a",
+      "run_id": "run-1",
+      "frame_id": "a4",
+      "frame_ref": "camera-a/a4",
+      "path": "golden/frames/both.npy",
+      "sha256": "7cc7e27f4de98679daf704446e4c101057ef455f8f5ffe293599195a3beffcea"
+    },
+    {
+      "source_id": "camera-a",
+      "run_id": "run-1",
+      "frame_id": "a5",
+      "frame_ref": "camera-a/a5",
+      "path": "golden/frames/both.npy",
+      "sha256": "7cc7e27f4de98679daf704446e4c101057ef455f8f5ffe293599195a3beffcea"
+    }
+  ]
+}

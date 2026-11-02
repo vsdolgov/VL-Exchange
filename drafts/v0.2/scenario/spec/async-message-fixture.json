@@ -1,0 +1,85 @@
+{
+  "job": {
+    "namespace": {
+      "tenant_id": "tenant-a",
+      "installation_id": "box-a",
+      "scenario_id": "org.example.demo",
+      "scenario_version": "1.0.0",
+      "scenario_manifest_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "job_id": "2222222222222222222222222222222222222222222222222222222222222222",
+    "source_id": "cam-a",
+    "run_id": "run-1",
+    "frame_id": "frame-42",
+    "tracker_alias": "tracker-a",
+    "track_id": "track-7",
+    "source_event_time_ms": 1700000000000,
+    "model_alias": "vision",
+    "model_revision": "v1",
+    "payload": {
+      "text": "Опиши каску",
+      "response_schema": {
+        "type": "object"
+      },
+      "parameters": {}
+    },
+    "media": {
+      "handle": "private-1",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "expires_at_ms": 1700000060000,
+      "source_id": "cam-a",
+      "run_id": "run-1",
+      "frame_id": "frame-42"
+    },
+    "deadline_ms": 1700000050000
+  },
+  "completion": {
+    "namespace": {
+      "tenant_id": "tenant-a",
+      "installation_id": "box-a",
+      "scenario_id": "org.example.demo",
+      "scenario_version": "1.0.0",
+      "scenario_manifest_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "job_id": "2222222222222222222222222222222222222222222222222222222222222222",
+    "source_id": "cam-a",
+    "run_id": "run-1",
+    "frame_id": "frame-42",
+    "tracker_alias": "tracker-a",
+    "track_id": "track-7",
+    "source_event_time_ms": 1700000000000,
+    "model_alias": "vision",
+    "model_revision": "v1",
+    "status": "completed",
+    "text": null,
+    "structured": {
+      "helmet": true
+    },
+    "error": null
+  },
+  "negative_failed_without_error": {
+    "namespace": {
+      "tenant_id": "tenant-a",
+      "installation_id": "box-a",
+      "scenario_id": "org.example.demo",
+      "scenario_version": "1.0.0",
+      "scenario_manifest_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "job_id": "2222222222222222222222222222222222222222222222222222222222222222",
+    "source_id": "cam-a",
+    "run_id": "run-1",
+    "frame_id": "frame-42",
+    "tracker_alias": "tracker-a",
+    "track_id": "track-7",
+    "source_event_time_ms": 1700000000000,
+    "model_alias": "vision",
+    "model_revision": "v1",
+    "status": "failed",
+    "text": null,
+    "structured": {
+      "helmet": true
+    },
+    "error": null
+  },
+  "note": "synthetic fixture; job_id is a placeholder and does not prove identity hash"
+}

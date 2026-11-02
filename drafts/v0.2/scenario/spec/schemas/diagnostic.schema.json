@@ -1,0 +1,157 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "host_id",
+    "scenario_manifest_sha256",
+    "source_id",
+    "run_id",
+    "sequence",
+    "frame_id",
+    "outcome",
+    "duration_ms",
+    "queue_wait_ms",
+    "queue_depth",
+    "dropped_frames",
+    "models",
+    "error"
+  ],
+  "properties": {
+    "format": {
+      "const": "vlsp.diagnostic"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "host_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "scenario_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "frame_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "outcome": {
+      "enum": [
+        "committed",
+        "failed",
+        "rejected"
+      ]
+    },
+    "duration_ms": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "queue_wait_ms": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "queue_depth": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "dropped_frames": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "alias",
+          "manifest_sha256",
+          "call_count"
+        ],
+        "properties": {
+          "alias": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "manifest_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "call_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "uniqueItems": true
+    },
+    "error": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "urn:vl-exchange:error:0.2.0"
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:diagnostic:1.0.0",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "committed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "error": {
+            "$ref": "urn:vl-exchange:error:0.2.0"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:scenario-sequence:0.2.0",
+  "title": "VLSP v0.2 golden call/reset sequence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "steps"
+  ],
+  "properties": {
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "inputs",
+              "context",
+              "expected"
+            ],
+            "properties": {
+              "inputs": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "frame"
+                ],
+                "properties": {
+                  "frame": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "frame_id",
+                      "frame_ref",
+                      "width",
+                      "height"
+                    ],
+                    "properties": {
+                      "frame_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256
+                      },
+                      "frame_ref": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256
+                      },
+                      "width": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "height": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    }
+                  }
+                }
+              },
+              "context": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "source_id",
+                  "run_id",
+                  "sequence",
+                  "event_time_ms"
+                ],
+                "properties": {
+                  "source_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "run_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "sequence": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "event_time_ms": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              },
+              "expected": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "events",
+                      "state"
+                    ],
+                    "properties": {
+                      "events": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "event_id",
+                            "event_type",
+                            "source_id",
+                            "run_id",
+                            "sequence",
+                            "event_time_ms",
+                            "payload"
+                          ],
+                          "properties": {
+                            "event_id": {
+                              "type": "string",
+                              "pattern": "^sha256:[0-9a-f]{64}$"
+                            },
+                            "event_type": {
+                              "type": "string",
+                              "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z0-9-]+)+$",
+                              "maxLength": 256
+                            },
+                            "source_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256
+                            },
+                            "run_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256
+                            },
+                            "sequence": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "event_time_ms": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "payload": {
+                              "type": "object"
+                            }
+                          }
+                        }
+                      },
+                      "state": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "error"
+                    ],
+                    "properties": {
+                      "error": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "code",
+                          "fatal",
+                          "retryable"
+                        ],
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "fatal": {
+                            "type": "boolean"
+                          },
+                          "retryable": {
+                            "type": "boolean"
+                          },
+                          "stage": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reset"
+            ],
+            "properties": {
+              "reset": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [],
+                "properties": {
+                  "source_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "run_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  }
+                },
+                "dependentRequired": {
+                  "run_id": [
+                    "source_id"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VLSP v0.2 service payload definitions",
+  "description": "Semantic constraints such as xyxy ordering, provenance, temporal scope, identity and quotas require host validation.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/frame"
+    },
+    {
+      "$ref": "#/$defs/infer_request"
+    },
+    {
+      "$ref": "#/$defs/detection_response"
+    },
+    {
+      "$ref": "#/$defs/classification_response"
+    },
+    {
+      "$ref": "#/$defs/tracker_request"
+    },
+    {
+      "$ref": "#/$defs/tracker_response"
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "bbox": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      ],
+      "items": false,
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "frame_ref",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "frame_id": {
+          "$ref": "#/$defs/id"
+        },
+        "frame_ref": {
+          "$ref": "#/$defs/id"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "detection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_id",
+        "label",
+        "category_id",
+        "score",
+        "bbox"
+      ],
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/id"
+        },
+        "label": {
+          "$ref": "#/$defs/id"
+        },
+        "category_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "bbox": {
+          "$ref": "#/$defs/bbox"
+        }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "score",
+        "category_id",
+        "output_index"
+      ],
+      "properties": {
+        "label": {
+          "$ref": "#/$defs/id"
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "category_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_index": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "infer_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "frame_ref",
+        "object_id",
+        "bbox"
+      ],
+      "properties": {
+        "frame_id": {
+          "$ref": "#/$defs/id"
+        },
+        "frame_ref": {
+          "$ref": "#/$defs/id"
+        },
+        "object_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bbox": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/bbox"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "detection_response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_alias",
+        "frame_id",
+        "object_id",
+        "kind",
+        "detections"
+      ],
+      "properties": {
+        "model_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "frame_id": {
+          "$ref": "#/$defs/id"
+        },
+        "object_id": {
+          "type": "null"
+        },
+        "kind": {
+          "const": "detection"
+        },
+        "detections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/detection"
+          }
+        }
+      }
+    },
+    "classification_response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_alias",
+        "frame_id",
+        "object_id",
+        "kind",
+        "classification"
+      ],
+      "properties": {
+        "model_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "frame_id": {
+          "$ref": "#/$defs/id"
+        },
+        "object_id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "const": "classification"
+        },
+        "classification": {
+          "$ref": "#/$defs/classification"
+        }
+      }
+    },
+    "track": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_id",
+        "track_id",
+        "bbox"
+      ],
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/id"
+        },
+        "track_id": {
+          "$ref": "#/$defs/id"
+        },
+        "bbox": {
+          "$ref": "#/$defs/bbox"
+        }
+      }
+    },
+    "tracker_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "detections"
+      ],
+      "properties": {
+        "frame_id": {
+          "$ref": "#/$defs/id"
+        },
+        "detections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/detection"
+          }
+        }
+      }
+    },
+    "tracker_response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tracker_alias",
+        "frame_id",
+        "tracks",
+        "state"
+      ],
+      "properties": {
+        "tracker_alias": {
+          "$ref": "#/$defs/id"
+        },
+        "frame_id": {
+          "$ref": "#/$defs/id"
+        },
+        "tracks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/track"
+          }
+        },
+        "state": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+/vendor
+/build/
+/.venv/
+/independent/reports/
+__pycache__/
+*.pyc

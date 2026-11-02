@@ -1,0 +1,352 @@
+{
+  "steps": [
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a1",
+          "frame_ref": "camera-a/a1",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 1,
+        "event_time_ms": 1700000001000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "tracker": {
+            "next_id": 3,
+            "tracks": {
+              "t0001": [
+                0.0,
+                0.0,
+                0.5,
+                1.0
+              ],
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0001": 1,
+            "t0002": 0
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "b1",
+          "frame_ref": "camera-b/b1",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-b",
+        "run_id": "run-1",
+        "sequence": 1,
+        "event_time_ms": 1700000001000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "tracker": {
+            "next_id": 3,
+            "tracks": {
+              "t0001": [
+                0.0,
+                0.0,
+                0.5,
+                1.0
+              ],
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0001": 1,
+            "t0002": 0
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a2",
+          "frame_ref": "camera-a/a2",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 2,
+        "event_time_ms": 1700000002000
+      },
+      "expected": {
+        "events": [
+          {
+            "event_id": "sha256:0de4b6cc1192ecd881fd664bf858508519773c0fe40873e793abf6a19f480b7f",
+            "event_type": "org.vlexchange.example.color-alert.v1",
+            "source_id": "camera-a",
+            "run_id": "run-1",
+            "sequence": 2,
+            "event_time_ms": 1700000002000,
+            "payload": {
+              "frame_id": "a2",
+              "track_id": "t0001",
+              "classifier_a": "red",
+              "classifier_b": "red",
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "tracker": {
+            "next_id": 3,
+            "tracks": {
+              "t0001": [
+                0.0,
+                0.0,
+                0.5,
+                1.0
+              ],
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0001": 2,
+            "t0002": 0
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a3",
+          "frame_ref": "camera-a/a3",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 3,
+        "event_time_ms": 1700000003000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "tracker": {
+            "next_id": 3,
+            "tracks": {
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0002": 0
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a4",
+          "frame_ref": "camera-a/a4",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 4,
+        "event_time_ms": 1700000004000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "tracker": {
+            "next_id": 4,
+            "tracks": {
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "t0003": [
+                0.0,
+                0.0,
+                0.5,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0002": 0,
+            "t0003": 1
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a5",
+          "frame_ref": "camera-a/a5",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 4,
+        "event_time_ms": 1700000004000
+      },
+      "expected": {
+        "error": {
+          "code": "input_order",
+          "fatal": false,
+          "retryable": false
+        }
+      }
+    },
+    {
+      "reset": {
+        "source_id": "camera-a",
+        "run_id": "run-1"
+      }
+    },
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a1",
+          "frame_ref": "camera-a/a1",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 1,
+        "event_time_ms": 1700000001000
+      },
+      "expected": {
+        "events": [],
+        "state": {
+          "tracker": {
+            "next_id": 3,
+            "tracks": {
+              "t0001": [
+                0.0,
+                0.0,
+                0.5,
+                1.0
+              ],
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0001": 1,
+            "t0002": 0
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "frame": {
+          "frame_id": "a2",
+          "frame_ref": "camera-a/a2",
+          "width": 4,
+          "height": 2
+        }
+      },
+      "context": {
+        "source_id": "camera-a",
+        "run_id": "run-1",
+        "sequence": 2,
+        "event_time_ms": 1700000002000
+      },
+      "expected": {
+        "events": [
+          {
+            "event_id": "sha256:0de4b6cc1192ecd881fd664bf858508519773c0fe40873e793abf6a19f480b7f",
+            "event_type": "org.vlexchange.example.color-alert.v1",
+            "source_id": "camera-a",
+            "run_id": "run-1",
+            "sequence": 2,
+            "event_time_ms": 1700000002000,
+            "payload": {
+              "frame_id": "a2",
+              "track_id": "t0001",
+              "classifier_a": "red",
+              "classifier_b": "red",
+              "count": 2
+            }
+          }
+        ],
+        "state": {
+          "tracker": {
+            "next_id": 3,
+            "tracks": {
+              "t0001": [
+                0.0,
+                0.0,
+                0.5,
+                1.0
+              ],
+              "t0002": [
+                0.5,
+                0.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "streaks": {
+            "t0001": 2,
+            "t0002": 0
+          }
+        }
+      }
+    }
+  ]
+}

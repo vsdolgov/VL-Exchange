@@ -1,0 +1,24 @@
+{
+  "algorithm": "vlsp-object-v1",
+  "scope": "source_id,run_id,frame_id",
+  "cases": [
+    {
+      "model_alias": "detector_a",
+      "raw_object_id": "0",
+      "hash_input_hex": "564c53502d4f424a4543542d5631000000000a6465746563746f725f610000000130",
+      "object_id": "sha256:70f4885e9295442479aa46a2572bcd4e104686157b77dca64018ef0df39b486d"
+    },
+    {
+      "model_alias": "detector_b",
+      "raw_object_id": "0",
+      "hash_input_hex": "564c53502d4f424a4543542d5631000000000a6465746563746f725f620000000130",
+      "object_id": "sha256:57583c97e0e0be0ee43be58eda14bf8c913f20b922d9ba2131692281dba3fd3c"
+    },
+    {
+      "model_alias": "detector_a",
+      "raw_object_id": "лицо-🚧",
+      "hash_input_hex": "564c53502d4f424a4543542d5631000000000a6465746563746f725f610000000dd0bbd0b8d186d0be2df09f9aa7",
+      "object_id": "sha256:5d171239a182fd9c97c0a4281913b1523869d840607085a29d007ae58b4fa4ac"
+    }
+  ]
+}
