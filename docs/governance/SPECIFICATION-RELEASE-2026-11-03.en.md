@@ -17,3 +17,7 @@ The [governance proposal](GOVERNANCE.en.md) associated a stable release with two
 Historical reports, examples, results and schema identifiers are retained. Future incompatible changes require a new identifier and migration instructions.
 
 The archived VLMP 0.1 specification in `specs/vlmp/0.1` remains a historical document with its original status; its descriptions of later proposals reflect the time when the archive was prepared.
+
+## Changes after release
+
+A final edition does not prevent further work. Typos and clarifications that do not change requirements may be published in a separate commit with the correction noted; the existing tag continues to identify the original text. Changes to requirements must be versioned with their compatibility explained: for example, a correction can be published as edition `0.2.1`, while a breaking VLSP change can use `0.3.0` with a migration plan. A document edition number and manifest `spec_version` are separate choices: a new wire-version string requires explicit schema and host support and must not be assumed automatically.

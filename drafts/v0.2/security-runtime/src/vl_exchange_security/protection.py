@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import base64
 from contextlib import contextmanager
+from contextvars import ContextVar
 from dataclasses import dataclass, field
 import hashlib
 import io
@@ -324,6 +325,31 @@ def _verify_grant(raw: bytes, signature: bytes, server_key: VerifyKey, license_r
     return grant
 
 
+_authorization_clock = ContextVar("vl_exchange_authorization_clock", default=None)
+
+
+def _guard_clock(clock, initial):
+    last = initial
+
+    def read():
+        nonlocal last
+        current = int(clock())
+        if current < last:
+            _fail("invalid_grant", "Trusted clock moved backward during authorization")
+        last = current
+        return current
+
+    return read
+
+
+def _authorize_with_clock(authorizer, clock, **kwargs):
+    token = _authorization_clock.set(clock)
+    try:
+        return authorizer.authorize(**kwargs)
+    finally:
+        _authorization_clock.reset(token)
+
+
 @dataclass
 class OnlineAuthorizer:
     endpoint: str
@@ -336,7 +362,13 @@ class OnlineAuthorizer:
     renew_before_seconds: int = 10
 
     def authorize(self, *, license_raw: bytes, license_signature: bytes, claims: dict,
-                  now: int) -> tuple[bytes, bytes, str]:
+                  now: int, clock: Callable[[], int] | None = None) -> tuple[bytes, bytes, str]:
+        """Request a grant. `now` timestamps the request and is fixed if used alone.
+
+        Direct callers should pass `clock` to validate using fresh trusted time
+        after the network response. `authorized_package` and `renew` supply the
+        same clock automatically without changing legacy subclass arguments.
+        """
         _check_endpoint(self.endpoint, self.allow_loopback_http)
         if bytes(self.installation_signing_key.verify_key) != _decode(claims["request_verify_key"], size=32):
             _fail("installation_mismatch", "Request key does not match the licensed installation")
@@ -367,7 +399,12 @@ class OnlineAuthorizer:
         data = _json_object(body)
         _keys(data, {"grant", "signature"}, "online response")
         raw, signature = _decode(data["grant"]), _decode(data["signature"], size=64)
-        _verify_grant(raw, signature, self.server_verify_key, license_raw, claims, nonce, now)
+        response_clock = clock if clock is not None else _authorization_clock.get()
+        # Direct callers supplying only an explicit `now` keep their fixed-clock behavior.
+        received_now = int(response_clock()) if response_clock is not None else now
+        if received_now < now:
+            _fail("invalid_grant", "Trusted clock moved backward during authorization")
+        _verify_grant(raw, signature, self.server_verify_key, license_raw, claims, nonce, received_now)
         return raw, signature, nonce
 
 
@@ -426,17 +463,29 @@ class AuthorizedPackage:
     def renew(self):
         if not self._active:
             _fail("authorization_closed", "Authorized package is already closed")
+        # A failed renewal invalidates the previous grant: no silent fallback.
+        self._grant = None
         now = int(self._clock())
         claims = _read_license(self._license_raw, self._license_signature, self._issuer_key, now,
                                expected_mode="online")
         if self._authorizer is None:
             _fail("online_denied", "Online authorizer is not configured")
-        # A failed renewal invalidates the previous grant: no silent fallback.
-        self._grant = None
-        self._grant = self._authorizer.authorize(license_raw=self._license_raw,
-                                                 license_signature=self._license_signature,
-                                                 claims=claims, now=now)
-        self.assert_current()
+        clock = _guard_clock(self._clock, now)
+        try:
+            grant = _authorize_with_clock(self._authorizer, clock, license_raw=self._license_raw,
+                                          license_signature=self._license_signature, claims=claims, now=now)
+            current = clock()
+            expected = _read_license(self._license_raw, self._license_signature, self._issuer_key,
+                                     current, expected_mode="online")
+            if expected != self.claims:
+                _fail("invalid_license", "Authorized license claims were modified")
+            raw, signature, nonce = grant
+            _verify_grant(raw, signature, self._authorizer.server_verify_key,
+                          self._license_raw, expected, nonce, current)
+            self._grant = grant
+        except Exception:
+            self._grant = None
+            raise
 
     def before_process(self):
         """Refresh a nearly expired online grant before, never after, a call."""
@@ -520,6 +569,8 @@ def authorized_package(envelope_path: Path, *, issuer_verify_key: VerifyKey,
     signature = _decode(envelope["license_signature"], size=64)
     clock = now or (lambda: int(time.time()))
     current = int(clock())
+    source_clock = clock
+    clock = _guard_clock(clock, current)
     claims = _read_license(raw, signature, issuer_verify_key, current, expected_mode=policy)
     if _sha(bytes(recipient_private_key.public_key)) != claims["recipient_key_sha256"]:
         _fail("installation_mismatch", "The recipient key is not licensed for this installation")
@@ -527,9 +578,13 @@ def authorized_package(envelope_path: Path, *, issuer_verify_key: VerifyKey,
     if policy == "online":
         if online_authorizer is None:
             _fail("online_denied", "Online authorization is required")
-        grant = online_authorizer.authorize(license_raw=raw, license_signature=signature, claims=claims, now=current)
+        grant = _authorize_with_clock(online_authorizer, clock, license_raw=raw,
+                                      license_signature=signature, claims=claims, now=current)
         grant_raw, grant_signature, grant_nonce = grant
-        # Verify again at the trust boundary, before decrypting any source code.
+        # Recheck the signed license and grant with fresh trusted time before decrypting.
+        current = int(clock())
+        if _read_license(raw, signature, issuer_verify_key, current, expected_mode=policy) != claims:
+            _fail("invalid_license", "Authorized license claims were modified")
         _verify_grant(grant_raw, grant_signature, online_authorizer.server_verify_key,
                       raw, claims, grant_nonce, current)
     _hex(envelope["ciphertext_sha256"])
@@ -539,6 +594,14 @@ def authorized_package(envelope_path: Path, *, issuer_verify_key: VerifyKey,
         _fail("archive_limit", "Protected payload exceeds the reference implementation limit")
     if _sha(ciphertext) != envelope["ciphertext_sha256"]:
         _fail("ciphertext_mismatch", "Encrypted payload digest mismatch")
+    # Large payloads may consume the remaining lease while being read or hashed.
+    current = clock()
+    if _read_license(raw, signature, issuer_verify_key, current, expected_mode=policy) != claims:
+        _fail("invalid_license", "Authorized license claims were modified")
+    if grant is not None:
+        grant_raw, grant_signature, grant_nonce = grant
+        _verify_grant(grant_raw, grant_signature, online_authorizer.server_verify_key,
+                      raw, claims, grant_nonce, current)
     try:
         archive = SealedBox(recipient_private_key).decrypt(ciphertext)
     except CryptoError as exc:
@@ -562,6 +625,9 @@ def authorized_package(envelope_path: Path, *, issuer_verify_key: VerifyKey,
         authorized = AuthorizedPackage(target, claims, claims["package_sha256"], raw, signature,
                                        issuer_verify_key, clock, online_authorizer, grant)
         authorized.assert_current()
+        # The first post-decrypt check remains in the same guarded operation;
+        # subsequent calls retain the caller's original injectable clock.
+        authorized._clock = source_clock
         yield authorized
     finally:
         if authorized is not None:

@@ -6,6 +6,8 @@ English | [Русский](CHANGELOG.ru.md)
 
 Published final project editions of the specifications and documented the scope, retained pre-release identifiers and verification limits in the [release note](docs/governance/SPECIFICATION-RELEASE-2026-11-03.en.md). This does not establish industry recognition, production readiness or additional license rights. Existing package bytes and wire identifiers remain unchanged.
 
+The reference security runtime now rechecks license and grant times after online authorization and immediately before decrypting a package. Regression tests cover second boundaries, expired responses, clock rollback and legacy authorizer compatibility. Direct `OnlineAuthorizer.authorize` callers that use the legacy fixed `now` without `clock` must supply a live clock to validate response time; `authorized_package` and `renew` provide one automatically.
+
 ## 2026-11-02 — VLSP 0.2 and detection drafts
 
 Added experimental VLSP 0.2 specifications for multiple model and tracker services, error/lifecycle rules, optional input queues and asynchronous MLLM jobs. Added a separate VLMP detection draft, synthetic examples, selected reference components and tests. The historical VideoPipe and queue comparison is recorded with its limitations; it does not establish async support in VideoPipe or production performance. Detection and the earlier classification proposal have different draft identifiers and schemas. See the [0.2 overview](drafts/v0.2/README.md).
