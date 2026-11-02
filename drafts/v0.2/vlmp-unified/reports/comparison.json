@@ -1,0 +1,2962 @@
+{
+  "status": "pass",
+  "checked_at": "2026-11-02T21:52:24.720925+00:00",
+  "packages": {
+    "unified-classification": {
+      "package": "drafts/v0.2/vlmp-unified/examples/classification.zip",
+      "spec_version": "0.2.0",
+      "profile": "classification-onnx-cpu-v1",
+      "zip_sha256_before": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+      "zip_sha256_after": "a7b6e4299faff1d98ec2c7b53892c7c3dfc6e4ecf1029078224bab65d8a4e95f",
+      "fixture_count": 4,
+      "onnx_weights_sha256": "c283bda709b4f53d2254dd289c53ca7e23b15d8747e6e0c609eee3119da4d2fa",
+      "golden_calls_per_host": 11,
+      "additional_random_calls_per_host": 8,
+      "atol": 1e-06,
+      "rtol": 1e-05,
+      "hosts": {
+        "reference": {
+          "manifest_sha256": "28d0a6ecb587188967e4b2a9210c2765d0e9152aa694abc6accf9a105e8674b4",
+          "inference_calls": 19,
+          "calls": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "6c29413cf739b0aef7abe550e1ad5f021d96591eaffff4b2d276844ea344d91a",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.38553932309150696
+              }
+            },
+            {
+              "input_sha256": "8040fb38dfaaaeef3a4e2cfec64b838a7012640eb433749ebdd62dab999256ea",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3555099368095398
+              }
+            },
+            {
+              "input_sha256": "4ca2e9b4c939cf87281b1277adced0509b588253c3c8645dc22711a6fa80bce1",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.3859741687774658
+              }
+            },
+            {
+              "input_sha256": "8ee0c17d9376fc87e7feb5177efe0e6adb055296a279ef8747dc1e043d736496",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.38471636176109314
+              }
+            },
+            {
+              "input_sha256": "b3b4acfa4c1132db4fde181dcf8b2a96c9b1541525a9614881fa70d6bfbe09ea",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4123975336551666
+              }
+            },
+            {
+              "input_sha256": "446426c7c965baa0175b653afbbff2e0629f1ee185818f72d27760df50997171",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3944984972476959
+              }
+            },
+            {
+              "input_sha256": "9cce46979cf043b8cc691915cda1b28c8383035e002d120e1afd9130f7fbe2a6",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4020659625530243
+              }
+            },
+            {
+              "input_sha256": "c576de860c39ba747d391d55f19271e5ed34b7d6fba8ceffb204f87e5b938ac2",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3620331585407257
+              }
+            }
+          ]
+        },
+        "independent": {
+          "manifest_sha256": "28d0a6ecb587188967e4b2a9210c2765d0e9152aa694abc6accf9a105e8674b4",
+          "inference_calls": 19,
+          "calls": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "6c29413cf739b0aef7abe550e1ad5f021d96591eaffff4b2d276844ea344d91a",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.38553932309150696
+              }
+            },
+            {
+              "input_sha256": "8040fb38dfaaaeef3a4e2cfec64b838a7012640eb433749ebdd62dab999256ea",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3555099368095398
+              }
+            },
+            {
+              "input_sha256": "4ca2e9b4c939cf87281b1277adced0509b588253c3c8645dc22711a6fa80bce1",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.3859741687774658
+              }
+            },
+            {
+              "input_sha256": "8ee0c17d9376fc87e7feb5177efe0e6adb055296a279ef8747dc1e043d736496",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.38471636176109314
+              }
+            },
+            {
+              "input_sha256": "b3b4acfa4c1132db4fde181dcf8b2a96c9b1541525a9614881fa70d6bfbe09ea",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4123975336551666
+              }
+            },
+            {
+              "input_sha256": "446426c7c965baa0175b653afbbff2e0629f1ee185818f72d27760df50997171",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3944984972476959
+              }
+            },
+            {
+              "input_sha256": "9cce46979cf043b8cc691915cda1b28c8383035e002d120e1afd9130f7fbe2a6",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4020659625530243
+              }
+            },
+            {
+              "input_sha256": "c576de860c39ba747d391d55f19271e5ed34b7d6fba8ceffb204f87e5b938ac2",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3620331585407257
+              }
+            }
+          ]
+        }
+      }
+    },
+    "unified-detection": {
+      "package": "drafts/v0.2/vlmp-unified/examples/detection.zip",
+      "spec_version": "0.2.0",
+      "profile": "detection-onnx-cpu-v1",
+      "zip_sha256_before": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+      "zip_sha256_after": "39e2afcdbfd8ff9a29066cde92362b4cd9fde1fab851a0cec7d54f72e06341c9",
+      "fixture_count": 4,
+      "onnx_weights_sha256": "6b1d0aa8d6cd61470f5127e050a9304accc401f65ddf3ee6e2a265845ad8d69f",
+      "golden_calls_per_host": 11,
+      "additional_random_calls_per_host": 8,
+      "atol": 1e-06,
+      "rtol": 1e-05,
+      "hosts": {
+        "reference": {
+          "manifest_sha256": "eef4d794eb2d0e104e90e8f6c606351331740450be9607f2d0a775422fd99131",
+          "inference_calls": 19,
+          "calls": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "e97bb386f9ab0f466fd84b80492bd70381d9ecbf0c9ed0489051bf124a360019",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7147058844566345,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.29823529720306396,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "60c9de9b6d64924496a9c9f7f7b7151d97dd9418a258befe831e1eef2c8a10af",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6652941703796387,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.27176469564437866,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "fef93163632ae3236d67b7599b65e9981b35e501fa7acd48decd721467bc7c99",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2576470673084259,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4923529326915741,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "da079d471221362ea24144d7a034b8435b44e27f0e2e8d782e5b9130c9981a6b",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.3141176402568817,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2294117659330368,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "360f58e2015ca7570b07a7b4d4ed6027f56310bca5345068e781980a8a426ebc",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4305882453918457,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "818699b6b3ff22eb783240f746df8e5346edf8389196f6d17e7454f7b3d59ef0",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.49941176176071167,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7129411697387695,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "ccd74aebe0a39f1573ee0b77b637fd87b50daf19237cd0465011649c5827ae22",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.36705881357192993,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.686470627784729,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "b9ff10d6e85b25f08e718be7e007915eae95118e1ace7ffa6f31942e930e7251",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.525882363319397,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6388235092163086,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "independent": {
+          "manifest_sha256": "eef4d794eb2d0e104e90e8f6c606351331740450be9607f2d0a775422fd99131",
+          "inference_calls": 19,
+          "calls": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "e97bb386f9ab0f466fd84b80492bd70381d9ecbf0c9ed0489051bf124a360019",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7147058844566345,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.29823529720306396,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "60c9de9b6d64924496a9c9f7f7b7151d97dd9418a258befe831e1eef2c8a10af",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6652941703796387,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.27176469564437866,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "fef93163632ae3236d67b7599b65e9981b35e501fa7acd48decd721467bc7c99",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2576470673084259,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4923529326915741,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "da079d471221362ea24144d7a034b8435b44e27f0e2e8d782e5b9130c9981a6b",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.3141176402568817,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2294117659330368,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "360f58e2015ca7570b07a7b4d4ed6027f56310bca5345068e781980a8a426ebc",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4305882453918457,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "818699b6b3ff22eb783240f746df8e5346edf8389196f6d17e7454f7b3d59ef0",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.49941176176071167,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7129411697387695,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "ccd74aebe0a39f1573ee0b77b637fd87b50daf19237cd0465011649c5827ae22",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.36705881357192993,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.686470627784729,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "b9ff10d6e85b25f08e718be7e007915eae95118e1ace7ffa6f31942e930e7251",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.525882363319397,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6388235092163086,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "legacy-classification": {
+      "package": "model/reports/vlmp-public-channel-probe.zip",
+      "spec_version": "0.2.0-draft.1",
+      "profile": "python-numpy-classification-v1",
+      "zip_sha256_before": "b004c02c6f12839007389c71ec60e6bd77b2824a72c27d9bd7ddc71be04752ff",
+      "zip_sha256_after": "b004c02c6f12839007389c71ec60e6bd77b2824a72c27d9bd7ddc71be04752ff",
+      "fixture_count": 5,
+      "onnx_weights_sha256": "c283bda709b4f53d2254dd289c53ca7e23b15d8747e6e0c609eee3119da4d2fa",
+      "golden_calls_per_host": 13,
+      "additional_random_calls_per_host": 8,
+      "atol": 1e-06,
+      "rtol": 1e-05,
+      "hosts": {
+        "reference": {
+          "manifest_sha256": "abcb2f3b91250490bdf4716c48f0e05ef1c9df11c48baf2d463865bd1413b315",
+          "inference_calls": 21,
+          "calls": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.39099133014678955
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.39099133014678955
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "6c29413cf739b0aef7abe550e1ad5f021d96591eaffff4b2d276844ea344d91a",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.38553932309150696
+              }
+            },
+            {
+              "input_sha256": "8040fb38dfaaaeef3a4e2cfec64b838a7012640eb433749ebdd62dab999256ea",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3555099368095398
+              }
+            },
+            {
+              "input_sha256": "4ca2e9b4c939cf87281b1277adced0509b588253c3c8645dc22711a6fa80bce1",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.3859741687774658
+              }
+            },
+            {
+              "input_sha256": "8ee0c17d9376fc87e7feb5177efe0e6adb055296a279ef8747dc1e043d736496",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.38471636176109314
+              }
+            },
+            {
+              "input_sha256": "b3b4acfa4c1132db4fde181dcf8b2a96c9b1541525a9614881fa70d6bfbe09ea",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4123975336551666
+              }
+            },
+            {
+              "input_sha256": "446426c7c965baa0175b653afbbff2e0629f1ee185818f72d27760df50997171",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3944984972476959
+              }
+            },
+            {
+              "input_sha256": "9cce46979cf043b8cc691915cda1b28c8383035e002d120e1afd9130f7fbe2a6",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4020659625530243
+              }
+            },
+            {
+              "input_sha256": "c576de860c39ba747d391d55f19271e5ed34b7d6fba8ceffb204f87e5b938ac2",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3620331585407257
+              }
+            }
+          ]
+        },
+        "independent": {
+          "manifest_sha256": "abcb2f3b91250490bdf4716c48f0e05ef1c9df11c48baf2d463865bd1413b315",
+          "inference_calls": 21,
+          "calls": [
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.39099133014678955
+              }
+            },
+            {
+              "fixture": "mixed",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.39099133014678955
+              }
+            },
+            {
+              "fixture": "blue",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.5761168599128723
+              }
+            },
+            {
+              "fixture": "green",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            },
+            {
+              "fixture": "red",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.5761169195175171
+              }
+            },
+            {
+              "fixture": "black",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3333333432674408
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "6c29413cf739b0aef7abe550e1ad5f021d96591eaffff4b2d276844ea344d91a",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.38553932309150696
+              }
+            },
+            {
+              "input_sha256": "8040fb38dfaaaeef3a4e2cfec64b838a7012640eb433749ebdd62dab999256ea",
+              "result": {
+                "output_index": 0,
+                "category_id": 1,
+                "label": "red",
+                "score": 0.3555099368095398
+              }
+            },
+            {
+              "input_sha256": "4ca2e9b4c939cf87281b1277adced0509b588253c3c8645dc22711a6fa80bce1",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.3859741687774658
+              }
+            },
+            {
+              "input_sha256": "8ee0c17d9376fc87e7feb5177efe0e6adb055296a279ef8747dc1e043d736496",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.38471636176109314
+              }
+            },
+            {
+              "input_sha256": "b3b4acfa4c1132db4fde181dcf8b2a96c9b1541525a9614881fa70d6bfbe09ea",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4123975336551666
+              }
+            },
+            {
+              "input_sha256": "446426c7c965baa0175b653afbbff2e0629f1ee185818f72d27760df50997171",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3944984972476959
+              }
+            },
+            {
+              "input_sha256": "9cce46979cf043b8cc691915cda1b28c8383035e002d120e1afd9130f7fbe2a6",
+              "result": {
+                "output_index": 1,
+                "category_id": 2,
+                "label": "green",
+                "score": 0.4020659625530243
+              }
+            },
+            {
+              "input_sha256": "c576de860c39ba747d391d55f19271e5ed34b7d6fba8ceffb204f87e5b938ac2",
+              "result": {
+                "output_index": 2,
+                "category_id": 3,
+                "label": "blue",
+                "score": 0.3620331585407257
+              }
+            }
+          ]
+        }
+      }
+    },
+    "legacy-detection": {
+      "package": "drafts/v0.2/model/examples/vl-color-detector.zip",
+      "spec_version": "0.2.0-detection-draft.1",
+      "profile": {
+        "id": "detection-onnx-cpu-v1",
+        "weights": "artifacts/detector.onnx",
+        "input_name": "images",
+        "output_boxes": "boxes",
+        "output_scores": "scores",
+        "output_classes": "classes",
+        "input_shape": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "max_detections": 2,
+        "threshold": 0.2,
+        "categories": [
+          {
+            "category_id": 1,
+            "label": "person"
+          }
+        ]
+      },
+      "zip_sha256_before": "333422827bd990d99ca1c0a709b235cf6fdb51842bd0152c18183106ec350593",
+      "zip_sha256_after": "333422827bd990d99ca1c0a709b235cf6fdb51842bd0152c18183106ec350593",
+      "fixture_count": 4,
+      "onnx_weights_sha256": "6b1d0aa8d6cd61470f5127e050a9304accc401f65ddf3ee6e2a265845ad8d69f",
+      "golden_calls_per_host": 11,
+      "additional_random_calls_per_host": 8,
+      "atol": 1e-06,
+      "rtol": 1e-05,
+      "hosts": {
+        "reference": {
+          "manifest_sha256": "b8a9cc09d367a10e9c0dc1ee50fa9004f3b1aab3716bcee98b6c84b51df579e7",
+          "inference_calls": 19,
+          "calls": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "e97bb386f9ab0f466fd84b80492bd70381d9ecbf0c9ed0489051bf124a360019",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7147058844566345,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.29823529720306396,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "60c9de9b6d64924496a9c9f7f7b7151d97dd9418a258befe831e1eef2c8a10af",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6652941703796387,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.27176469564437866,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "fef93163632ae3236d67b7599b65e9981b35e501fa7acd48decd721467bc7c99",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2576470673084259,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4923529326915741,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "da079d471221362ea24144d7a034b8435b44e27f0e2e8d782e5b9130c9981a6b",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.3141176402568817,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2294117659330368,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "360f58e2015ca7570b07a7b4d4ed6027f56310bca5345068e781980a8a426ebc",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4305882453918457,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "818699b6b3ff22eb783240f746df8e5346edf8389196f6d17e7454f7b3d59ef0",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.49941176176071167,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7129411697387695,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "ccd74aebe0a39f1573ee0b77b637fd87b50daf19237cd0465011649c5827ae22",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.36705881357192993,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.686470627784729,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "b9ff10d6e85b25f08e718be7e007915eae95118e1ace7ffa6f31942e930e7251",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.525882363319397,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6388235092163086,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "independent": {
+          "manifest_sha256": "b8a9cc09d367a10e9c0dc1ee50fa9004f3b1aab3716bcee98b6c84b51df579e7",
+          "inference_calls": 19,
+          "calls": [
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "both",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "right",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            },
+            {
+              "fixture": "left",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.8999999761581421,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "fixture": "none",
+              "result": {
+                "detections": []
+              }
+            }
+          ],
+          "additional_inputs": [
+            {
+              "input_sha256": "e97bb386f9ab0f466fd84b80492bd70381d9ecbf0c9ed0489051bf124a360019",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7147058844566345,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.29823529720306396,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "60c9de9b6d64924496a9c9f7f7b7151d97dd9418a258befe831e1eef2c8a10af",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6652941703796387,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.27176469564437866,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "fef93163632ae3236d67b7599b65e9981b35e501fa7acd48decd721467bc7c99",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2576470673084259,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4923529326915741,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "da079d471221362ea24144d7a034b8435b44e27f0e2e8d782e5b9130c9981a6b",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.3141176402568817,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.2294117659330368,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "360f58e2015ca7570b07a7b4d4ed6027f56310bca5345068e781980a8a426ebc",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.4305882453918457,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "818699b6b3ff22eb783240f746df8e5346edf8389196f6d17e7454f7b3d59ef0",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.49941176176071167,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.7129411697387695,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "ccd74aebe0a39f1573ee0b77b637fd87b50daf19237cd0465011649c5827ae22",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.36705881357192993,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.686470627784729,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "input_sha256": "b9ff10d6e85b25f08e718be7e007915eae95118e1ace7ffa6f31942e930e7251",
+              "result": {
+                "detections": [
+                  {
+                    "object_id": "0",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.525882363319397,
+                    "bbox": [
+                      0.0,
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "object_id": "1",
+                    "label": "person",
+                    "category_id": 1,
+                    "score": 0.6388235092163086,
+                    "bbox": [
+                      0.5,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "negative_cases": [
+    {
+      "profile": "unified-classification",
+      "case": "wrong-digest",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "undeclared-file",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "unsafe-path",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "nonportable-colon-path",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "unsupported-version",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "unknown-profile",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "unknown-required-capability",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "shape-disagreement",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "golden-category-disagreement",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "duplicate-manifest",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "wrong-digest",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "undeclared-file",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "unsafe-path",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "nonportable-colon-path",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "unsupported-version",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "unknown-profile",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "unknown-required-capability",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "shape-disagreement",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "golden-category-disagreement",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-detection",
+      "case": "duplicate-manifest",
+      "hosts": {
+        "reference": {
+          "rejected": true,
+          "error_type": "PackageError"
+        },
+        "independent": {
+          "rejected": true,
+          "error_type": "PackageError"
+        }
+      }
+    },
+    {
+      "profile": "unified-classification",
+      "case": "public-manifest-mutation",
+      "host": "reference",
+      "unchanged": true
+    },
+    {
+      "profile": "unified-classification",
+      "case": "wrong-dtype",
+      "host": "reference",
+      "rejected": true
+    },
+    {
+      "profile": "unified-classification",
+      "case": "wrong-shape",
+      "host": "reference",
+      "rejected": true
+    },
+    {
+      "profile": "unified-classification",
+      "case": "zip-changed-after-load",
+      "host": "reference",
+      "rejected": true
+    },
+    {
+      "profile": "unified-classification",
+      "case": "public-manifest-mutation",
+      "host": "independent",
+      "unchanged": true
+    },
+    {
+      "profile": "unified-classification",
+      "case": "wrong-dtype",
+      "host": "independent",
+      "rejected": true
+    },
+    {
+      "profile": "unified-classification",
+      "case": "wrong-shape",
+      "host": "independent",
+      "rejected": true
+    },
+    {
+      "profile": "unified-classification",
+      "case": "zip-changed-after-load",
+      "host": "independent",
+      "rejected": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "public-manifest-mutation",
+      "host": "reference",
+      "unchanged": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "wrong-dtype",
+      "host": "reference",
+      "rejected": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "wrong-shape",
+      "host": "reference",
+      "rejected": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "zip-changed-after-load",
+      "host": "reference",
+      "rejected": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "public-manifest-mutation",
+      "host": "independent",
+      "unchanged": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "wrong-dtype",
+      "host": "independent",
+      "rejected": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "wrong-shape",
+      "host": "independent",
+      "rejected": true
+    },
+    {
+      "profile": "unified-detection",
+      "case": "zip-changed-after-load",
+      "host": "independent",
+      "rejected": true
+    }
+  ],
+  "independent_import_guard": [
+    {
+      "status": "pass",
+      "profile": "classification-onnx-cpu-v1",
+      "forbidden_imports": []
+    },
+    {
+      "status": "pass",
+      "profile": "detection-onnx-cpu-v1",
+      "forbidden_imports": []
+    }
+  ],
+  "sources_sha256": {
+    "drafts/v0.2/vlmp-unified/tools/compare_hosts.py": "6a353841ad7eab87ee1470e4204bd9351c7cb8b7c472cb0a8f64bd304a241ed3",
+    "drafts/v0.2/vlmp-unified/reference/runtime.py": "b1670922700d51f531728a5516ec44f98df80a2ec4ec6775a3c67c3889651d27",
+    "drafts/v0.2/vlmp-unified/independent/host.py": "1b8286c4e8fdd596cbdfc271443c56647c42b12f04199f4acaab1c57a0634c81",
+    "drafts/v0.2/vlmp-unified/independent/_storage.py": "1c5b9fc0b93f585e5cf12789474efb09131ebc70fbfbfdb53fcb5b0a253bbdac",
+    "drafts/v0.2/vlmp-unified/spec/model-package.schema.json": "abf7246d859cb97ba6cb9e3fec0d39355a6eabf814f9ea17e701124b172cbbe8",
+    "drafts/v0.2/vlmp-unified/spec/SPECIFICATION.ru.md": "ea2b213db31e931a30361cfd1946c9230d30acab3f2f82176b25afc3ebf6293d",
+    "drafts/v0.2/vlmp-unified/spec/SPECIFICATION.en.md": "453a90bf7f6ddff0ee5e7c04f1d1c0f9a79a54c10df38fd97638e15a707f132c",
+    "drafts/v0.2/vlmp-unified/tools/build_examples.py": "59b0ed082f446f029335d03886528d99a7c115e43d59c0d403aeecf7f391a671",
+    "drafts/v0.2/vlmp-unified/tests/test_schema.py": "4eed6d921a26e9bd32b8bf08ead3cb2ae29f750cfe7a97d414d9fb037b89169b",
+    "drafts/v0.2/vlmp-unified/tests/test_two_hosts_invalid_outputs.py": "65ec5026d69d12e3ee5566d1d8c532fa1ddf1ab4a41aed44b0eb8d52d1c8e407",
+    "drafts/v0.2/vlmp-unified/tests/test_comparison_runner.py": "66cb4dd12babf30212e81ef4ba927f5d4db022dd9d3073dc2eed2eb38cacab95",
+    "drafts/v0.2/vlmp-unified/reference/tests/test_reference.py": "e6b9c028e162548b3f8a3adcdcd9094f14917cc142add32f02761f6168ea189a",
+    "drafts/v0.2/vlmp-unified/independent/tests/test_host_safety.py": "5061f9ca60e0101f8cd86e85ab80803c1cb27f590d226538b1d37a5da6e50a5b",
+    "model/src/public_model.py": "687c80f0c618d3de02ddda6e74451906cbeaee700582e6e134077a705577b33e",
+    "model/spec/model-package.schema.json": "4da0567745b43144298349b7c01182c655520134bbe728c4cd96bacd7a145d00",
+    "drafts/v0.2/model/src/model_package_v02/runtime.py": "c37050d3432ac68203bd3c7690db2a75adfbf21a14ea47115d221fbcb5a9f1f1",
+    "drafts/v0.2/model/spec/model-package.schema.json": "e0e66693cfb913bf281bacd8b8ec7530532bc2b434a7b2db4abf542bf6897f93"
+  },
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.12.0",
+    "numpy": "1.26.4",
+    "onnx": "1.17.0",
+    "onnxruntime": "1.20.1"
+  },
+  "limitations": [
+    "Both hosts run locally on CPU and use common ONNX Runtime and formal schemas.",
+    "Reference legacy counters count successful legacy loader calls, not separate ORT instrumentation.",
+    "One published ZIP per legacy format was tested; compatibility with all legacy packages is not established.",
+    "Synthetic, untrained models do not establish analytics quality or third-party platform compatibility.",
+    "Only the declared static CPU profiles are tested; GPU, other backends and arbitrary models are not covered."
+  ]
+}

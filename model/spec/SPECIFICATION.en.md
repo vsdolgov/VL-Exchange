@@ -4,6 +4,8 @@
 
 This final project edition specifies the existing public classification profile; it does not replace the tested VLMP 0.1.0 / CustomModelProtocol. Its previously published wire identifier `0.2.0-draft.1` is a pre-release identifier preserved exactly for compatibility, not a final `0.2.0` format release. The classification and detection manifests use separate schemas. This profile removes the demonstration's private SDK dependency by returning an ordinary Python dict from postprocess. Box 5 compatibility has not been verified. The original 0.1 schema is preserved in the [historical section](../../specs/vlmp/0.1/model-package.schema.json). MUST and MUST NOT state this profile's requirements. This project edition is not a claim of industry-standard recognition or production readiness.
 
+The later [unified VLMP 0.2.0](../../drafts/v0.2/vlmp-unified/spec/SPECIFICATION.en.md) defines a separate common schema for classification and detection. It does not change the version or bytes of packages using this earlier profile.
+
 ## Optional attribution extension
 
 Publishers may include the optional `org.vl-exchange.attribution` entry in `extensions` with `required: false`. A host that supports this separate [Attribution & Branding profile](../../docs/en/ATTRIBUTION.md) can validate and carry publisher and author information. Hosts unaware of the extension may ignore it; the base package and its existing fixtures remain valid. Display and metadata propagation are host capabilities, not an inference guarantee.

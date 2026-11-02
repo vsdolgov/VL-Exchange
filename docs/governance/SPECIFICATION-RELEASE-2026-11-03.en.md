@@ -1,5 +1,7 @@
 # VL Exchange specification release — November 3, 2026
 
+Subsequent development: [unified VLMP 0.2.0](../../drafts/v0.2/vlmp-unified/README.md) was released separately with a new schema; the historical statements below describe the original release.
+
 By the project initiator's decision, this release publishes final VL Exchange project editions of VLSP 0.1 and 0.2, the optional asynchronous MLLM profile, separate VLMP classification and detection profiles, the protected-delivery profile and the attribution extension. A final project edition fixes the project's requirements for its respective profile; it does not imply approval by an industry body, compatibility of a particular product or production readiness.
 
 Read this release alongside the [VLSP 0.2 specification](../../drafts/v0.2/scenario/spec/SPECIFICATION.md), [async profile](../../drafts/v0.2/scenario/spec/ASYNC-MLLM-PROFILE.md) and [overview of evidence and limitations](../../drafts/v0.2/README.md). The VLSP wire contract version is `0.2.0`. The `drafts/v0.2` directory remains as a historical path to preserve existing links.

@@ -24,4 +24,10 @@ jobs:
         env:
           PYTHONPATH: drafts/v0.2/scenario/src:drafts/v0.2/model/src:drafts/v0.2/security-runtime/src
         run: python -m pytest -q -p no:cacheprovider --import-mode=importlib drafts/v0.2/scenario/tests drafts/v0.2/model/tests drafts/v0.2/videopipe-pilot/independent/tests security-runtime/tests/test_protection.py
+      - name: Test unified VLMP 0.2.0 and legacy packages
+        env:
+          PYTHONPATH: drafts/v0.2/vlmp-unified:model/src:scenario/src:security-runtime/src:drafts/v0.2/model/src
+        run: |
+          python -m pytest -q -p no:cacheprovider --import-mode=importlib drafts/v0.2/vlmp-unified/tests drafts/v0.2/vlmp-unified/reference/tests drafts/v0.2/vlmp-unified/independent/tests
+          python drafts/v0.2/vlmp-unified/tools/compare_hosts.py > /tmp/vlmp-unified-comparison.json
       - run: python tools/check_links.py

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vl-exchange:vlmp:0.2.0",
+  "title": "VL Model Package 0.2.0 — CPU ONNX classification and detection profiles",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "spec_version", "model_id", "version", "profile", "backend", "source_input", "categories", "result", "golden", "files", "required_capabilities", "extensions"],
+  "properties": {
+    "format": {"const": "vl.model-package"},
+    "spec_version": {"const": "0.2.0"},
+    "model_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+    "version": {"type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"},
+    "profile": {"enum": ["classification-onnx-cpu-v1", "detection-onnx-cpu-v1"]},
+    "backend": {"$ref": "#/$defs/backend"},
+    "source_input": {"$ref": "#/$defs/source_input"},
+    "categories": {"type": "array", "minItems": 1, "maxItems": 1000, "items": {"$ref": "#/$defs/category"}},
+    "result": {"type": "object"},
+    "golden": {"$ref": "#/$defs/golden"},
+    "files": {"type": "object", "minProperties": 4, "maxProperties": 1023, "propertyNames": {"type": "string", "minLength": 1, "maxLength": 240, "pattern": "^[^:]+$"}, "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "required_capabilities": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 128}, "contains": {"const": "onnx-cpu-fp32"}},
+    "extensions": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["required", "data"], "properties": {"required": {"type": "boolean"}, "data": {"type": "object"}}}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"profile": {"const": "classification-onnx-cpu-v1"}}, "required": ["profile"]},
+      "then": {
+        "properties": {
+          "backend": {"properties": {"outputs": {"type": "object", "additionalProperties": false, "required": ["scores"], "properties": {"scores": {"$ref": "#/$defs/name"}}}}},
+          "result": {"type": "object", "additionalProperties": false, "required": ["type"], "properties": {"type": {"const": "vl.classification.v1"}}},
+          "golden": {"properties": {"fixtures": {"items": {"properties": {"expected": {"$ref": "#/$defs/classification"}}}}}},
+          "required_capabilities": {"contains": {"const": "classification-onnx-cpu-v1"}}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"profile": {"const": "detection-onnx-cpu-v1"}}, "required": ["profile"]},
+      "then": {
+        "properties": {
+          "backend": {"properties": {"outputs": {"type": "object", "additionalProperties": false, "required": ["boxes", "scores", "classes"], "properties": {"boxes": {"$ref": "#/$defs/name"}, "scores": {"$ref": "#/$defs/name"}, "classes": {"$ref": "#/$defs/name"}}}}},
+          "result": {"type": "object", "additionalProperties": false, "required": ["type", "threshold", "max_detections", "bbox_space"], "properties": {"type": {"const": "vl.detections.v1"}, "threshold": {"type": "number", "minimum": 0, "maximum": 1}, "max_detections": {"type": "integer", "minimum": 1, "maximum": 1000}, "bbox_space": {"const": "normalized-xyxy-input-frame"}}},
+          "golden": {"properties": {"fixtures": {"items": {"properties": {"expected": {"$ref": "#/$defs/detections"}}}}}},
+          "required_capabilities": {"contains": {"const": "detection-onnx-cpu-v1"}}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "name": {"type": "string", "minLength": 1, "maxLength": 128},
+    "path": {"type": "string", "minLength": 1, "maxLength": 240, "pattern": "^[^:]+$"},
+    "size": {"type": "integer", "minimum": 1, "maximum": 4096},
+    "shape": {"type": "array", "minItems": 4, "maxItems": 4, "prefixItems": [{"const": 1}, {"const": 3}, {"$ref": "#/$defs/size"}, {"$ref": "#/$defs/size"}], "items": false},
+    "backend": {"type": "object", "additionalProperties": false, "required": ["engine", "device", "precision", "weights", "opset", "input_name", "input_shape", "outputs"], "properties": {"engine": {"const": "onnxruntime"}, "device": {"const": "cpu"}, "precision": {"const": "fp32"}, "weights": {"$ref": "#/$defs/path"}, "opset": {"const": 13}, "input_name": {"$ref": "#/$defs/name"}, "input_shape": {"$ref": "#/$defs/shape"}, "outputs": {"type": "object"}}},
+    "source_input": {"type": "object", "additionalProperties": false, "required": ["dtype", "layout", "color_space", "shape"], "properties": {"dtype": {"const": "uint8"}, "layout": {"const": "HWC"}, "color_space": {"const": "BGR"}, "shape": {"type": "array", "minItems": 3, "maxItems": 3, "prefixItems": [{"$ref": "#/$defs/size"}, {"$ref": "#/$defs/size"}, {"const": 3}], "items": false}}},
+    "category": {"type": "object", "additionalProperties": false, "required": ["output_index", "category_id", "label"], "properties": {"output_index": {"type": "integer", "minimum": 0, "maximum": 999}, "category_id": {"type": "integer", "minimum": 0, "maximum": 2147483647}, "label": {"$ref": "#/$defs/name"}}},
+    "score": {"type": "number", "minimum": 0, "maximum": 1},
+    "classification": {"type": "object", "additionalProperties": false, "required": ["label", "score", "category_id", "output_index"], "properties": {"label": {"$ref": "#/$defs/name"}, "score": {"$ref": "#/$defs/score"}, "category_id": {"type": "integer", "minimum": 0}, "output_index": {"type": "integer", "minimum": 0}}},
+    "detection": {"type": "object", "additionalProperties": false, "required": ["object_id", "label", "category_id", "score", "bbox"], "properties": {"object_id": {"$ref": "#/$defs/name"}, "label": {"$ref": "#/$defs/name"}, "category_id": {"type": "integer", "minimum": 0}, "score": {"$ref": "#/$defs/score"}, "bbox": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number", "minimum": 0, "maximum": 1}}}},
+    "detections": {"type": "object", "additionalProperties": false, "required": ["detections"], "properties": {"detections": {"type": "array", "maxItems": 1000, "items": {"$ref": "#/$defs/detection"}}}},
+    "fixture": {"type": "object", "additionalProperties": false, "required": ["id", "input", "expected"], "properties": {"id": {"$ref": "#/$defs/name"}, "input": {"$ref": "#/$defs/path"}, "expected": {"type": "object"}}},
+    "golden": {"type": "object", "additionalProperties": false, "required": ["atol", "rtol", "fixtures"], "properties": {"atol": {"type": "number", "minimum": 0, "maximum": 0.001}, "rtol": {"type": "number", "minimum": 0, "maximum": 0.001}, "fixtures": {"type": "array", "minItems": 3, "maxItems": 100, "items": {"$ref": "#/$defs/fixture"}}}}
+  }
+}

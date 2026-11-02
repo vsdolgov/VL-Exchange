@@ -2,6 +2,10 @@
 
 English | [Русский](CHANGELOG.ru.md)
 
+## 2026-11-03 — Unified VLMP 0.2.0
+
+Added a common VLMP 0.2.0 manifest and two explicit static CPU ONNX profiles for classification and detection, with two independently implemented hosts and reproducible synthetic examples. Each host is also checked against one unchanged ZIP of each earlier published format; original schemas, loaders and ZIPs remain available. See the [specification, results and compatibility limits](drafts/v0.2/vlmp-unified/README.md).
+
 ## 2026-11-03 — Final VL Exchange project editions
 
 Published final project editions of the specifications and documented the scope, retained pre-release identifiers and verification limits in the [release note](docs/governance/SPECIFICATION-RELEASE-2026-11-03.en.md). This does not establish industry recognition, production readiness or additional license rights. Existing package bytes and wire identifiers remain unchanged.

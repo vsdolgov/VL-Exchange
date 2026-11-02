@@ -2,7 +2,7 @@
 
 **English | [Русский](README.ru.md)**
 
-This directory contains the VL Exchange project's final specifications for VLSP 0.2 and a separate VLMP detection profile. Their publication does not establish industry approval or production readiness. The reference implementations and pilot remain experimental. The historical `drafts/v0.2` path is retained to preserve links; it does not describe the current status of these specification documents. The main specifications currently use Russian; this page provides an English guide to their scope and status. Existing public examples and contracts remain available from the [repository home](../../README.md).
+This directory contains the VL Exchange project's specifications for VLSP 0.2, unified VLMP 0.2.0 and the prior separate VLMP detection profile. Their publication does not establish industry approval or production readiness. The reference implementations and pilot remain experimental. The historical `drafts/v0.2` path is retained to preserve links; it does not describe the current status of these specification documents. Existing public examples and contracts remain available from the [repository home](../../README.md).
 
 ## Which document should I read?
 
@@ -13,9 +13,10 @@ This directory contains the VL Exchange project's final specifications for VLSP 
 | Understand host capabilities, input queues and diagnostics | [Optional profiles](scenario/spec/OPTIONAL-PROFILES.md); their individual message schemas are in [schemas](scenario/spec/schemas) |
 | Submit a job to an asynchronous MLLM and correlate the result later | [Async MLLM profile](scenario/spec/ASYNC-MLLM-PROFILE.md) and [message example](scenario/spec/async-message-fixture.json) |
 | Understand the prototype's persistent authorization snapshot | [Persistent lease draft](security-runtime/PERSISTENT-LEASE.ru.md) |
+| Run classification and detection packages using VLMP 0.2.0 | [Unified specification and two-host test](vlmp-unified/README.md) |
 | Inspect the separate detection-model profile | [VLMP detection specification](model/spec/SPECIFICATION.md), [manifest schema](model/spec/model-package.schema.json) and [detection result schema](model/spec/schemas/detections.schema.json) |
 
-The detection profile retains the wire identifier `0.2.0-detection-draft.1`; the separate classification profile retains `0.2.0-draft.1`. The `draft` fragment is part of these historical identifiers and is preserved for compatibility with existing packages; it does not indicate that the specification documents are still drafts. The profiles have not been merged into one schema. A host's support for one does not imply support for the other or for Box 5. VLSP 0.2 also does not automatically imply compatibility with VLSP 0.1: a host must support the relevant contract.
+The previous detection profile retains wire identifier `0.2.0-detection-draft.1`; the previous classification profile retains `0.2.0-draft.1`. Their original schemas and package bytes remain unchanged. The new unified `0.2.0` defines its own schema and explicit profiles; a host must advertise support for the relevant version and profile. None of these facts establishes Box 5 compatibility. VLSP 0.2 also does not automatically imply compatibility with VLSP 0.1.
 
 ## What was checked locally
 
